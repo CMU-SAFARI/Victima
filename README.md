@@ -65,7 +65,7 @@ We used the following versions/distributions in our experiments:
 the paper  
 2. Reproduce Table 2 which requires Neural Network inference  
 
-``` cpp
+``` bash
 kanellok@safari:~/victima_artifact$ sh artifact.sh
 ```
 
@@ -73,7 +73,7 @@ kanellok@safari:~/victima_artifact$ sh artifact.sh
 
 1\. Installs dependencies and Docker  
 
-``` cpp>
+``` bash
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
@@ -97,27 +97,27 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 2\. Downloads the docker image to run the experiments  
 
-``` cpp
+``` bash
 docker pull kanell21/artifact_evaluation:victima
 ```
 
 3\. Compiles the simulator  
 
-``` cpp
+``` bash
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make"
 ```
 
 4\. Creates a ./jobfile with all the slurm commands and decompresses the
 traces  
 
-``` cpp
+``` bash
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/launch_jobs.py
 tar -xzf traces.tar.gz
 ```
 
 ### The jobfile should look like:
 
-``` cpp
+``` bash
 #!/bin/bash
 sbatch  -J tlb_base_ideal_bc --output=./results/tlb_base_ideal_bc.out --error=./results/tlb_base_ideal_bc.err docker_wrapper.sh "docker run --rm -v /mnt/panzer/kanellok/victima_ae:/app/ kanell21/artifact_evaluation:victima /app/sniper/run-sniper -s stop-by-icount:500000000 --genstats --power -d /app/results/tlb_base_ideal_bc  -c /app/sniper/config/virtual_memory_configs/radix.cfg  -g --perf_model/stlb/size=1536 -g --perf_model/stlb/associativity=12 -g --perf_model/tlb/l2_access_penalty=12 --traces=/app/traces/bc.sift"
 sbatch -J tlb_base_ideal_bc --output=./results/tlb_base_ideal_bc.out --error=./results/tlb_base_ideal_bc.err docker_wrapper.sh "docker run --rm -v /mnt/panzer/kanellok/victima_ae:/app/ kanell21/artifact_evaluation:victima /app/sniper/run-sniper -s stop-by-icount:500000000 --genstats --power -d /app/results/tlb_base_ideal_bc  -c /app/sniper/config/virtual_memory_configs/radix.cfg  -g --perf_model/stlb/size=1536 -g --perf_model/stlb/associativity=12 -g --perf_model/tlb/l2_access_penalty=12 --traces=/app/traces/bc.sift"
@@ -126,14 +126,14 @@ sbatch -J tlb_base_ideal_bc --output=./results/tlb_base_ideal_bc.out --error=./r
 
 5\. Submits the experiments to slurm  
 
-``` cpp
+``` bash
 source jobfile
 ```
 
 6\. Runs the neural network inference experiments and outputs Table 2 in
 the standard output and ./nn_replica/data/results.csv  
 
-``` cpp
+``` bash
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
 
 docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
@@ -151,7 +151,7 @@ format can be found under:
 2. Create all the plots of the paper. All the plots can be found under:
 /path/to/victima_artifact/plots/  
 
-``` cpp
+``` bash
 kanellok@safari:~/victima_artifact$ sh produce_plots.sh
 ```
 
@@ -159,14 +159,14 @@ kanellok@safari:~/victima_artifact$ sh produce_plots.sh
 
 1\. Creates a CSV file which contains all the raw results  
 
-``` cpp>
+``` bash
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_csv.py
 ```
 
 2\. Creates all the plots under ./plots and outputs all plots in tabular
 format in ./plots_in_tabular.txt  
 
-``` cpp
+``` bash
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_plots.py > plots_in_tabular.txt
 ```
 
