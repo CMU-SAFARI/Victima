@@ -111,14 +111,14 @@ docker pull kanell21/artifact_evaluation:victima
 3\. Compiles the simulator  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make"
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
 ```
 
 4\. Creates a ./jobfile with all the slurm commands and decompresses the
 traces  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/launch_jobs.py
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py
 tar -xzf traces.tar.gz
 ```
 
@@ -144,7 +144,7 @@ the standard output and ./nn_replica/data/results.csv
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
 
 docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
-cat ./nn_replica/data/results.csv
+cat ./ptw_cp/data/results.csv
 ```
 
 ## Parse results and create all the plots
@@ -159,7 +159,7 @@ format can be found under:
 /path/to/victima_artifact/plots/  
 
 ``` bash
-kanellok@safari:~/victima_artifact$ sh produce_plots.sh
+kanellok@safari:~/victima_artifact$ sh ./scripts/produce_plots.sh
 ```
 
 ### What the script does:
@@ -167,13 +167,13 @@ kanellok@safari:~/victima_artifact$ sh produce_plots.sh
 1\. Creates a CSV file which contains all the raw results  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_csv.py
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
 ```
 
 2\. Creates all the plots under ./plots and outputs all plots in tabular
 format in ./plots_in_tabular.txt  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_plots.py > plots_in_tabular.txt
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_plots.py > plots_in_tabular.txt
 ```
 
