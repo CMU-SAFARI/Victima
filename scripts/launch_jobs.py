@@ -1,6 +1,30 @@
 
 import os
+import argparse
+import sys
 
+# I need the user to provide an argument --native or --slurm to specify the execution mode
+
+parser = argparse.ArgumentParser(description="Script creats experiments run in native or SLURM mode.")
+parser.add_argument("--native", action="store_true", help="Run in native mode.")
+parser.add_argument("--slurm", action="store_true", help="Run in SLURM mode.")
+parser.add_argument("path", help="Path to the file or directory.")
+
+args = parser.parse_args()
+
+if args.native and args.slurm:
+        print("Error: Cannot specify both --native and --slurm. Choose one execution mode.")
+        exit(1)
+
+slurm = False
+native = False
+if args.native:
+    native = True 
+elif args.slurm:
+    slurm = True
+else:
+    print("Error: Please specify either --native or --slurm to choose the execution mode.")
+    exit(1)
 
 trace_path = "/app/traces/"
 
@@ -19,7 +43,7 @@ traces = [("bc", "bc.sift"),
 
 
 # Docker command to run the binary inside the container
-docker_command = "docker run --rm -v /mnt/panzer/kanellok/victima_ae:/app/ kanell21/artifact_evaluation:victima"
+docker_command = "docker run --rm -v "+args.path+":/app/ kanell21/artifact_evaluation:victima"
 
 baseline = " -c /app/sniper/config/virtual_memory_configs/radix.cfg "
 victima = " -c /app/sniper/config/virtual_memory_configs/victima.cfg "
@@ -72,10 +96,11 @@ with open("/app/jobfile", "w") as jobfile:
 
             output_command  = "-d /app/results/{}_{}".format(config_name, trace_name)
             
-            slurm_command = "sbatch --exclude kratos0,kratos3,kratos8,kratos6,kratos5 -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(config_name, trace_name,config_name, trace_name,config_name, trace_name)
-
-
-            command = slurm_command + "\""+ docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+"\""
+            if (slurm):
+                execution_command = "sbatch -t 0-15:00:00 --mem=15GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(config_name, trace_name,config_name, trace_name,config_name, trace_name)
+                command = execution_command + "\""+ docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+"\""
+            elif (native):
+                command = docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+" &"
             #command = docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command
 
             jobfile.write(command)

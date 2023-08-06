@@ -14,11 +14,11 @@ echo "
 echo "==================  Install Docker (you can skip if already installed)=================="
 
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
-    gnupg \sc
+    gnupg \
     lsb-release \
     tar 
 
@@ -30,7 +30,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 sudo usermod -aG docker $USER
 
@@ -48,7 +48,7 @@ echo "==========================================================================
 
 echo "==================  Compiling the simulator =================="
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make"
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
 
 echo "====================================================================================="
 
@@ -56,7 +56,7 @@ echo "==================  Creating the jobfile =================="
 
 echo " Executing python /app/launch_jobs.py in docker container"
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/launch_jobs.py
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 $PWD
 
 echo " Jobfile created - take a look at it to see what experiments will be run"
 echo "\n"
@@ -64,16 +64,14 @@ echo "==========================================================================
 
 echo "==================  Decompressing the traces into ./traces =================="
 
-echo "tar -xzf traces.tar.gz"
-#tar -xzf traces.tar.gz
+# wget https://storage.googleapis.com/traces_virtual_memory/traces_victima
+# tar -xzf traces_victima
+
 echo "====================================================================================="
 
 echo "==================  Launching experiments for Figures 2, 3, 4, 6, 15, 16, 19, 22, 23 =================="
 
-
 #source jobfile
-
-
 
 echo "====================================================================================="
 
@@ -85,11 +83,11 @@ echo "Running docker image kanell21/artifact_evaluation:victima_ptwcp_v1.1"
 
 docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
 
-cat ./nn_replica/data/results.csv
+cat ./ptw_cp/data/results.csv
 
 
 print_colorful_text " When the experiments finish (all results should be in the results folder) execute the following commands inside the cloned directory: " "33;1" 
-print_colorful_text " sh produce_plots.sh " "33;1"
+print_colorful_text " sh ./scripts/produce_plots.sh " "33;1"
 
 
 
