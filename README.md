@@ -60,7 +60,7 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
-Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20,
+## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20,
 21, 23
 
 ------------------------------------------------------------------------
@@ -146,7 +146,7 @@ docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
 cat ./nn_replica/data/results.csv
 ```
 
-Parse results and create all the plots
+## Parse results and create all the plots
 
 ------------------------------------------------------------------------
 
