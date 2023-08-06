@@ -10,6 +10,7 @@
 - The experiments have been executed using a slurm based infrastructure.
   We strongly suggest executing the experiments using such an
   infrastructure.
+- Each experiments takes ~8 hours to finish and requires about 15GB of memory.
 
 ``` cpp
 Hardware infrastructure used: 
