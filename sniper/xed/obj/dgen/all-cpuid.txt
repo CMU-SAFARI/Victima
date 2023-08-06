@@ -1,0 +1,1111 @@
+
+
+###FILE: ./datafiles/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_XSAVE:           xsave.1.0.ecx.26          osxsave.1.0.ecx.27
+XED_ISA_SET_AES:             aes.1.0.ecx.25
+
+XED_ISA_SET_CLFSH:           clflush.1.0.edx.19
+
+XED_ISA_SET_CMPXCHG16B:      cmpxchg16b.1.0.ecx.13
+
+XED_ISA_SET_FXSAVE:          fxsave.1.0.edx.24
+XED_ISA_SET_FXSAVE64:        fxsave.1.0.edx.24          intel64.80000001.0.edx.29
+XED_ISA_SET_I186:            n/a
+XED_ISA_SET_I286PROTECTED:   n/a
+XED_ISA_SET_I286REAL:        n/a
+XED_ISA_SET_I386:            n/a
+XED_ISA_SET_I486:            n/a
+XED_ISA_SET_I486REAL:        n/a
+XED_ISA_SET_I86:             n/a
+
+XED_ISA_SET_LAHF:            lahf.80000001.0.ecx.0
+XED_ISA_SET_LONGMODE:        intel64.80000001.0.edx.29
+
+XED_ISA_SET_MOVBE:           movebe.1.0.ecx.22
+XED_ISA_SET_PAUSE:           n/a
+XED_ISA_SET_PCLMULQDQ:       pclmulqdq.1.0.ecx.1
+XED_ISA_SET_PENTIUMMMX:      n/a
+XED_ISA_SET_PENTIUMREAL:     n/a
+
+XED_ISA_SET_POPCNT:          popcnt.1.0.ecx.23
+XED_ISA_SET_PPRO:            n/a
+XED_ISA_SET_PREFETCHW:       prefetchw.80000001.0.ecx.8
+
+XED_ISA_SET_PREFETCH_NOP:    n/a
+XED_ISA_SET_RDPMC:           n/a
+XED_ISA_SET_RDTSCP:          rdtscp.80000001.0.edx.27
+
+XED_ISA_SET_SMX:             smx.1.0.ecx.6
+XED_ISA_SET_SSE:             sse.1.0.edx.25
+XED_ISA_SET_SSE2:            sse2.1.0.edx.26
+XED_ISA_SET_SSE2MMX:            sse2.1.0.edx.26
+XED_ISA_SET_SSE3:            sse3.1.0.ecx.0
+XED_ISA_SET_SSE3X87:            sse3.1.0.ecx.0
+XED_ISA_SET_MONITOR:          monitor.1.0.ecx.3
+XED_ISA_SET_SSE4:            sse4.1.0.ecx.19
+XED_ISA_SET_SSE42:           sse42.1.0.ecx.20
+
+XED_ISA_SET_SSEMXCSR:        sse.1.0.edx.25
+XED_ISA_SET_SSSE3:           ssse3.1.0.ecx.9
+XED_ISA_SET_SSSE3MMX:           ssse3.1.0.ecx.9
+
+
+XED_ISA_SET_VTX:             vmx.1.0.ecx.5
+XED_ISA_SET_X87:             n/a
+
+
+###FILE: ./datafiles/cpuid-amd.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+XED_ISA_SET_AMD:             n/a
+XED_ISA_SET_3DNOW:           n/a
+XED_ISA_SET_SSE4A:           n/a
+XED_ISA_SET_SVM:             n/a
+XED_ISA_SET_MONITORX:        monitorx.80000001.0.ecx.29
+
+
+###FILE: ./datafiles/amdxop/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_XOP:   n/a
+  XED_ISA_SET_TBM:    n/a
+  XED_ISA_SET_FMA4:   n/a
+
+
+###FILE: ./datafiles/mpx/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_MPX:        mpx.7.0.ebx.14
+
+
+###FILE: ./datafiles/cet/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_CET:        cet.7.0.ecx.7
+
+
+###FILE: ./datafiles/rdrand/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_RDRAND:        rdrand.1.0.ecx.30
+
+
+###FILE: ./datafiles/sha/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_SHA:             sha.7.0.ebx.29
+
+
+###FILE: ./datafiles/xsaveopt/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_XSAVEOPT:         xsaveopt.d.1.eax.0
+
+
+###FILE: ./datafiles/xsaves/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_XSAVES:           xsaves.d.1.eax.3
+
+
+###FILE: ./datafiles/xsavec/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_XSAVEC:           xsavec.d.1.eax.1
+
+
+###FILE: ./datafiles/clflushopt/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_CLFLUSHOPT:  clflushopt.7.0.ebx.23
+
+
+
+###FILE: ./datafiles/rdseed/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_RDSEED:            rdseed.7.0.ebx.18
+
+
+###FILE: ./datafiles/fsgsbase/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_RDWRFSGS:      rdwrfsgs.7.0.ebx.0
+
+
+###FILE: ./datafiles/smap/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_SMAP:              smap.7.0.ebx.20
+
+
+###FILE: ./datafiles/sgx/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_SGX:             sgx.7.0.ebx.2
+
+
+###FILE: ./datafiles/rdpid/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_RDPID: rdp.7.0.ecx.22
+
+
+###FILE: ./datafiles/pt/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+XED_ISA_SET_PT:              intelpt.7.0.ebx.25 ptwrite.14.0.ebx.4
+
+
+###FILE: ./datafiles/movdir/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_MOVDIR:    movdiri.7.0.ecx.27 movdir64b.7.0.ecx.28
+
+
+
+###FILE: ./datafiles/waitpkg/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_WAITPKG:    waitpkg.7.0.ecx.5
+
+
+
+###FILE: ./datafiles/cldemote/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_CLDEMOTE:   cldemote.7.0.ecx.25
+
+
+###FILE: ./datafiles/avx/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+  XED_ISA_SET_AVX:               avx.1.0.ecx.28
+  XED_ISA_SET_AVXAES:            aes.1.0.ecx.25 avx.1.0.ecx.28
+
+
+
+###FILE: ./datafiles/ivbavx/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_F16C:          f16c.1.0.ecx.29
+
+
+###FILE: ./datafiles/hswavx/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX2:                avx2.7.0.ebx.5
+  XED_ISA_SET_AVX2GATHER:          avx2.7.0.ebx.5
+  XED_ISA_SET_FMA:                 fma.1.0.ecx.12 avx.1.0.ecx.28
+
+
+###FILE: ./datafiles/hswbmi/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_BMI1:                bmi1.7.0.ebx.3
+  XED_ISA_SET_BMI2:                bmi2.7.0.ebx.8
+
+
+
+###FILE: ./datafiles/hsw/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_RTM:             rtm.7.0.ebx.11
+  XED_ISA_SET_INVPCID:         invpcid.7.0.ebx.10
+  XED_ISA_SET_VMFUNC:          n/a
+  XED_ISA_SET_LZCNT:           lzcnt.80000001.0.ecx.5
+
+
+###FILE: ./datafiles/bdw/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_ADOX_ADCX:         adoxadcx.7.0.ebx.19
+
+
+###FILE: ./datafiles/pku/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_PKU:          pku.7.0.ecx.3 ospku.7.0.ecx.4
+
+
+###FILE: ./datafiles/clwb/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_CLWB:        clwb.7.0.ebx.24
+
+
+###FILE: ./datafiles/knl/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX512ER_512:      avx512er.7.0.ebx.27
+  XED_ISA_SET_AVX512ER_SCALAR:   avx512er.7.0.ebx.27
+  XED_ISA_SET_AVX512PF_512:      avx512pf.7.0.ebx.26
+  XED_ISA_SET_PREFETCHWT1:       prefetchwt1.7.0.ecx.0
+
+
+###FILE: ./datafiles/4fmaps-512/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_4FMAPS_512:      avx512_4fmaps.7.0.edx.3
+XED_ISA_SET_AVX512_4FMAPS_SCALAR:   avx512_4fmaps.7.0.edx.3
+
+
+###FILE: ./datafiles/4vnniw-512/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_4VNNIW_512:   avx512_4vnniw.7.0.edx.2
+
+
+###FILE: ./datafiles/vpopcntdq-512/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_VPOPCNTDQ_512:   avx512_vpopcntdq.7.0.ecx.14
+
+
+###FILE: ./datafiles/avx512f/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX512F_128:    avx512f.7.0.ebx.16  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512F_128N:   avx512f.7.0.ebx.16
+  XED_ISA_SET_AVX512F_256:    avx512f.7.0.ebx.16  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512F_512:    avx512f.7.0.ebx.16
+  XED_ISA_SET_AVX512F_KOP:    avx512f.7.0.ebx.16
+  XED_ISA_SET_AVX512F_SCALAR: avx512f.7.0.ebx.16
+
+
+###FILE: ./datafiles/avx512cd/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX512CD_128:     avx512cd.7.0.ebx.28  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512CD_256:     avx512cd.7.0.ebx.28  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512CD_512:     avx512cd.7.0.ebx.28
+
+
+###FILE: ./datafiles/avx512-skx/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX512BW_128:     avx512bw.7.0.ebx.30  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512BW_128N:    avx512bw.7.0.ebx.30
+  XED_ISA_SET_AVX512BW_256:     avx512bw.7.0.ebx.30  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512BW_512:     avx512bw.7.0.ebx.30
+  XED_ISA_SET_AVX512BW_KOP:     avx512bw.7.0.ebx.30
+
+  XED_ISA_SET_AVX512DQ_128:     avx512dq.7.0.ebx.17  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512DQ_128N:    avx512dq.7.0.ebx.17
+  XED_ISA_SET_AVX512DQ_256:     avx512dq.7.0.ebx.17  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512DQ_512:     avx512dq.7.0.ebx.17
+  XED_ISA_SET_AVX512DQ_KOP:     avx512dq.7.0.ebx.17
+  XED_ISA_SET_AVX512DQ_SCALAR:  avx512dq.7.0.ebx.17
+
+
+###FILE: ./datafiles/avx512ifma/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX512_IFMA_128:    avx512ifma.7.0.ebx.21  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_IFMA_256:    avx512ifma.7.0.ebx.21  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_IFMA_512:    avx512ifma.7.0.ebx.21
+
+
+
+###FILE: ./datafiles/avx512vbmi/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX512_VBMI_128:   avx512vbmi.7.0.ecx.1  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_VBMI_256:   avx512vbmi.7.0.ecx.1  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_VBMI_512:   avx512vbmi.7.0.ecx.1
+
+
+###FILE: ./datafiles/wbnoinvd/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_WBNOINVD:    wbnoinvd.80000008.0.ecx.9
+
+
+
+###FILE: ./datafiles/pconfig/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_PCONFIG : pconfig.7.0.edx.18
+
+
+###FILE: ./datafiles/bitalg/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_BITALG_128:   avx512_bitalg.7.0.ecx.12 avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_BITALG_256:   avx512_bitalg.7.0.ecx.12 avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_BITALG_512:   avx512_bitalg.7.0.ecx.12
+
+
+###FILE: ./datafiles/vbmi2/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_VBMI2_128:   avx512_vbmi2.7.0.ecx.6  avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_VBMI2_256:   avx512_vbmi2.7.0.ecx.6  avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_VBMI2_512:   avx512_vbmi2.7.0.ecx.6
+
+
+###FILE: ./datafiles/vnni/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_VNNI_128:   avx512_vnni.7.0.ecx.11 avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_VNNI_256:   avx512_vnni.7.0.ecx.11 avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_VNNI_512:   avx512_vnni.7.0.ecx.11
+
+
+###FILE: ./datafiles/gfni-vaes-vpcl/cpuid-sse.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_GFNI:              gfni.7.0.ecx.8
+
+  XED_ISA_SET_VAES:              vaes.7.0.ecx.9
+
+  XED_ISA_SET_VPCLMULQDQ:        vpclmulqdq.7.0.ecx.10
+
+
+###FILE: ./datafiles/gfni-vaes-vpcl/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+  XED_ISA_SET_AVX_GFNI:          gfni.7.0.ecx.8  avx.1.0.ecx.28
+  XED_ISA_SET_AVX512_GFNI_128:   gfni.7.0.ecx.8  avx512f.7.0.ebx.16  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_GFNI_256:   gfni.7.0.ecx.8  avx512f.7.0.ebx.16  avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_GFNI_512:   gfni.7.0.ecx.8  avx512f.7.0.ebx.16
+
+  XED_ISA_SET_AVX512_VAES_128:    vaes.7.0.ecx.9  aes.1.0.ecx.25  avx512f.7.0.ebx.16 avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_VAES_256:    vaes.7.0.ecx.9  aes.1.0.ecx.25  avx512f.7.0.ebx.16 avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_VAES_512:    vaes.7.0.ecx.9  aes.1.0.ecx.25  avx512f.7.0.ebx.16
+
+  XED_ISA_SET_AVX512_VPCLMULQDQ_128:  vpclmulqdq.7.0.ecx.10 pclmulqdq.1.0.ecx.1 avx512f.7.0.ebx.16 avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_VPCLMULQDQ_256:  vpclmulqdq.7.0.ecx.10 pclmulqdq.1.0.ecx.1 avx512f.7.0.ebx.16 avx512vl.7.0.ebx.31
+  XED_ISA_SET_AVX512_VPCLMULQDQ_512:  vpclmulqdq.7.0.ecx.10 pclmulqdq.1.0.ecx.1 avx512f.7.0.ebx.16
+
+
+###FILE: ./datafiles/vpopcntdq-vl/cpuid.xed.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+XED_ISA_SET_AVX512_VPOPCNTDQ_128:   avx512_vpopcntdq.7.0.ecx.14 avx512vl.7.0.ebx.31
+XED_ISA_SET_AVX512_VPOPCNTDQ_256:   avx512_vpopcntdq.7.0.ecx.14 avx512vl.7.0.ebx.31

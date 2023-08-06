@@ -1,0 +1,1892 @@
+
+
+###FILE: ./datafiles/xed-gpr8-enc-reg-table.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+############################################################################
+#This is an experiment with an encoder table. It does not set fields
+#that are initialized to zero (REXR, REXB). It sets NOREX, NEEDREX to
+#indicated encoding constraints.
+############################################################################
+
+
+
+xed_reg_enum_t GPR8_R()::
+
+OUTREG=XED_REG_AL -> REG=0x0
+OUTREG=XED_REG_CL -> REG=0x1
+OUTREG=XED_REG_DL -> REG=0x2
+OUTREG=XED_REG_BL -> REG=0x3
+
+OUTREG=XED_REG_AH -> REG=0x4  NOREX=1
+OUTREG=XED_REG_CH -> REG=0x5  NOREX=1
+OUTREG=XED_REG_DH -> REG=0x6  NOREX=1
+OUTREG=XED_REG_BH -> REG=0x7  NOREX=1
+
+OUTREG=XED_REG_SPL ->  REG=0x4  NEEDREX=1
+OUTREG=XED_REG_BPL ->  REG=0x5  NEEDREX=1
+OUTREG=XED_REG_SIL ->  REG=0x6  NEEDREX=1
+OUTREG=XED_REG_DIL ->  REG=0x7  NEEDREX=1
+
+OUTREG=XED_REG_R8B -> REXR=1 REG=0x0
+OUTREG=XED_REG_R9B -> REXR=1 REG=0x1
+OUTREG=XED_REG_R10B -> REXR=1 REG=0x2
+OUTREG=XED_REG_R11B -> REXR=1 REG=0x3
+OUTREG=XED_REG_R12B -> REXR=1 REG=0x4
+OUTREG=XED_REG_R13B -> REXR=1 REG=0x5
+OUTREG=XED_REG_R14B -> REXR=1 REG=0x6
+OUTREG=XED_REG_R15B -> REXR=1 REG=0x7
+
+
+xed_reg_enum_t GPR8_B()::
+OUTREG=XED_REG_AL -> RM=0x0
+OUTREG=XED_REG_CL -> RM=0x1
+OUTREG=XED_REG_DL -> RM=0x2
+OUTREG=XED_REG_BL -> RM=0x3
+
+OUTREG=XED_REG_AH -> RM=0x4  NOREX=1
+OUTREG=XED_REG_CH -> RM=0x5  NOREX=1
+OUTREG=XED_REG_DH -> RM=0x6  NOREX=1
+OUTREG=XED_REG_BH -> RM=0x7  NOREX=1
+
+OUTREG=XED_REG_SPL -> RM=0x4  NEEDREX=1
+OUTREG=XED_REG_BPL -> RM=0x5  NEEDREX=1
+OUTREG=XED_REG_SIL -> RM=0x6  NEEDREX=1
+OUTREG=XED_REG_DIL -> RM=0x7  NEEDREX=1
+
+OUTREG=XED_REG_R8B -> REXB=1 RM=0x0
+OUTREG=XED_REG_R9B -> REXB=1 RM=0x1
+OUTREG=XED_REG_R10B -> REXB=1 RM=0x2
+OUTREG=XED_REG_R11B -> REXB=1 RM=0x3
+OUTREG=XED_REG_R12B -> REXB=1 RM=0x4
+OUTREG=XED_REG_R13B -> REXB=1 RM=0x5
+OUTREG=XED_REG_R14B -> REXB=1 RM=0x6
+OUTREG=XED_REG_R15B -> REXB=1 RM=0x7
+
+
+xed_reg_enum_t GPR8_SB()::
+OUTREG=XED_REG_AL -> SRM=0x0
+OUTREG=XED_REG_CL -> SRM=0x1
+OUTREG=XED_REG_DL -> SRM=0x2
+OUTREG=XED_REG_BL -> SRM=0x3
+
+OUTREG=XED_REG_AH -> SRM=0x4  NOREX=1
+OUTREG=XED_REG_CH -> SRM=0x5  NOREX=1
+OUTREG=XED_REG_DH -> SRM=0x6  NOREX=1
+OUTREG=XED_REG_BH -> SRM=0x7  NOREX=1
+
+OUTREG=XED_REG_SPL -> SRM=0x4  NEEDREX=1
+OUTREG=XED_REG_BPL -> SRM=0x5  NEEDREX=1
+OUTREG=XED_REG_SIL -> SRM=0x6  NEEDREX=1
+OUTREG=XED_REG_DIL -> SRM=0x7  NEEDREX=1
+
+OUTREG=XED_REG_R8B -> REXB=1 SRM=0x0
+OUTREG=XED_REG_R9B -> REXB=1 SRM=0x1
+OUTREG=XED_REG_R10B -> REXB=1 SRM=0x2
+OUTREG=XED_REG_R11B -> REXB=1 SRM=0x3
+OUTREG=XED_REG_R12B -> REXB=1 SRM=0x4
+OUTREG=XED_REG_R13B -> REXB=1 SRM=0x5
+OUTREG=XED_REG_R14B -> REXB=1 SRM=0x6
+OUTREG=XED_REG_R15B -> REXB=1 SRM=0x7
+
+
+
+###FILE: ./datafiles/xed-modrm-encode.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+# Decoder ring
+# @ = null = invalid register
+# * = any valid register or value for this field
+# nothing  = encode nothing in this case
+# error = cannot encode
+
+SEQUENCE MODRM_BIND
+  SIB_REQUIRED_ENCODE_BIND()
+  SIBSCALE_ENCODE_BIND()
+  SIBINDEX_ENCODE_BIND()
+  SIBBASE_ENCODE_BIND()
+  MODRM_RM_ENCODE_BIND()
+  MODRM_MOD_ENCODE_BIND()
+  SEGMENT_DEFAULT_ENCODE_BIND()
+  SEGMENT_ENCODE_BIND()
+  SIB_NT_BIND()    # FIXME 2007-06-30
+  DISP_NT_BIND()
+
+SEQUENCE MODRM_EMIT
+  #MODRM_NT_EMIT()  # FIXME: 2007-06-30 the instruction will emit this as part of the INSTRUCTIONS NT
+  SIB_NT_EMIT()
+  DISP_NT_EMIT()
+
+SEGMENT_DEFAULT_ENCODE()::
+BASE0=rIPa() -> nothing # no segment for RIP/EIP
+BASE0=ArSP() -> default_ss # default to SS
+BASE0=ArBP() -> default_ss # default to SS
+BASE0=@      -> default_ds # default to DS -- baseless
+#
+BASE0=ArAX() -> default_ds # everything else defaults to DS
+BASE0=ArCX() -> default_ds
+BASE0=ArDX() -> default_ds
+BASE0=ArBX() -> default_ds
+BASE0=ArSI() -> default_ds
+BASE0=ArDI() -> default_ds
+BASE0=Ar8()  -> default_ds
+BASE0=Ar9()  -> default_ds
+BASE0=Ar10() -> default_ds
+BASE0=Ar11() -> default_ds
+BASE0=Ar12() -> default_ds
+BASE0=Ar13() -> default_ds
+BASE0=Ar14() -> default_ds
+BASE0=Ar15() -> default_ds
+
+SEGMENT_ENCODE()::
+default_ss SEG0=@          -> no_seg_prefix # was "nothing" 2007-0x08-0x14 # assume this is what the user wanted
+default_ss SEG0=XED_REG_CS -> cs_prefix
+default_ss SEG0=XED_REG_DS -> ds_prefix
+default_ss SEG0=XED_REG_SS -> no_seg_prefix # was "nothing" 2007-0x08-0x14   # matches default
+default_ss SEG0=XED_REG_ES -> es_prefix
+default_ss SEG0=XED_REG_FS -> fs_prefix
+default_ss SEG0=XED_REG_GS -> gs_prefix
+#
+default_ds SEG0=@          -> no_seg_prefix # was "nothing" 2007-0x08-0x14  # assume this is what the user wanted
+default_ds SEG0=XED_REG_CS -> cs_prefix
+default_ds SEG0=XED_REG_DS -> no_seg_prefix # was "nothing" 2007-0x08-0x14  # matches default
+default_ds SEG0=XED_REG_SS -> ss_prefix
+default_ds SEG0=XED_REG_ES -> es_prefix
+default_ds SEG0=XED_REG_FS -> fs_prefix
+default_ds SEG0=XED_REG_GS -> gs_prefix
+otherwise                  -> no_seg_prefix # was "nothing" 2007-0x08-0x14
+
+
+SIB_REQUIRED_ENCODE()::
+eamode32 INDEX=GPR32e()  -> SIB=1
+eamode64 INDEX=GPR64e()  -> SIB=1
+#   base-less memop in 64b mode requires a SIB
+
+eamode64 BASE0=@ DISP_WIDTH=32 ->  SIB=1
+eamode32 mode64 BASE0=@ DISP_WIDTH=32 ->  SIB=1
+eamode32 mode16 -> nothing
+eamode32 mode32 -> nothing
+
+#   Denote the need of a SIB byte if base is rSP or r12
+eanot16 BASE0=ArSP()  -> SIB=1
+eanot16 BASE0=Ar12()  -> SIB=1
+
+#  When the displacement is omitted, we supply one for these r13 and rBP.
+#eanot16 BASE0=ArBP() DISP_WIDTH=0 -> SIB=1
+#eanot16 BASE0=Ar13() DISP_WIDTH=0 -> SIB=1
+
+otherwise -> nothing # FIXME: could set SIB=0
+
+SIBBASE_ENCODE()::
+SIB=0     -> nothing
+SIB=1     -> SIBBASE_ENCODE_SIB1()
+
+SIBBASE_ENCODE_SIB1()::
+BASE0=ArAX()  -> SIBBASE=0 REXB=0
+BASE0=Ar8()   -> SIBBASE=0 REXB=1
+BASE0=ArCX()  -> SIBBASE=1 REXB=0
+BASE0=Ar9()   -> SIBBASE=1 REXB=1
+BASE0=ArDX()  -> SIBBASE=2 REXB=0
+BASE0=Ar10()  -> SIBBASE=2 REXB=1
+BASE0=ArBX()  -> SIBBASE=3 REXB=0
+BASE0=Ar11()  -> SIBBASE=3 REXB=1
+BASE0=ArSP()  -> SIBBASE=4 REXB=0
+BASE0=Ar12()  -> SIBBASE=4 REXB=1
+
+# The mod values are really gotten by the MOD rule, only requiring one
+# addition.
+## BAD MODIFIES DISP! SIB=1 BASE0=@      DISP_WIDTH=8 -> SIBBASE=5 REXB=0 DISP_WIDTH=32 # MOD=0
+BASE0=@      -> DISP_WIDTH_32() SIBBASE=5 REXB=0 # MOD=0
+# The MOD rule handles the DISP arg modification for rBP and r13
+BASE0=ArBP() -> DISP_WIDTH_0_8_32() SIBBASE=5 REXB=0 # MOD=1 # ARG MODIFICATION LATER IN MOD RULE
+
+# SIB=1 BASE0=@      DISP_WIDTH=32 -> SIBBASE=5 REXB=0 # MOD=0  redundant with the above
+# The MOD rule handles the DISP arg modification for rBP and r13
+BASE0=Ar13() -> DISP_WIDTH_0_8_32() SIBBASE=5 REXB=1 # MOD=1 # ARG MODIFICATION LATER IN MOD RULE
+
+BASE0=ArSI() -> SIBBASE=6 REXB=0
+BASE0=Ar14() -> SIBBASE=6 REXB=1
+BASE0=ArDI() -> SIBBASE=7 REXB=0
+BASE0=Ar15() -> SIBBASE=7 REXB=1
+otherwise    -> error             # BASE0 was some other register
+
+SIBINDEX_ENCODE()::
+SIB=0 -> nothing
+SIB=1 -> SIBINDEX_ENCODE_SIB1()
+
+SIBINDEX_ENCODE_SIB1()::
+INDEX=ArAX() -> SIBINDEX=0 REXX=0
+INDEX=Ar8()  -> SIBINDEX=0 REXX=1
+INDEX=ArCX() -> SIBINDEX=1 REXX=0
+INDEX=Ar9()  -> SIBINDEX=1 REXX=1
+INDEX=ArDX() -> SIBINDEX=2 REXX=0
+INDEX=Ar10() -> SIBINDEX=2 REXX=1
+INDEX=ArBX() -> SIBINDEX=3 REXX=0
+INDEX=Ar11() -> SIBINDEX=3 REXX=1
+INDEX=@      -> SIBINDEX=4 REXX=0 # the "no index" option
+INDEX=Ar12() -> SIBINDEX=4 REXX=1
+INDEX=ArBP() -> SIBINDEX=5 REXX=0
+INDEX=Ar13() -> SIBINDEX=5 REXX=1
+INDEX=ArSI() -> SIBINDEX=6 REXX=0
+INDEX=Ar14() -> SIBINDEX=6 REXX=1
+INDEX=ArDI() -> SIBINDEX=7 REXX=0
+INDEX=Ar15() -> SIBINDEX=7 REXX=1
+otherwise    -> error             # INDEX was some other register
+
+
+SIBSCALE_ENCODE()::
+SIB=0         -> nothing
+SIB=1 SCALE=0 -> SIBSCALE=0 # this allows for default unset scales
+SIB=1 SCALE=1 -> SIBSCALE=0
+SIB=1 SCALE=2 -> SIBSCALE=1
+SIB=1 SCALE=4 -> SIBSCALE=2
+SIB=1 SCALE=8 -> SIBSCALE=3
+otherwise    -> error             # SCALE was some other value
+
+##############################################################################
+MODRM_MOD_ENCODE()::
+eamode16 DISP_WIDTH=0   -> MODRM_MOD_EA16_DISP0()
+eamode16 DISP_WIDTH=8   -> MODRM_MOD_EA16_DISP8()
+eamode16 DISP_WIDTH=16  -> MODRM_MOD_EA16_DISP16()
+eamode16 DISP_WIDTH=32  -> ERROR()
+eamode16 DISP_WIDTH=64  -> ERROR()
+
+eamode32 DISP_WIDTH=0   -> MODRM_MOD_EA32_DISP0()
+eamode32 DISP_WIDTH=8   -> MODRM_MOD_EA32_DISP8()
+eamode32 DISP_WIDTH=16  -> ERROR()
+eamode32 DISP_WIDTH=32  -> MODRM_MOD_EA32_DISP32()
+eamode32 DISP_WIDTH=64  -> ERROR()
+
+eamode64 DISP_WIDTH=0   -> MODRM_MOD_EA64_DISP0()
+eamode64 DISP_WIDTH=8   -> MODRM_MOD_EA64_DISP8()
+eamode64 DISP_WIDTH=16  -> ERROR()
+eamode64 DISP_WIDTH=32  -> MODRM_MOD_EA64_DISP32()
+eamode64 DISP_WIDTH=64  -> ERROR()
+##############################################################################
+#### EAMODE16
+##############################################################################
+MODRM_MOD_EA16_DISP0()::
+BASE0=XED_REG_BX INDEX=@  -> MOD=0
+BASE0=XED_REG_SI INDEX=@  -> MOD=0
+BASE0=XED_REG_DI INDEX=@  -> MOD=0
+BASE0=XED_REG_BP INDEX=@  -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+BASE0=XED_REG_BP INDEX=XED_REG_SI -> MOD=0
+BASE0=XED_REG_BP INDEX=XED_REG_DI -> MOD=0
+BASE0=XED_REG_BX INDEX=XED_REG_SI -> MOD=0
+BASE0=XED_REG_BX INDEX=XED_REG_DI -> MOD=0
+
+MODRM_MOD_EA16_DISP8()::
+BASE0=XED_REG_BX INDEX=@  -> MOD=1
+BASE0=XED_REG_SI INDEX=@  -> MOD=1
+BASE0=XED_REG_DI INDEX=@  -> MOD=1
+BASE0=XED_REG_BP INDEX=@  -> MOD=1
+BASE0=XED_REG_BP INDEX=XED_REG_SI -> MOD=1
+BASE0=XED_REG_BP INDEX=XED_REG_DI -> MOD=1
+BASE0=XED_REG_BX INDEX=XED_REG_SI -> MOD=1
+BASE0=XED_REG_BX INDEX=XED_REG_DI -> MOD=1
+
+MODRM_MOD_EA16_DISP16()::
+BASE0=@          INDEX=@   -> MOD=0
+BASE0=XED_REG_BX INDEX=@  -> MOD=2
+BASE0=XED_REG_SI INDEX=@  -> MOD=2
+BASE0=XED_REG_DI INDEX=@  -> MOD=2
+BASE0=XED_REG_BP INDEX=@  -> MOD=2
+BASE0=XED_REG_BP INDEX=XED_REG_SI -> MOD=2
+BASE0=XED_REG_BP INDEX=XED_REG_DI -> MOD=2
+BASE0=XED_REG_BX INDEX=XED_REG_SI -> MOD=2
+BASE0=XED_REG_BX INDEX=XED_REG_DI -> MOD=2
+
+
+##############################################################################
+#### EAMODE32
+##############################################################################
+MODRM_MOD_EA32_DISP0()::
+# Add a fake 1B displacement to rBP and r13 if they do not have one already.
+BASE0=XED_REG_EBP  mode32  -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+BASE0=XED_REG_EBP  mode64  -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+BASE0=XED_REG_R13D mode64  -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+
+# All these 32b and 64b base regs can handle no displacement
+BASE0=XED_REG_EAX mode32       -> MOD=0
+BASE0=XED_REG_EBX mode32       -> MOD=0
+BASE0=XED_REG_ECX mode32       -> MOD=0
+BASE0=XED_REG_EDX mode32       -> MOD=0
+BASE0=XED_REG_ESI mode32       -> MOD=0
+BASE0=XED_REG_EDI mode32       -> MOD=0
+BASE0=XED_REG_ESP mode32       -> MOD=0 # our choice to use MOD=0 (w/sib)
+
+BASE0=XED_REG_EAX mode64       -> MOD=0
+BASE0=XED_REG_EBX mode64       -> MOD=0
+BASE0=XED_REG_ECX mode64       -> MOD=0
+BASE0=XED_REG_EDX mode64       -> MOD=0
+BASE0=XED_REG_ESI mode64       -> MOD=0
+BASE0=XED_REG_EDI mode64       -> MOD=0
+BASE0=XED_REG_ESP mode64       -> MOD=0 # our choice to use MOD=0 (w/sib)
+
+BASE0=XED_REG_R8D   mode64     -> MOD=0
+BASE0=XED_REG_R9D   mode64     -> MOD=0
+BASE0=XED_REG_R10D  mode64     -> MOD=0
+BASE0=XED_REG_R11D  mode64     -> MOD=0
+BASE0=XED_REG_R12D  mode64     -> MOD=0 # our choice to use MOD=0 (w/sib)
+BASE0=XED_REG_R14D  mode64     -> MOD=0
+BASE0=XED_REG_R15D  mode64     -> MOD=0
+
+MODRM_MOD_EA32_DISP8()::
+otherwise                      -> MOD=1  # might use SIB
+
+MODRM_MOD_EA32_DISP32()::
+BASE0=@                    -> MOD=0 #no base (handles SIB=1 case)
+BASE0=GPR32e()             -> MOD=2 #some base, not RIP, might use SIB
+BASE0=rIPa() mode64        -> MOD=0
+
+##############################################################################
+#### EAMODE64
+##############################################################################
+
+MODRM_MOD_EA64_DISP0()::
+BASE0=XED_REG_EIP       -> MOD=0 DISP_WIDTH=32 DISP=0    # base eip
+BASE0=XED_REG_RIP       -> MOD=0 DISP_WIDTH=32 DISP=0    # base rip
+
+BASE0=XED_REG_RBP       -> MOD=1 DISP_WIDTH=8 DISP=0     # ARG MODIFICATION
+BASE0=XED_REG_R13       -> MOD=1 DISP_WIDTH=8 DISP=0     # ARG MODIFICATION
+BASE0=XED_REG_RAX       -> MOD=0
+BASE0=XED_REG_RBX       -> MOD=0
+BASE0=XED_REG_RCX       -> MOD=0
+BASE0=XED_REG_RDX       -> MOD=0
+BASE0=XED_REG_RSI       -> MOD=0
+BASE0=XED_REG_RDI       -> MOD=0
+BASE0=XED_REG_RSP       -> MOD=0
+BASE0=XED_REG_R8        -> MOD=0
+BASE0=XED_REG_R9        -> MOD=0
+BASE0=XED_REG_R10       -> MOD=0
+BASE0=XED_REG_R11       -> MOD=0
+BASE0=XED_REG_R12       -> MOD=0
+BASE0=XED_REG_R14       -> MOD=0
+BASE0=XED_REG_R15       -> MOD=0
+
+MODRM_MOD_EA64_DISP8()::
+BASE0=GPR64e()             -> MOD=1
+
+MODRM_MOD_EA64_DISP32()::
+BASE0=@              -> MOD=0 #no base, SIB=1 required (provided elsewhere)
+BASE0=XED_REG_EIP    -> MOD=0 #base eip
+BASE0=XED_REG_RIP    -> MOD=0 #base rip
+BASE0=XED_REG_RAX    -> MOD=2
+BASE0=XED_REG_RBX    -> MOD=2
+BASE0=XED_REG_RCX    -> MOD=2
+BASE0=XED_REG_RDX    -> MOD=2
+BASE0=XED_REG_RSI    -> MOD=2
+BASE0=XED_REG_RDI    -> MOD=2
+BASE0=XED_REG_RSP    -> MOD=2 # SIB=1 required (and is provided elsewhere)
+BASE0=XED_REG_RBP    -> MOD=2
+BASE0=XED_REG_R8     -> MOD=2
+BASE0=XED_REG_R9     -> MOD=2
+BASE0=XED_REG_R10    -> MOD=2
+BASE0=XED_REG_R11    -> MOD=2
+BASE0=XED_REG_R12    -> MOD=2 # SIB=1 required (and is provided elsewhere)
+BASE0=XED_REG_R13    -> MOD=2
+BASE0=XED_REG_R14    -> MOD=2
+BASE0=XED_REG_R15    -> MOD=2
+########################################################################################################
+
+
+#If we didn't already encode the base in the SIB!
+MODRM_RM_ENCODE()::
+
+eamode16  SIB=0 -> MODRM_RM_ENCODE_EA16_SIB0()
+eamode32  SIB=0 -> MODRM_RM_ENCODE_EA32_SIB0()
+eamode64  SIB=0 -> MODRM_RM_ENCODE_EA64_SIB0()
+eanot16   SIB=1 -> MODRM_RM_ENCODE_EANOT16_SIB1()
+
+#############################################
+
+MODRM_RM_ENCODE_EA16_SIB0()::
+BASE0=XED_REG_BX INDEX=XED_REG_SI  -> RM=0
+BASE0=XED_REG_BX INDEX=XED_REG_DI  -> RM=1
+BASE0=XED_REG_BP INDEX=XED_REG_SI  -> RM=2
+BASE0=XED_REG_BP INDEX=XED_REG_DI  -> RM=3
+BASE0=XED_REG_SI INDEX=@           -> RM=4
+BASE0=XED_REG_DI INDEX=@           -> RM=5
+BASE0=@          INDEX=@           ->  DISP_WIDTH_16() RM=6
+
+
+# for BP without an index, we add an imm8=0 when encoding the MOD
+BASE0=XED_REG_BP INDEX=@           -> DISP_WIDTH_0_8_16() RM=6
+BASE0=XED_REG_BX INDEX=@           -> RM=7
+
+MODRM_RM_ENCODE_EA64_SIB0()::
+BASE0=XED_REG_RAX -> RM=0 REXB=0
+BASE0=XED_REG_R8  -> RM=0 REXB=1
+BASE0=XED_REG_RCX -> RM=1 REXB=0
+BASE0=XED_REG_R9  -> RM=1 REXB=1
+BASE0=XED_REG_RDX -> RM=2 REXB=0
+BASE0=XED_REG_R10 -> RM=2 REXB=1
+BASE0=XED_REG_RBX -> RM=3 REXB=0
+BASE0=XED_REG_R11 -> RM=3 REXB=1
+
+
+BASE0=XED_REG_RSI -> RM=6 REXB=0
+BASE0=XED_REG_R14 -> RM=6 REXB=1
+BASE0=XED_REG_RDI -> RM=7 REXB=0
+BASE0=XED_REG_R15 -> RM=7 REXB=1
+
+# case RM=5 is tricky. The mode,base and disp width play a role
+BASE0=@      -> DISP_WIDTH_32() RM=5 # not setting REXB FIXME?
+
+# for rBP without a disp, we add a 1B disp so MOD will be 1
+BASE0=XED_REG_RBP -> DISP_WIDTH_0_8_32() RM=5  REXB=0
+
+
+# When we do the MOD encoding, we fix the displacement at 4B.
+BASE0=XED_REG_RIP -> RM=5 # not setting REXB FIXME?
+BASE0=XED_REG_EIP -> RM=5 # not setting REXB FIXME?
+
+# for r13 without a disp, we add a 1B disp so MOD will be 1
+BASE0=XED_REG_R13 -> DISP_WIDTH_0_8_32() RM=5  REXB=1
+
+MODRM_RM_ENCODE_EA32_SIB0()::
+BASE0=XED_REG_EAX -> RM=0 REXB=0
+BASE0=XED_REG_R8D  -> RM=0 REXB=1
+BASE0=XED_REG_ECX -> RM=1 REXB=0
+BASE0=XED_REG_R9D  -> RM=1 REXB=1
+BASE0=XED_REG_EDX -> RM=2 REXB=0
+BASE0=XED_REG_R10D -> RM=2 REXB=1
+BASE0=XED_REG_EBX -> RM=3 REXB=0
+BASE0=XED_REG_R11D -> RM=3 REXB=1
+
+
+BASE0=XED_REG_ESI -> RM=6 REXB=0
+BASE0=XED_REG_R14D -> RM=6 REXB=1
+BASE0=XED_REG_EDI -> RM=7 REXB=0
+BASE0=XED_REG_R15D -> RM=7 REXB=1
+
+# case RM=5 is tricky. The mode,base and disp width play a role
+BASE0=@      -> DISP_WIDTH_32() RM=5 # not setting REXB FIXME?
+
+# for rBP without a disp, we add a 1B disp so MOD will be 1
+BASE0=XED_REG_EBP -> DISP_WIDTH_0_8_32() RM=5  REXB=0
+
+# for r13 without a disp, we add a 1B disp so MOD will be 1
+BASE0=XED_REG_R13D -> DISP_WIDTH_0_8_32() RM=5  REXB=1
+
+BASE0=XED_REG_RIP mode64 -> RM=5
+BASE0=XED_REG_EIP mode64 -> RM=5
+
+MODRM_RM_ENCODE_EANOT16_SIB1()::
+otherwise -> RM=4 # SIB will specify the REXB etc.
+
+#############################################
+
+
+
+# These are  good, seemingly:
+
+# FIXME: these are semi-redundant with field bindings that I need for decode.
+# I was thinking about using something like:
+#    MODRM[mm,rrr,nnn] & SIB[ss,iii,bbb]
+# coupled with:
+#    MODRM = (MOD,2), (REG,3), (RM,3)
+#    SIB = (SIBSCALE,2), (SIBINDEX,3), (SIBBASE,3)
+
+#FIXME: don't require =*???
+#FIXME: handle "nothing" option
+
+## SIB_EMIT()::
+## SIB=1 SIBBASE[bbb]=* SIBSCALE[ss]=* SIBINDEX[iii]=* -> ss_iii_bbb
+## SIB=0                                               -> nothing
+##
+## MODRM_EMIT()::
+## MODRM=1 MOD[xx]=* REG[rrr]=* RM[mmm]=* -> xx_rrr_mmm
+## MODRM=0                                -> nothing
+
+# ... OR ...
+
+SIB_NT()::
+SIB=1 SIBBASE[bbb] SIBSCALE[ss] SIBINDEX[iii] -> ss_iii_bbb
+SIB=0                                         -> nothing
+
+
+
+# 2 bytes storage
+DISP_NT()::
+#DISP_WIDTH=0              -> nothing
+DISP_WIDTH=8   DISP[d/8]   -> d/8
+DISP_WIDTH=16  DISP[d/16]  -> d/16
+DISP_WIDTH=32  DISP[d/32]  -> d/32
+DISP_WIDTH=64  DISP[d/64]  -> d/64
+otherwise                  -> nothing
+
+ERROR()::
+otherwise -> ERROR=XED_ERROR_GENERAL_ERROR
+
+DISP_WIDTH_0()::
+DISP_WIDTH=0 -> nothing
+
+DISP_WIDTH_8()::
+DISP_WIDTH=8 -> nothing
+
+DISP_WIDTH_16()::
+DISP_WIDTH=16 -> nothing
+
+DISP_WIDTH_32()::
+DISP_WIDTH=32 -> nothing
+
+DISP_WIDTH_0_8_16()::
+DISP_WIDTH=0 -> nothing
+DISP_WIDTH=8 -> nothing
+DISP_WIDTH=16 -> nothing
+
+
+DISP_WIDTH_0_8_32()::
+DISP_WIDTH=0 -> nothing
+DISP_WIDTH=8 -> nothing
+DISP_WIDTH=32 -> nothing
+
+
+
+###FILE: ./datafiles/xed-prefixes-encode.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+# any of the things in {} can trigger the action for these
+# the letters in square brackets are bound to the bits after the arrow.
+# The [] brackets are like an OR-triggering function.
+
+# For encoding, we spell out the order of the legacy prefixes and rex
+# prefixes. On decode, the sequential semantics were used to zero out
+# the effects of rex prefixes but that doesn't work for encode. So we
+# have to make a different table for encoding.
+
+
+SEQUENCE ISA_ENCODE
+   ISA_BINDINGS
+   ISA_EMIT
+
+# These bind the operand deciders that control the encoding
+SEQUENCE ISA_BINDINGS
+   FIXUP_EOSZ_ENC_BIND()
+   FIXUP_EASZ_ENC_BIND()
+   ASZ_NONTERM_BIND()
+   INSTRUCTIONS_BIND()
+   OSZ_NONTERM_ENC_BIND()   # OSZ must be after the instructions so that DF64 is bound (and before any prefixes obviously)
+   PREFIX_ENC_BIND()
+   REX_PREFIX_ENC_BIND()
+
+# These emit the bits and bytes that make up the encoding
+SEQUENCE ISA_EMIT
+   PREFIX_ENC_EMIT()
+   REX_PREFIX_ENC_EMIT()
+   INSTRUCTIONS_EMIT()  # THIS TAKES CARE OF MODRM/SIB/DISP/IMM
+
+
+FIXUP_EOSZ_ENC()::
+mode16 EOSZ=0 -> EOSZ=1
+mode32 EOSZ=0 -> EOSZ=2
+mode64 EOSZ=0 -> EOSZ=2
+otherwise -> nothing
+
+FIXUP_EASZ_ENC()::
+mode16 EASZ=0 -> EASZ=1
+mode32 EASZ=0 -> EASZ=2
+mode64 EASZ=0 -> EASZ=3
+otherwise -> nothing
+
+FIXUP_SMODE_ENC()::
+mode64 SMODE=0 -> SMODE=2
+mode64 SMODE=1 -> error
+otherwise -> nothing
+
+# FIXME: make ICLASS a possible field?
+# Remove the segment override if any supplied, from an LEA
+REMOVE_SEGMENT()::
+AGEN=0  -> nothing
+AGEN=1  -> REMOVE_SEGMENT_AGEN1()
+
+REMOVE_SEGMENT_AGEN1()::
+SEG0=@      -> nothing
+SEG0=SEGe() -> error
+
+
+# need to emit a segment override if the segment is not the default segment for the operation.
+# These are only meant for use with the things that do not use MODRM (like xlat, A0-A3 MOVs, and the string ops).
+# (MODRM encoding handles this stuff much better).
+OVERRIDE_SEG0()::
+SEG0=@            -> SEG_OVD=0
+SEG0=XED_REG_DS   -> SEG_OVD=0
+SEG0=XED_REG_CS   -> SEG_OVD=1
+SEG0=XED_REG_ES   -> SEG_OVD=3
+SEG0=XED_REG_FS   -> SEG_OVD=4
+SEG0=XED_REG_GS   -> SEG_OVD=5
+SEG0=XED_REG_SS   -> SEG_OVD=6
+
+OVERRIDE_SEG1()::
+SEG1=@           -> SEG_OVD=0
+SEG1=XED_REG_DS  -> SEG_OVD=0
+SEG1=XED_REG_CS  -> SEG_OVD=1
+SEG1=XED_REG_ES  -> SEG_OVD=3
+SEG1=XED_REG_FS  -> SEG_OVD=4
+SEG1=XED_REG_GS  -> SEG_OVD=5
+SEG1=XED_REG_SS  -> SEG_OVD=6
+
+
+
+REX_PREFIX_ENC()::
+mode64   NOREX=0  NEEDREX=1 REXW[w] REXB[b] REXX[x] REXR[r] -> 0b0100 wrxb
+mode64   NOREX=0  REX=1     REXW[w] REXB[b] REXX[x] REXR[r] -> 0b0100 wrxb
+mode64   NOREX=0            REXW[w]=1 REXB[b] REXX[x] REXR[r] -> 0b0100 wrxb
+mode64   NOREX=0            REXW[w] REXB[b]=1 REXX[x] REXR[r] -> 0b0100 wrxb
+mode64   NOREX=0            REXW[w] REXB[b] REXX[x]=1 REXR[r] -> 0b0100 wrxb
+mode64   NOREX=0            REXW[w] REXB[b] REXX[x] REXR[r]=1 -> 0b0100 wrxb
+mode64   NOREX=1  NEEDREX=1  -> error
+mode64   NOREX=1  REX=1      -> error
+mode64   NOREX=1  REXW=1     -> error
+mode64   NOREX=1  REXB=1     -> error
+mode64   NOREX=1  REXX=1     -> error
+mode64   NOREX=1  REXR=1     -> error
+mode64            NEEDREX=0 REX=0 REXW=0 REXB=0 REXX=0 REXR=0 -> nothing
+
+# If any REX bit shows up in 32 or 16b mode, we have an error. ensure everything is zero
+mode32          REX=0 REXW=0    REXB=0    REXX=0    REXR=0       -> nothing
+mode16          REX=0 REXW=0    REXB=0    REXX=0    REXR=0       -> nothing
+
+# or die...1
+otherwise                                                        -> error
+
+# This checks that we didn't try to use a byte register that requires
+# we do not have a rex with something else that requires we have a REX
+# prefix.
+
+# FIXME: need to allow repeated prefixes
+
+# FIXME: optionally allow for prefix order to be specified (from decode)
+
+PREFIX_ENC()::
+# create an "OR" of REFINING=2 and REP=2
+REP=2 -> 0xf2 no_return
+REP=3 -> 0xf3 no_return
+#
+66_prefix                  -> 0x66 no_return
+67_prefix                  -> 0x67 no_return
+lock_prefix                -> 0xf0 no_return
+fs_prefix                  -> 0x64 no_return
+gs_prefix                  -> 0x65 no_return
+####################################################
+mode64 HINT=3              -> 0x2e no_return
+mode64 HINT=4              -> 0x3e no_return
+#####################################################
+not64 cs_prefix            -> 0x2e no_return
+not64 HINT=3               -> 0x2e no_return
+not64 ds_prefix            -> 0x3e no_return
+not64 HINT=4               -> 0x3e no_return
+not64 es_prefix            -> 0x26 no_return
+not64 ss_prefix            -> 0x36 no_return
+otherwise                  -> nothing
+
+
+##########################################################################
+#
+#
+# This is the encode version. It just sets DF64 for later use by the
+# OSZ_NONTERM_ENC() nonterminal.
+#
+DF64()::
+mode16 -> nothing
+mode32 -> nothing
+mode64 -> DF64=1 ### EOSZ=3 -- removed EOSZ=3 because it broke encoding pop 16b dx in 64b mode.
+
+#
+# If an instruction pattern sets W to zero or 1, we make sure it also
+# sets SKIP_OSZ=1 so that we do not do any overwrite of that value for
+# the EOSZ computation.
+#
+OSZ_NONTERM_ENC()::
+mode16 EOSZ=1        -> nothing
+mode16 EOSZ=2 DF32=1 -> nothing
+
+# We don't use SKIP_OSZ=1 with the MOV_CR instructions but this is
+#  here for completeness.
+mode16 EOSZ=2 DF32=0 SKIP_OSZ=1       -> nothing
+mode16 EOSZ=2 DF32=0 SKIP_OSZ=0       -> 66_prefix
+
+mode32 EOSZ=1 SKIP_OSZ=1  -> nothing
+mode32 EOSZ=1 SKIP_OSZ=0  -> 66_prefix
+
+mode32 EOSZ=2        -> nothing
+
+mode64 EOSZ=1 SKIP_OSZ=1   -> nothing
+mode64 EOSZ=1 SKIP_OSZ=0   -> 66_prefix
+
+mode64 EOSZ=2 DF64=1 -> error
+mode64 EOSZ=2 DF64=0 -> nothing
+mode64 EOSZ=3 DF64=1 -> nothing
+
+mode64 EOSZ=3 DF64=0 SKIP_OSZ=1 -> nothing
+mode64 EOSZ=3 DF64=0 SKIP_OSZ=0 -> REXW=1
+
+
+# The REFINING66() decode version is required for when we have a 66
+# prefix that should not change the EOSZ. The REFINING66() decode
+# nonterminal restores that EOSZ.
+#
+# This one, the REFINING66() encode version is required for
+# compatibility, but it doesn't do anything. The EOSZ is an input to
+# the endoder.
+#
+# Turn off the REP prefix in case we are switching forms.
+REFINING66()::
+otherwise -> nothing # norep works too
+IGNORE66()::
+otherwise -> nothing
+
+# Same for IMMUNE66() used for sttni/cmpxchg8B/cmpxchg16b. We do not want to emit a 66 prefix in 32b mode
+IMMUNE66()::
+mode16        -> EOSZ=2 DF32=1
+otherwise     -> nothing
+
+
+IMMUNE66_LOOP64()::
+otherwise -> nothing
+
+IMMUNE_REXW()::
+otherwise -> nothing
+
+CR_WIDTH()::
+mode16 -> DF32=1 EOSZ=2
+mode32 -> nothing
+mode64 -> DF64=1 EOSZ=3
+
+FORCE64()::
+otherwise -> DF64=1 EOSZ=3
+
+
+# the prefix encoder does all the required work.
+BRANCH_HINT()::
+otherwise  -> nothing
+
+# end of xed-prefixes-encode.txt
+##########################################################################
+
+
+###FILE: ./datafiles/xed-regs-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+xed_reg_enum_t SEGe()::
+OUTREG=XED_REG_DS -> nothing
+OUTREG=XED_REG_CS -> nothing
+OUTREG=XED_REG_ES -> nothing
+OUTREG=XED_REG_FS -> nothing
+OUTREG=XED_REG_GS -> nothing
+OUTREG=XED_REG_SS -> nothing
+
+xed_reg_enum_t GPR16e()::
+OUTREG=XED_REG_AX -> nothing
+OUTREG=XED_REG_BX -> nothing
+OUTREG=XED_REG_CX -> nothing
+OUTREG=XED_REG_DX -> nothing
+OUTREG=XED_REG_SP -> nothing
+OUTREG=XED_REG_BP -> nothing
+OUTREG=XED_REG_SI -> nothing
+OUTREG=XED_REG_DI -> nothing
+
+
+xed_reg_enum_t GPR32e()::
+mode32 OUTREG=GPR32e_m32() -> nothing
+mode64 OUTREG=GPR32e_m64() -> nothing
+
+
+xed_reg_enum_t GPR32e_m32()::
+OUTREG=XED_REG_EAX -> nothing
+OUTREG=XED_REG_EBX -> nothing
+OUTREG=XED_REG_ECX -> nothing
+OUTREG=XED_REG_EDX -> nothing
+OUTREG=XED_REG_ESP -> nothing
+OUTREG=XED_REG_EBP -> nothing
+OUTREG=XED_REG_ESI -> nothing
+OUTREG=XED_REG_EDI -> nothing
+
+xed_reg_enum_t GPR32e_m64()::
+OUTREG=XED_REG_EAX -> nothing
+OUTREG=XED_REG_EBX -> nothing
+OUTREG=XED_REG_ECX -> nothing
+OUTREG=XED_REG_EDX -> nothing
+OUTREG=XED_REG_ESP -> nothing
+OUTREG=XED_REG_EBP -> nothing
+OUTREG=XED_REG_ESI -> nothing
+OUTREG=XED_REG_EDI -> nothing
+OUTREG=XED_REG_R8D -> nothing
+OUTREG=XED_REG_R9D -> nothing
+OUTREG=XED_REG_R10D -> nothing
+OUTREG=XED_REG_R11D -> nothing
+OUTREG=XED_REG_R12D -> nothing
+OUTREG=XED_REG_R13D -> nothing
+OUTREG=XED_REG_R14D -> nothing
+OUTREG=XED_REG_R15D -> nothing
+
+xed_reg_enum_t GPR64e()::
+OUTREG=XED_REG_RAX -> nothing
+OUTREG=XED_REG_RBX -> nothing
+OUTREG=XED_REG_RCX -> nothing
+OUTREG=XED_REG_RDX -> nothing
+OUTREG=XED_REG_RSP -> nothing
+OUTREG=XED_REG_RBP -> nothing
+OUTREG=XED_REG_RSI -> nothing
+OUTREG=XED_REG_RDI -> nothing
+OUTREG=XED_REG_R8 -> nothing
+OUTREG=XED_REG_R9 -> nothing
+OUTREG=XED_REG_R10 -> nothing
+OUTREG=XED_REG_R11 -> nothing
+OUTREG=XED_REG_R12 -> nothing
+OUTREG=XED_REG_R13 -> nothing
+OUTREG=XED_REG_R14 -> nothing
+OUTREG=XED_REG_R15 -> nothing
+
+
+###FILE: ./datafiles/amdxop/amd-xop-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+########  XOP #################################
+SEQUENCE XOP_ENC_BIND
+    XOP_TYPE_ENC_BIND
+    VEX_REXR_ENC_BIND
+    XOP_REXXB_ENC_BIND
+    XOP_MAP_ENC_BIND
+    VEX_REG_ENC_BIND
+    VEX_ESCVL_ENC_BIND
+
+SEQUENCE  XOP_ENC_EMIT
+    XOP_TYPE_ENC_EMIT
+    VEX_REXR_ENC_EMIT
+    XOP_REXXB_ENC_EMIT
+    XOP_MAP_ENC_EMIT
+    VEX_REG_ENC_EMIT
+    VEX_ESCVL_ENC_EMIT
+
+##############################################
+
+VEXED_REX()::
+VEXVALID=3 -> XOP_ENC()
+
+XOP_TYPE_ENC()::
+XMAP8       -> 0x8F
+XMAP9       -> 0x8F
+XMAPA       -> 0x8F
+otherwise   -> error
+
+XOP_MAP_ENC()::
+XMAP8  REXW[w] -> 0b0_1000 w
+XMAP9  REXW[w] -> 0b0_1001 w
+XMAPA  REXW[w] -> 0b0_1010 w
+otherwise      -> error
+
+XOP_REXXB_ENC()::
+mode64  REXX=0 REXB=0  -> 0b11
+mode64  REXX=1 REXB=0  -> 0b01
+mode64  REXX=0 REXB=1  -> 0b10
+mode64  REXX=1 REXB=1  -> 0b00
+not64   REXX=0 REXB=0  -> 0b11
+not64   REXX=1 REXB=0  -> error
+not64   REXX=0 REXB=1  -> error
+not64   REXX=1 REXB=1  -> error
+otherwise              -> nothing
+
+
+###FILE: ./datafiles/mpx/mpx-reg-check-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+BND_R_CHECK()::
+REXR=0 REG=0x0  -> nothing
+REXR=0 REG=0x1  -> nothing
+REXR=0 REG=0x2  -> nothing
+REXR=0 REG=0x3  -> nothing
+REXR=0 REG=0x4  -> error
+REXR=0 REG=0x5  -> error
+REXR=0 REG=0x6  -> error
+REXR=0 REG=0x7  -> error
+REXR=1 REG=0x0  -> error
+REXR=1 REG=0x1  -> error
+REXR=1 REG=0x2  -> error
+REXR=1 REG=0x3  -> error
+REXR=1 REG=0x4  -> error
+REXR=1 REG=0x5  -> error
+REXR=1 REG=0x6  -> error
+REXR=1 REG=0x7  -> error
+
+BND_B_CHECK()::
+REXB=0 RM=0x0  -> nothing
+REXB=0 RM=0x1  -> nothing
+REXB=0 RM=0x2  -> nothing
+REXB=0 RM=0x3  -> nothing
+REXB=0 RM=0x4  -> error
+REXB=0 RM=0x5  -> error
+REXB=0 RM=0x6  -> error
+REXB=0 RM=0x7  -> error
+REXB=1 RM=0x0  -> error
+REXB=1 RM=0x1  -> error
+REXB=1 RM=0x2  -> error
+REXB=1 RM=0x3  -> error
+REXB=1 RM=0x4  -> error
+REXB=1 RM=0x5  -> error
+REXB=1 RM=0x6  -> error
+REXB=1 RM=0x7  -> error
+
+
+###FILE: ./datafiles/avx/avx-isa-supp-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+#AVX_SPLITTER()::
+#VEXVALID=0 -> INSTRUCTIONS()
+#VEXVALID=1 -> AVX_INSTRUCTIONS()
+
+
+
+
+
+
+###FILE: ./datafiles/avx/avx-vex-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+# These bind the operand deciders that control the encoding
+SEQUENCE ISA_BINDINGS
+   FIXUP_EOSZ_ENC_BIND()
+   FIXUP_EASZ_ENC_BIND()
+   ASZ_NONTERM_BIND()
+   INSTRUCTIONS_BIND()     # not calling tree splitter! AVX instructions must set VEXVALID=1
+   OSZ_NONTERM_ENC_BIND()   # OSZ must be after the instructions so that DF64 is bound (and before any prefixes obviously)
+   PREFIX_ENC_BIND()
+   VEXED_REX_BIND()
+
+# These emit the bits and bytes that make up the encoding
+SEQUENCE ISA_EMIT
+   PREFIX_ENC_EMIT()
+   VEXED_REX_EMIT()
+   INSTRUCTIONS_EMIT()
+
+VEXED_REX()::
+VEXVALID=0 -> REX_PREFIX_ENC()
+VEXVALID=1 -> NEWVEX_ENC()
+
+
+#################################################
+SEQUENCE NEWVEX_ENC_BIND
+    VEX_TYPE_ENC_BIND
+    VEX_REXR_ENC_BIND
+    VEX_REXXB_ENC_BIND
+    VEX_MAP_ENC_BIND
+    VEX_REG_ENC_BIND
+    VEX_ESCVL_ENC_BIND
+
+SEQUENCE  NEWVEX_ENC_EMIT
+    VEX_TYPE_ENC_EMIT
+    VEX_REXR_ENC_EMIT
+    VEX_REXXB_ENC_EMIT
+    VEX_MAP_ENC_EMIT
+    VEX_REG_ENC_EMIT
+    VEX_ESCVL_ENC_EMIT
+
+##############################################
+VEX_TYPE_ENC()::
+REXX=1      -> 0xC4 VEX_C4=1
+REXB=1      -> 0xC4 VEX_C4=1
+MAP=0       -> 0xC4 VEX_C4=1
+MAP=2       -> 0xC4 VEX_C4=1
+MAP=3       -> 0xC4 VEX_C4=1
+REXW=1      -> 0xC4 VEX_C4=1
+otherwise   -> 0xC5 VEX_C4=0
+
+VEX_REXR_ENC()::
+mode64 REXR=1 -> 0b0
+mode64 REXR=0 -> 0b1
+not64 REXR=1 -> error
+not64 REXR=0 -> 0b1
+
+VEX_REXXB_ENC()::
+mode64 VEX_C4=1  REXX=0 REXB=0  -> 0b11
+mode64 VEX_C4=1  REXX=1 REXB=0  -> 0b01
+mode64 VEX_C4=1  REXX=0 REXB=1  -> 0b10
+mode64 VEX_C4=1  REXX=1 REXB=1  -> 0b00
+not64 VEX_C4=1  REXX=0 REXB=0  -> 0b11
+not64 VEX_C4=1  REXX=1 REXB=0  -> error
+not64 VEX_C4=1  REXX=0 REXB=1  -> error
+not64 VEX_C4=1  REXX=1 REXB=1  -> error
+otherwise                       -> nothing
+
+# also emits W
+
+VEX_MAP_ENC()::
+VEX_C4=1  MAP=0 REXW[w] -> 0b0_0000 w
+VEX_C4=1  MAP=1 REXW[w] -> 0b0_0001 w
+VEX_C4=1  MAP=2 REXW[w] -> 0b0_0010 w
+VEX_C4=1  MAP=3 REXW[w] -> 0b0_0011 w
+otherwise               -> nothing
+
+# for VEX C5, VEXDEST3 MUST be 1 in 32b mode
+VEX_REG_ENC()::
+mode64 VEXDEST3[u]  VEXDEST210[ddd] -> u_ddd
+not64  VEXDEST3[u]  VEXDEST210[ddd] -> 1_ddd
+
+
+# FOR VEX'ed instructions, I need to turn off the normal REX prefix
+# encoder.  Ideally, I could use fields names other than REX{WRXB},
+# but the register lookup functions need those names.  I can get away
+# with using different names for the f2/f3/66 refining legacy prefixes
+# since they are only referenced by the AVX instructions.
+
+VEX_ESCVL_ENC()::
+VL128 VNP -> 0b000
+VL128 V66 -> 0b001
+VL128 VF3 -> 0b010
+VL128 VF2 -> 0b011
+VL256 VNP -> 0b100
+VL256 V66 -> 0b101
+VL256 VF3 -> 0b110
+VL256 VF2 -> 0b111
+
+
+##############################################################################
+
+
+
+###FILE: ./datafiles/avx/avx-imm-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+SE_IMM8()::
+true ESRC[ssss] UIMM0[dddd] ->  ssss_dddd
+
+
+###FILE: ./datafiles/hswavx/vsib-addressing-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+SEQUENCE VMODRM_XMM_BIND
+   VMODRM_MOD_ENCODE_BIND()
+   VSIB_ENC_BASE_BIND()
+   VSIB_ENC_INDEX_XMM_BIND()
+   VSIB_ENC_SCALE_BIND()
+   VSIB_ENC_BIND()
+   SEGMENT_DEFAULT_ENCODE_BIND()
+   SEGMENT_ENCODE_BIND()
+   DISP_NT_BIND()
+
+SEQUENCE VMODRM_YMM_BIND
+   VMODRM_MOD_ENCODE_BIND()
+   VSIB_ENC_BASE_BIND()
+   VSIB_ENC_INDEX_YMM_BIND()
+   VSIB_ENC_SCALE_BIND()
+   VSIB_ENC_BIND()
+   SEGMENT_DEFAULT_ENCODE_BIND()
+   SEGMENT_ENCODE_BIND()
+   DISP_NT_BIND()
+
+# MODRM.MOD is emitted as part of the instruction
+SEQUENCE VMODRM_XMM_EMIT
+   VSIB_ENC_EMIT()
+   DISP_NT_EMIT()
+
+SEQUENCE VMODRM_YMM_EMIT
+   VSIB_ENC_EMIT()
+   DISP_NT_EMIT()
+
+######################################
+VMODRM_MOD_ENCODE()::
+
+# (1) no base  with rBP/r13
+# Add a fake 1B displacement to rBP and r13 if they do not have one already
+eamode32 DISP_WIDTH=0 BASE0=ArBP()       -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+eamode32 DISP_WIDTH=0 BASE0=Ar13()       -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+
+eamode64 DISP_WIDTH=0 BASE0=ArBP()       -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+eamode64 DISP_WIDTH=0 BASE0=Ar13()       -> MOD=1 DISP_WIDTH=8 DISP=0    # ARG MODIFICATION
+
+# (2) no disp with most base regs
+# All these 32b and 64b can handle no displacement
+eamode32 DISP_WIDTH=0 BASE0=ArAX()       -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=ArBX()       -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=ArCX()       -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=ArDX()       -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=ArSI()       -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=ArDI()       -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=ArSP()       -> MOD=0
+
+eamode32 DISP_WIDTH=0 BASE0=Ar8()   mode64     -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=Ar9()   mode64     -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=Ar10()  mode64     -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=Ar11()  mode64     -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=Ar12()  mode64     -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=Ar14()  mode64     -> MOD=0
+eamode32 DISP_WIDTH=0 BASE0=Ar15()  mode64     -> MOD=0
+
+# rBP and r13 are handled above
+eamode64 DISP_WIDTH=0 BASE0=ArAX()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=ArBX()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=ArCX()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=ArDX()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=ArSI()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=ArDI()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=ArSP()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar8()        -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar9()        -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar10()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar11()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar12()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar14()       -> MOD=0
+eamode64 DISP_WIDTH=0 BASE0=Ar15()       -> MOD=0
+
+# (3) 8b displacement
+eamode32 DISP_WIDTH=8                            -> MOD=1
+eamode64 DISP_WIDTH=8 BASE0=GPR64e()            -> MOD=1
+
+
+# (4) 32b displacement with no base or some base
+eamode32 DISP_WIDTH=32 BASE0=@        -> MOD=0 #no base
+eamode32 DISP_WIDTH=32 BASE0=GPR32e() -> MOD=2 #some base, not RIP
+eamode64 DISP_WIDTH=32 BASE0=@        -> MOD=0 #no base
+
+eamode64 DISP_WIDTH=32 BASE0=ArAX()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArBX()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArCX()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArDX()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArSI()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArDI()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArSP()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=ArBP()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar8()        -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar9()        -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar10()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar11()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar12()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar13()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar14()       -> MOD=2
+eamode64 DISP_WIDTH=32 BASE0=Ar15()       -> MOD=2
+
+otherwise -> error
+
+VSIB_ENC_BASE()::
+  BASE0=ArAX() -> REXB=0 SIBBASE=0
+  BASE0=ArCX() -> REXB=0 SIBBASE=1
+  BASE0=ArDX() -> REXB=0 SIBBASE=2
+  BASE0=ArBX() -> REXB=0 SIBBASE=3
+  BASE0=ArSP() -> REXB=0 SIBBASE=4
+
+  BASE0=@      -> DISP_WIDTH_32() REXB=0 SIBBASE=5
+
+  # RBP/EBP or r13/r13d must have a displacement
+  BASE0=ArBP() -> DISP_WIDTH_8_32() REXB=0 SIBBASE=5
+
+  BASE0=Ar13() -> DISP_WIDTH_8_32() REXB=1 SIBBASE=5
+
+
+  BASE0=ArSI()  ->    REXB=0 SIBBASE=6
+  BASE0=ArDI()  ->    REXB=0 SIBBASE=7
+  BASE0=Ar8()   ->    REXB=1 SIBBASE=0
+  BASE0=Ar9()   ->    REXB=1 SIBBASE=1
+  BASE0=Ar10()  ->    REXB=1 SIBBASE=2
+  BASE0=Ar11()  ->    REXB=1 SIBBASE=3
+  BASE0=Ar12()  ->    REXB=1 SIBBASE=4
+
+  BASE0=Ar14() ->    REXB=1 SIBBASE=6
+  BASE0=Ar15() ->    REXB=1 SIBBASE=7
+  otherwise    ->    error
+
+
+
+
+VSIB_ENC_SCALE()::
+  SCALE=0 -> SIBSCALE=0
+  SCALE=1 -> SIBSCALE=0
+  SCALE=2 -> SIBSCALE=1
+  SCALE=4 -> SIBSCALE=2
+  SCALE=8 -> SIBSCALE=3
+  otherwise -> error
+
+VSIB_ENC()::
+  true SIBBASE[bbb] SIBINDEX[iii] SIBSCALE[ss] -> ss_iii_bbb
+
+
+VSIB_ENC_INDEX_XMM()::
+INDEX=XED_REG_XMM0   -> REXX=0 SIBINDEX=0
+INDEX=XED_REG_XMM1   -> REXX=0 SIBINDEX=1
+INDEX=XED_REG_XMM2   -> REXX=0 SIBINDEX=2
+INDEX=XED_REG_XMM3   -> REXX=0 SIBINDEX=3
+INDEX=XED_REG_XMM4   -> REXX=0 SIBINDEX=4
+INDEX=XED_REG_XMM5   -> REXX=0 SIBINDEX=5
+INDEX=XED_REG_XMM6   -> REXX=0 SIBINDEX=6
+INDEX=XED_REG_XMM7   -> REXX=0 SIBINDEX=7
+INDEX=XED_REG_XMM8   -> REXX=1 SIBINDEX=0
+INDEX=XED_REG_XMM9   -> REXX=1 SIBINDEX=1
+INDEX=XED_REG_XMM10  -> REXX=1 SIBINDEX=2
+INDEX=XED_REG_XMM11  -> REXX=1 SIBINDEX=3
+INDEX=XED_REG_XMM12  -> REXX=1 SIBINDEX=4
+INDEX=XED_REG_XMM13  -> REXX=1 SIBINDEX=5
+INDEX=XED_REG_XMM14  -> REXX=1 SIBINDEX=6
+INDEX=XED_REG_XMM15  -> REXX=1 SIBINDEX=7
+
+
+VSIB_ENC_INDEX_YMM()::
+INDEX=XED_REG_YMM0   -> REXX=0 SIBINDEX=0
+INDEX=XED_REG_YMM1   -> REXX=0 SIBINDEX=1
+INDEX=XED_REG_YMM2   -> REXX=0 SIBINDEX=2
+INDEX=XED_REG_YMM3   -> REXX=0 SIBINDEX=3
+INDEX=XED_REG_YMM4   -> REXX=0 SIBINDEX=4
+INDEX=XED_REG_YMM5   -> REXX=0 SIBINDEX=5
+INDEX=XED_REG_YMM6   -> REXX=0 SIBINDEX=6
+INDEX=XED_REG_YMM7   -> REXX=0 SIBINDEX=7
+INDEX=XED_REG_YMM8   -> REXX=1 SIBINDEX=0
+INDEX=XED_REG_YMM9   -> REXX=1 SIBINDEX=1
+INDEX=XED_REG_YMM10  -> REXX=1 SIBINDEX=2
+INDEX=XED_REG_YMM11  -> REXX=1 SIBINDEX=3
+INDEX=XED_REG_YMM12  -> REXX=1 SIBINDEX=4
+INDEX=XED_REG_YMM13  -> REXX=1 SIBINDEX=5
+INDEX=XED_REG_YMM14  -> REXX=1 SIBINDEX=6
+INDEX=XED_REG_YMM15  -> REXX=1 SIBINDEX=7
+
+
+DISP_WIDTH_8_32()::
+DISP_WIDTH=8 -> nothing
+DISP_WIDTH=32 -> nothing
+
+
+
+###FILE: ./datafiles/knm/knm-disp8-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+NELEM_TUPLE1_4X()::
+otherwise -> nothing
+
+
+###FILE: ./datafiles/avx512f/avx512-evex-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+
+# These bind the operand deciders that control the encoding
+SEQUENCE ISA_BINDINGS
+   FIXUP_EOSZ_ENC_BIND()
+   FIXUP_EASZ_ENC_BIND()
+   ASZ_NONTERM_BIND()
+   INSTRUCTIONS_BIND()     # not calling tree splitter! GSSE instructions must set VEXVALID=1
+   OSZ_NONTERM_ENC_BIND()   # OSZ must be after the instructions so that DF64 is bound (and before any prefixes obviously)
+   PREFIX_ENC_BIND()
+   VEXED_REX_BIND()
+
+# These emit the bits and bytes that make up the encoding
+SEQUENCE ISA_EMIT
+   PREFIX_ENC_EMIT()
+   VEXED_REX_EMIT()
+   INSTRUCTIONS_EMIT()
+
+VEXED_REX()::
+VEXVALID=2 -> EVEX_ENC()
+
+
+#################################################
+SEQUENCE EVEX_ENC_BIND
+         # R,X,B R map(mmm) (byte 1)
+         # W, vvvv, U, pp  (byte 2)
+         # z, LL/RC, b   V', aaa ( byte 3)
+         EVEX_62_REXR_ENC_BIND
+         EVEX_REXX_ENC_BIND
+         EVEX_REXB_ENC_BIND
+         EVEX_REXRR_ENC_BIND
+         EVEX_MAP_ENC_BIND
+         EVEX_REXW_VVVV_ENC_BIND
+         EVEX_UPP_ENC_BIND
+         EVEX_LL_ENC_BIND
+         AVX512_EVEX_BYTE3_ENC_BIND
+
+
+SEQUENCE EVEX_ENC_EMIT
+         EVEX_62_REXR_ENC_EMIT
+         EVEX_REXX_ENC_EMIT
+         EVEX_REXB_ENC_EMIT
+         EVEX_REXRR_ENC_EMIT
+         EVEX_MAP_ENC_EMIT
+         EVEX_REXW_VVVV_ENC_EMIT
+         EVEX_UPP_ENC_EMIT
+         EVEX_LL_ENC_EMIT
+         AVX512_EVEX_BYTE3_ENC_EMIT
+
+
+EVEX_62_REXR_ENC()::
+mode64 REXR=1 -> 0x62 0b0
+mode64 REXR=0 -> 0x62 0b1
+mode32 REXR=1 -> error
+mode32 REXR=0 -> 0x62 0b1
+
+EVEX_REXX_ENC()::
+mode64 REXX=1 -> 0b0
+mode64 REXX=0 -> 0b1
+mode32 REXX=1 -> error
+mode32 REXX=0 -> 0b1
+
+EVEX_REXB_ENC()::
+mode64 REXB=1 -> 0b0
+mode64 REXB=0 -> 0b1
+mode32 REXB=1 -> error
+mode32 REXB=0 -> 0b1
+
+EVEX_REXRR_ENC()::
+mode64 REXRR=1 -> 0b0
+mode64 REXRR=0 -> 0b1
+mode32 REXRR=1 -> error
+mode32 REXRR=0 -> 0b1
+
+EVEX_MAP_ENC()::
+MAP=0  -> 0b0000
+MAP=1  -> 0b0001
+MAP=2  -> 0b0010
+MAP=3  -> 0b0011
+
+EVEX_REXW_VVVV_ENC()::
+true REXW[w] VEXDEST3[u] VEXDEST210[ddd] -> w u_ddd
+
+# emit the EVEX.U=1 with the EVEX.pp field
+EVEX_UPP_ENC()::
+VNP -> 0b100
+V66 -> 0b101
+VF3 -> 0b110
+VF2 -> 0b111
+
+EVEX_LL_ENC()::
+ROUNDC=0 SAE=0 VL128 -> LLRC=0
+ROUNDC=0 SAE=0 VL256 -> LLRC=1
+ROUNDC=0 SAE=0 VL512 -> LLRC=2
+
+# scalars (XED has scalars as VL128)
+ROUNDC=0 SAE=1 VL128 -> LLRC=0 BCRC=1 # sae only, no rounding
+ROUNDC=1 SAE=1 VL128 -> LLRC=0 BCRC=1 # rounding only supported with sae
+ROUNDC=2 SAE=1 VL128 -> LLRC=1 BCRC=1 # rounding only supported with sae
+ROUNDC=3 SAE=1 VL128 -> LLRC=2 BCRC=1 # rounding only supported with sae
+ROUNDC=4 SAE=1 VL128 -> LLRC=3 BCRC=1 # rounding only supported with sae
+
+# everything else (must be VL512)
+ROUNDC=0 SAE=1 VL512 -> LLRC=0 BCRC=1 # sae only, no rounding
+ROUNDC=1 SAE=1 VL512 -> LLRC=0 BCRC=1 # rounding only supported with sae
+ROUNDC=2 SAE=1 VL512 -> LLRC=1 BCRC=1 # rounding only supported with sae
+ROUNDC=3 SAE=1 VL512 -> LLRC=2 BCRC=1 # rounding only supported with sae
+ROUNDC=4 SAE=1 VL512 -> LLRC=3 BCRC=1 # rounding only supported with sae
+
+
+AVX512_EVEX_BYTE3_ENC()::
+ZEROING[z] LLRC[nn] BCRC[b] VEXDEST4=0 MASK[aaa] -> z_nn_b 0b1 aaa
+ZEROING[z] LLRC[nn] BCRC[b] VEXDEST4=1 MASK[aaa] -> z_nn_b 0b0 aaa
+
+
+
+#################################################
+SEQUENCE NEWVEX3_ENC_BIND
+    VEX_TYPE_ENC_BIND
+    VEX_REXR_ENC_BIND
+    VEX_REXXB_ENC_BIND
+    VEX_MAP_ENC_BIND
+    VEX_REG_ENC_BIND
+    VEX_ESCVL_ENC_BIND
+
+SEQUENCE  NEWVEX3_ENC_EMIT
+    VEX_TYPE_ENC_EMIT
+    VEX_REXR_ENC_EMIT
+    VEX_REXXB_ENC_EMIT
+    VEX_MAP_ENC_EMIT
+    VEX_REG_ENC_EMIT
+    VEX_ESCVL_ENC_EMIT
+
+
+
+##############################################################################
+
+AVX512_ROUND()::
+ROUNDC=1 -> LLRC=0 BCRC=1
+ROUNDC=2 -> LLRC=1 BCRC=1
+ROUNDC=3 -> LLRC=2 BCRC=1
+ROUNDC=4 -> LLRC=3 BCRC=1
+
+SAE()::
+SAE=1 -> BCRC=1
+SAE=0 -> BCRC=0
+
+
+###FILE: ./datafiles/avx512f/avx512-disp8-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+ESIZE_128_BITS()::
+otherwise -> nothing
+ESIZE_64_BITS()::
+otherwise -> nothing
+ESIZE_32_BITS()::
+otherwise -> nothing
+ESIZE_16_BITS()::
+otherwise -> nothing
+ESIZE_8_BITS()::
+otherwise -> nothing
+ESIZE_4_BITS()::
+otherwise -> nothing
+ESIZE_2_BITS()::
+otherwise -> nothing
+ESIZE_1_BITS()::
+otherwise -> nothing
+
+NELEM_MOVDDUP()::
+otherwise -> nothing
+NELEM_FULLMEM()::
+otherwise -> nothing
+
+NELEM_HALFMEM()::
+otherwise -> nothing
+
+NELEM_QUARTERMEM()::
+otherwise -> nothing
+
+NELEM_EIGHTHMEM()::
+otherwise -> nothing
+
+NELEM_GPR_READER_BYTE()::
+otherwise -> nothing
+NELEM_GPR_READER_WORD()::
+otherwise -> nothing
+NELEM_GPR_WRITER_LDOP_D()::
+otherwise -> nothing
+NELEM_GPR_WRITER_LDOP_Q()::
+otherwise -> nothing
+NELEM_GPR_WRITER_STORE_BYTE()::
+otherwise -> nothing
+NELEM_GPR_WRITER_STORE_WORD()::
+otherwise -> nothing
+NELEM_TUPLE1_BYTE()::
+otherwise -> nothing
+NELEM_TUPLE1_WORD()::
+otherwise -> nothing
+
+NELEM_SCALAR()::
+otherwise -> nothing
+NELEM_TUPLE1_SUBDWORD()::
+otherwise -> nothing
+NELEM_GPR_READER()::
+otherwise -> nothing
+NELEM_GPR_READER_SUBDWORD()::
+otherwise -> nothing
+NELEM_GPR_WRITER_LDOP()::
+otherwise -> nothing
+NELEM_GPR_WRITER_STORE()::
+otherwise -> nothing
+NELEM_GPR_WRITER_STORE_SUBDWORD()::
+otherwise -> nothing
+
+NELEM_MEM128()::
+BCAST!=0    -> error
+otherwise   -> BCRC=0
+
+# TUPLE1,2,4,8, FULL and HALF
+
+NELEM_TUPLE1()::
+otherwise -> nothing
+
+NELEM_GSCAT()::
+otherwise -> nothing
+
+NELEM_TUPLE2()::
+otherwise -> nothing
+
+NELEM_TUPLE4()::
+otherwise -> nothing
+
+NELEM_TUPLE8()::
+otherwise -> nothing
+
+# these have broadcasting
+
+NELEM_FULL()::
+BCAST!=0    -> BCRC=1
+otherwise   -> BCRC=0
+
+NELEM_HALF()::
+BCAST!=0    -> BCRC=1
+otherwise   -> BCRC=0
+
+FIX_ROUND_LEN512()::
+otherwise -> nothing
+FIX_ROUND_LEN128()::
+otherwise -> nothing
+
+
+
+
+
+
+###FILE: ./datafiles/avx512f/avx512-addressing-enc.txt
+
+#BEGIN_LEGAL
+#
+#Copyright (c) 2018 Intel Corporation
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+#END_LEGAL
+SEQUENCE UISA_VMODRM_ZMM_BIND
+   VMODRM_MOD_ENCODE_BIND()  # FROM HSW
+   VSIB_ENC_BASE_BIND()      # FROM HSW
+   UISA_ENC_INDEX_ZMM_BIND()
+   VSIB_ENC_SCALE_BIND() # FROM HSW
+   VSIB_ENC_BIND()       # FROM HSW
+   SEGMENT_DEFAULT_ENCODE_BIND() # FROM BASE ISA
+   SEGMENT_ENCODE_BIND()         # FROM BASE ISA
+   DISP_NT_BIND()        # FROM BASE ISA
+SEQUENCE UISA_VMODRM_YMM_BIND
+   VMODRM_MOD_ENCODE_BIND()  # FROM HSW
+   VSIB_ENC_BASE_BIND()      # FROM HSW
+   UISA_ENC_INDEX_YMM_BIND()
+   VSIB_ENC_SCALE_BIND()   # FROM HSW
+   VSIB_ENC_BIND()         # FROM HSW
+   SEGMENT_DEFAULT_ENCODE_BIND() # FROM BASE ISA
+   SEGMENT_ENCODE_BIND()         # FROM BASE ISA
+   DISP_NT_BIND()          # FROM BASE ISA
+SEQUENCE UISA_VMODRM_XMM_BIND
+   VMODRM_MOD_ENCODE_BIND()  # FROM HSW
+   VSIB_ENC_BASE_BIND()      # FROM HSW
+   UISA_ENC_INDEX_XMM_BIND()
+   VSIB_ENC_SCALE_BIND()   # FROM HSW
+   VSIB_ENC_BIND()         # FROM HSW
+   SEGMENT_DEFAULT_ENCODE_BIND() # FROM BASE ISA
+   SEGMENT_ENCODE_BIND()         # FROM BASE ISA
+   DISP_NT_BIND()          # FROM BASE ISA
+
+# For now, ignoring the difference in x/y/zmm for the index register. Could
+#  split these.
+SEQUENCE UISA_VMODRM_ZMM_EMIT
+   VSIB_ENC_EMIT()
+   DISP_NT_EMIT()
+SEQUENCE UISA_VMODRM_YMM_EMIT
+   VSIB_ENC_EMIT()
+   DISP_NT_EMIT()
+SEQUENCE UISA_VMODRM_XMM_EMIT
+   VSIB_ENC_EMIT()
+   DISP_NT_EMIT()
+
+######################################
+
+
+
+UISA_ENC_INDEX_ZMM()::
+INDEX=XED_REG_ZMM0   -> VEXDEST4=0 REXX=0 SIBINDEX=0
+INDEX=XED_REG_ZMM1   -> VEXDEST4=0 REXX=0 SIBINDEX=1
+INDEX=XED_REG_ZMM2   -> VEXDEST4=0 REXX=0 SIBINDEX=2
+INDEX=XED_REG_ZMM3   -> VEXDEST4=0 REXX=0 SIBINDEX=3
+INDEX=XED_REG_ZMM4   -> VEXDEST4=0 REXX=0 SIBINDEX=4
+INDEX=XED_REG_ZMM5   -> VEXDEST4=0 REXX=0 SIBINDEX=5
+INDEX=XED_REG_ZMM6   -> VEXDEST4=0 REXX=0 SIBINDEX=6
+INDEX=XED_REG_ZMM7   -> VEXDEST4=0 REXX=0 SIBINDEX=7
+INDEX=XED_REG_ZMM8   -> VEXDEST4=0 REXX=1 SIBINDEX=0
+INDEX=XED_REG_ZMM9   -> VEXDEST4=0 REXX=1 SIBINDEX=1
+INDEX=XED_REG_ZMM10  -> VEXDEST4=0 REXX=1 SIBINDEX=2
+INDEX=XED_REG_ZMM11  -> VEXDEST4=0 REXX=1 SIBINDEX=3
+INDEX=XED_REG_ZMM12  -> VEXDEST4=0 REXX=1 SIBINDEX=4
+INDEX=XED_REG_ZMM13  -> VEXDEST4=0 REXX=1 SIBINDEX=5
+INDEX=XED_REG_ZMM14  -> VEXDEST4=0 REXX=1 SIBINDEX=6
+INDEX=XED_REG_ZMM15  -> VEXDEST4=0 REXX=1 SIBINDEX=7
+INDEX=XED_REG_ZMM16  -> VEXDEST4=1 REXX=0 SIBINDEX=0
+INDEX=XED_REG_ZMM17  -> VEXDEST4=1 REXX=0 SIBINDEX=1
+INDEX=XED_REG_ZMM18  -> VEXDEST4=1 REXX=0 SIBINDEX=2
+INDEX=XED_REG_ZMM19  -> VEXDEST4=1 REXX=0 SIBINDEX=3
+INDEX=XED_REG_ZMM20  -> VEXDEST4=1 REXX=0 SIBINDEX=4
+INDEX=XED_REG_ZMM21  -> VEXDEST4=1 REXX=0 SIBINDEX=5
+INDEX=XED_REG_ZMM22  -> VEXDEST4=1 REXX=0 SIBINDEX=6
+INDEX=XED_REG_ZMM23  -> VEXDEST4=1 REXX=0 SIBINDEX=7
+INDEX=XED_REG_ZMM24  -> VEXDEST4=1 REXX=1 SIBINDEX=0
+INDEX=XED_REG_ZMM25  -> VEXDEST4=1 REXX=1 SIBINDEX=1
+INDEX=XED_REG_ZMM26  -> VEXDEST4=1 REXX=1 SIBINDEX=2
+INDEX=XED_REG_ZMM27  -> VEXDEST4=1 REXX=1 SIBINDEX=3
+INDEX=XED_REG_ZMM28  -> VEXDEST4=1 REXX=1 SIBINDEX=4
+INDEX=XED_REG_ZMM29  -> VEXDEST4=1 REXX=1 SIBINDEX=5
+INDEX=XED_REG_ZMM30  -> VEXDEST4=1 REXX=1 SIBINDEX=6
+INDEX=XED_REG_ZMM31  -> VEXDEST4=1 REXX=1 SIBINDEX=7
+UISA_ENC_INDEX_YMM()::
+INDEX=XED_REG_YMM0   -> VEXDEST4=0 REXX=0 SIBINDEX=0
+INDEX=XED_REG_YMM1   -> VEXDEST4=0 REXX=0 SIBINDEX=1
+INDEX=XED_REG_YMM2   -> VEXDEST4=0 REXX=0 SIBINDEX=2
+INDEX=XED_REG_YMM3   -> VEXDEST4=0 REXX=0 SIBINDEX=3
+INDEX=XED_REG_YMM4   -> VEXDEST4=0 REXX=0 SIBINDEX=4
+INDEX=XED_REG_YMM5   -> VEXDEST4=0 REXX=0 SIBINDEX=5
+INDEX=XED_REG_YMM6   -> VEXDEST4=0 REXX=0 SIBINDEX=6
+INDEX=XED_REG_YMM7   -> VEXDEST4=0 REXX=0 SIBINDEX=7
+INDEX=XED_REG_YMM8   -> VEXDEST4=0 REXX=1 SIBINDEX=0
+INDEX=XED_REG_YMM9   -> VEXDEST4=0 REXX=1 SIBINDEX=1
+INDEX=XED_REG_YMM10  -> VEXDEST4=0 REXX=1 SIBINDEX=2
+INDEX=XED_REG_YMM11  -> VEXDEST4=0 REXX=1 SIBINDEX=3
+INDEX=XED_REG_YMM12  -> VEXDEST4=0 REXX=1 SIBINDEX=4
+INDEX=XED_REG_YMM13  -> VEXDEST4=0 REXX=1 SIBINDEX=5
+INDEX=XED_REG_YMM14  -> VEXDEST4=0 REXX=1 SIBINDEX=6
+INDEX=XED_REG_YMM15  -> VEXDEST4=0 REXX=1 SIBINDEX=7
+INDEX=XED_REG_YMM16  -> VEXDEST4=1 REXX=0 SIBINDEX=0
+INDEX=XED_REG_YMM17  -> VEXDEST4=1 REXX=0 SIBINDEX=1
+INDEX=XED_REG_YMM18  -> VEXDEST4=1 REXX=0 SIBINDEX=2
+INDEX=XED_REG_YMM19  -> VEXDEST4=1 REXX=0 SIBINDEX=3
+INDEX=XED_REG_YMM20  -> VEXDEST4=1 REXX=0 SIBINDEX=4
+INDEX=XED_REG_YMM21  -> VEXDEST4=1 REXX=0 SIBINDEX=5
+INDEX=XED_REG_YMM22  -> VEXDEST4=1 REXX=0 SIBINDEX=6
+INDEX=XED_REG_YMM23  -> VEXDEST4=1 REXX=0 SIBINDEX=7
+INDEX=XED_REG_YMM24  -> VEXDEST4=1 REXX=1 SIBINDEX=0
+INDEX=XED_REG_YMM25  -> VEXDEST4=1 REXX=1 SIBINDEX=1
+INDEX=XED_REG_YMM26  -> VEXDEST4=1 REXX=1 SIBINDEX=2
+INDEX=XED_REG_YMM27  -> VEXDEST4=1 REXX=1 SIBINDEX=3
+INDEX=XED_REG_YMM28  -> VEXDEST4=1 REXX=1 SIBINDEX=4
+INDEX=XED_REG_YMM29  -> VEXDEST4=1 REXX=1 SIBINDEX=5
+INDEX=XED_REG_YMM30  -> VEXDEST4=1 REXX=1 SIBINDEX=6
+INDEX=XED_REG_YMM31  -> VEXDEST4=1 REXX=1 SIBINDEX=7
+UISA_ENC_INDEX_XMM()::
+INDEX=XED_REG_XMM0   -> VEXDEST4=0 REXX=0 SIBINDEX=0
+INDEX=XED_REG_XMM1   -> VEXDEST4=0 REXX=0 SIBINDEX=1
+INDEX=XED_REG_XMM2   -> VEXDEST4=0 REXX=0 SIBINDEX=2
+INDEX=XED_REG_XMM3   -> VEXDEST4=0 REXX=0 SIBINDEX=3
+INDEX=XED_REG_XMM4   -> VEXDEST4=0 REXX=0 SIBINDEX=4
+INDEX=XED_REG_XMM5   -> VEXDEST4=0 REXX=0 SIBINDEX=5
+INDEX=XED_REG_XMM6   -> VEXDEST4=0 REXX=0 SIBINDEX=6
+INDEX=XED_REG_XMM7   -> VEXDEST4=0 REXX=0 SIBINDEX=7
+INDEX=XED_REG_XMM8   -> VEXDEST4=0 REXX=1 SIBINDEX=0
+INDEX=XED_REG_XMM9   -> VEXDEST4=0 REXX=1 SIBINDEX=1
+INDEX=XED_REG_XMM10  -> VEXDEST4=0 REXX=1 SIBINDEX=2
+INDEX=XED_REG_XMM11  -> VEXDEST4=0 REXX=1 SIBINDEX=3
+INDEX=XED_REG_XMM12  -> VEXDEST4=0 REXX=1 SIBINDEX=4
+INDEX=XED_REG_XMM13  -> VEXDEST4=0 REXX=1 SIBINDEX=5
+INDEX=XED_REG_XMM14  -> VEXDEST4=0 REXX=1 SIBINDEX=6
+INDEX=XED_REG_XMM15  -> VEXDEST4=0 REXX=1 SIBINDEX=7
+INDEX=XED_REG_XMM16  -> VEXDEST4=1 REXX=0 SIBINDEX=0
+INDEX=XED_REG_XMM17  -> VEXDEST4=1 REXX=0 SIBINDEX=1
+INDEX=XED_REG_XMM18  -> VEXDEST4=1 REXX=0 SIBINDEX=2
+INDEX=XED_REG_XMM19  -> VEXDEST4=1 REXX=0 SIBINDEX=3
+INDEX=XED_REG_XMM20  -> VEXDEST4=1 REXX=0 SIBINDEX=4
+INDEX=XED_REG_XMM21  -> VEXDEST4=1 REXX=0 SIBINDEX=5
+INDEX=XED_REG_XMM22  -> VEXDEST4=1 REXX=0 SIBINDEX=6
+INDEX=XED_REG_XMM23  -> VEXDEST4=1 REXX=0 SIBINDEX=7
+INDEX=XED_REG_XMM24  -> VEXDEST4=1 REXX=1 SIBINDEX=0
+INDEX=XED_REG_XMM25  -> VEXDEST4=1 REXX=1 SIBINDEX=1
+INDEX=XED_REG_XMM26  -> VEXDEST4=1 REXX=1 SIBINDEX=2
+INDEX=XED_REG_XMM27  -> VEXDEST4=1 REXX=1 SIBINDEX=3
+INDEX=XED_REG_XMM28  -> VEXDEST4=1 REXX=1 SIBINDEX=4
+INDEX=XED_REG_XMM29  -> VEXDEST4=1 REXX=1 SIBINDEX=5
+INDEX=XED_REG_XMM30  -> VEXDEST4=1 REXX=1 SIBINDEX=6
+INDEX=XED_REG_XMM31  -> VEXDEST4=1 REXX=1 SIBINDEX=7
+
+
+
+
+
+
+

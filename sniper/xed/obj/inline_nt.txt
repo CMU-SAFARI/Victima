@@ -1,0 +1,2113 @@
+nt: NELEM_TUPLE1_SUBDWORD
+nt: UISA_ENC_INDEX_XMM
+nt: SIB_NT
+nt: NELEM_EIGHTHMEM
+nt: MODRM_MOD_EA32_DISP0
+nt: OVERRIDE_SEG1
+nt: OVERRIDE_SEG0
+nt: SIBBASE_ENCODE
+nt: VEX_ESCVL_ENC
+nt: SIBSCALE_ENCODE
+nt: NELEM_TUPLE1_4X
+nt: OSZ_NONTERM_ENC
+nt: MODRM_MOD_EA32_DISP8
+nt: REMOVE_SEGMENT
+nt: BRANCH_HINT
+nt: NELEM_FULL
+nt: VEX_REG_ENC
+nt: NELEM_TUPLE8
+nt: DISP_WIDTH_0_8_32
+nt: NELEM_TUPLE4
+nt: DISP_WIDTH_8_32
+nt: NELEM_HALFMEM
+nt: SAE
+nt: MODRM_MOD_EA16_DISP0
+nt: AVX512_ROUND
+nt: ESIZE_128_BITS
+nt: VSIB_ENC_INDEX_XMM
+nt: EVEX_LL_ENC
+nt: ESIZE_2_BITS
+nt: NELEM_GPR_READER_BYTE
+nt: MODRM_RM_ENCODE_EA32_SIB0
+nt: IMMUNE_REXW
+nt: MODRM_MOD_EA16_DISP16
+nt: IGNORE66
+nt: IMMUNE66_LOOP64
+nt: NELEM_GPR_READER
+nt: DF64
+nt: MODRM_MOD_EA64_DISP32
+nt: ESIZE_4_BITS
+nt: REX_PREFIX_ENC
+nt: DISP_WIDTH_0
+nt: FIXUP_EASZ_ENC
+nt: DISP_WIDTH_0_8_16
+nt: FIX_ROUND_LEN128
+nt: VEX_REXR_ENC
+nt: DISP_WIDTH_16
+nt: XOP_REXXB_ENC
+nt: VSIB_ENC_SCALE
+nt: MODRM_RM_ENCODE_EANOT16_SIB1
+nt: SIBINDEX_ENCODE
+nt: ESIZE_64_BITS
+nt: EVEX_62_REXR_ENC
+nt: NELEM_TUPLE1_WORD
+nt: NELEM_SCALAR
+nt: SIBINDEX_ENCODE_SIB1
+working rule:
+ INDEX=ArAX()  ->	FB SIBINDEX=0 value=0x0 	FB REXX=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_AX EASZ=1  ->	FB SIBINDEX=0 value=0x0 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_EAX EASZ=2  ->	FB SIBINDEX=0 value=0x0 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RAX EASZ=3  ->	FB SIBINDEX=0 value=0x0 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar8()  ->	FB SIBINDEX=0 value=0x0 	FB REXX=1 value=0x1
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R8W EASZ=1  ->	FB SIBINDEX=0 value=0x0 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R8D EASZ=2  ->	FB SIBINDEX=0 value=0x0 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R8 EASZ=3  ->	FB SIBINDEX=0 value=0x0 	FB REXX=1 value=0x1
+working rule:
+ INDEX=ArCX()  ->	FB SIBINDEX=1 value=0x1 	FB REXX=0 value=0x0
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_CX EASZ=1  ->	FB SIBINDEX=1 value=0x1 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_ECX EASZ=2  ->	FB SIBINDEX=1 value=0x1 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RCX EASZ=3  ->	FB SIBINDEX=1 value=0x1 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar9()  ->	FB SIBINDEX=1 value=0x1 	FB REXX=1 value=0x1
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R9W EASZ=1  ->	FB SIBINDEX=1 value=0x1 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R9D EASZ=2  ->	FB SIBINDEX=1 value=0x1 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R9 EASZ=3  ->	FB SIBINDEX=1 value=0x1 	FB REXX=1 value=0x1
+working rule:
+ INDEX=ArDX()  ->	FB SIBINDEX=2 value=0x2 	FB REXX=0 value=0x0
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_DX EASZ=1  ->	FB SIBINDEX=2 value=0x2 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_EDX EASZ=2  ->	FB SIBINDEX=2 value=0x2 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RDX EASZ=3  ->	FB SIBINDEX=2 value=0x2 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar10()  ->	FB SIBINDEX=2 value=0x2 	FB REXX=1 value=0x1
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R10W EASZ=1  ->	FB SIBINDEX=2 value=0x2 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R10D EASZ=2  ->	FB SIBINDEX=2 value=0x2 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R10 EASZ=3  ->	FB SIBINDEX=2 value=0x2 	FB REXX=1 value=0x1
+working rule:
+ INDEX=ArBX()  ->	FB SIBINDEX=3 value=0x3 	FB REXX=0 value=0x0
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_BX EASZ=1  ->	FB SIBINDEX=3 value=0x3 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_EBX EASZ=2  ->	FB SIBINDEX=3 value=0x3 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RBX EASZ=3  ->	FB SIBINDEX=3 value=0x3 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar11()  ->	FB SIBINDEX=3 value=0x3 	FB REXX=1 value=0x1
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R11W EASZ=1  ->	FB SIBINDEX=3 value=0x3 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R11D EASZ=2  ->	FB SIBINDEX=3 value=0x3 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R11 EASZ=3  ->	FB SIBINDEX=3 value=0x3 	FB REXX=1 value=0x1
+working rule:
+ INDEX=Ar12()  ->	FB SIBINDEX=4 value=0x4 	FB REXX=1 value=0x1
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R12W EASZ=1  ->	FB SIBINDEX=4 value=0x4 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R12D EASZ=2  ->	FB SIBINDEX=4 value=0x4 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R12 EASZ=3  ->	FB SIBINDEX=4 value=0x4 	FB REXX=1 value=0x1
+working rule:
+ INDEX=ArBP()  ->	FB SIBINDEX=5 value=0x5 	FB REXX=0 value=0x0
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_BP EASZ=1  ->	FB SIBINDEX=5 value=0x5 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_EBP EASZ=2  ->	FB SIBINDEX=5 value=0x5 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RBP EASZ=3  ->	FB SIBINDEX=5 value=0x5 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar13()  ->	FB SIBINDEX=5 value=0x5 	FB REXX=1 value=0x1
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R13W EASZ=1  ->	FB SIBINDEX=5 value=0x5 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R13D EASZ=2  ->	FB SIBINDEX=5 value=0x5 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R13 EASZ=3  ->	FB SIBINDEX=5 value=0x5 	FB REXX=1 value=0x1
+working rule:
+ INDEX=ArSI()  ->	FB SIBINDEX=6 value=0x6 	FB REXX=0 value=0x0
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_SI EASZ=1  ->	FB SIBINDEX=6 value=0x6 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_ESI EASZ=2  ->	FB SIBINDEX=6 value=0x6 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RSI EASZ=3  ->	FB SIBINDEX=6 value=0x6 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar14()  ->	FB SIBINDEX=6 value=0x6 	FB REXX=1 value=0x1
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R14W EASZ=1  ->	FB SIBINDEX=6 value=0x6 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R14D EASZ=2  ->	FB SIBINDEX=6 value=0x6 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R14 EASZ=3  ->	FB SIBINDEX=6 value=0x6 	FB REXX=1 value=0x1
+working rule:
+ INDEX=ArDI()  ->	FB SIBINDEX=7 value=0x7 	FB REXX=0 value=0x0
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_DI EASZ=1  ->	FB SIBINDEX=7 value=0x7 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_EDI EASZ=2  ->	FB SIBINDEX=7 value=0x7 	FB REXX=0 value=0x0
+new rule INDEX=XED_REG_RDI EASZ=3  ->	FB SIBINDEX=7 value=0x7 	FB REXX=0 value=0x0
+working rule:
+ INDEX=Ar15()  ->	FB SIBINDEX=7 value=0x7 	FB REXX=1 value=0x1
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule INDEX=XED_REG_R15W EASZ=1  ->	FB SIBINDEX=7 value=0x7 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R15D EASZ=2  ->	FB SIBINDEX=7 value=0x7 	FB REXX=1 value=0x1
+new rule INDEX=XED_REG_R15 EASZ=3  ->	FB SIBINDEX=7 value=0x7 	FB REXX=1 value=0x1
+nt: EVEX_REXX_ENC
+nt: XOP_TYPE_ENC
+nt: ESIZE_8_BITS
+nt: NELEM_GPR_WRITER_STORE_BYTE
+nt: NELEM_MOVDDUP
+nt: IMMUNE66
+nt: SIBBASE_ENCODE_SIB1
+working rule:
+ BASE0=ArAX()  ->	FB SIBBASE=0 value=0x0 	FB REXB=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_AX EASZ=1  ->	FB SIBBASE=0 value=0x0 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_EAX EASZ=2  ->	FB SIBBASE=0 value=0x0 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RAX EASZ=3  ->	FB SIBBASE=0 value=0x0 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar8()  ->	FB SIBBASE=0 value=0x0 	FB REXB=1 value=0x1
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R8W EASZ=1  ->	FB SIBBASE=0 value=0x0 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R8D EASZ=2  ->	FB SIBBASE=0 value=0x0 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R8 EASZ=3  ->	FB SIBBASE=0 value=0x0 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArCX()  ->	FB SIBBASE=1 value=0x1 	FB REXB=0 value=0x0
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_CX EASZ=1  ->	FB SIBBASE=1 value=0x1 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_ECX EASZ=2  ->	FB SIBBASE=1 value=0x1 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RCX EASZ=3  ->	FB SIBBASE=1 value=0x1 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar9()  ->	FB SIBBASE=1 value=0x1 	FB REXB=1 value=0x1
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R9W EASZ=1  ->	FB SIBBASE=1 value=0x1 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R9D EASZ=2  ->	FB SIBBASE=1 value=0x1 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R9 EASZ=3  ->	FB SIBBASE=1 value=0x1 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArDX()  ->	FB SIBBASE=2 value=0x2 	FB REXB=0 value=0x0
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_DX EASZ=1  ->	FB SIBBASE=2 value=0x2 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_EDX EASZ=2  ->	FB SIBBASE=2 value=0x2 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RDX EASZ=3  ->	FB SIBBASE=2 value=0x2 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar10()  ->	FB SIBBASE=2 value=0x2 	FB REXB=1 value=0x1
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R10W EASZ=1  ->	FB SIBBASE=2 value=0x2 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R10D EASZ=2  ->	FB SIBBASE=2 value=0x2 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R10 EASZ=3  ->	FB SIBBASE=2 value=0x2 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArBX()  ->	FB SIBBASE=3 value=0x3 	FB REXB=0 value=0x0
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_BX EASZ=1  ->	FB SIBBASE=3 value=0x3 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_EBX EASZ=2  ->	FB SIBBASE=3 value=0x3 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RBX EASZ=3  ->	FB SIBBASE=3 value=0x3 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar11()  ->	FB SIBBASE=3 value=0x3 	FB REXB=1 value=0x1
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R11W EASZ=1  ->	FB SIBBASE=3 value=0x3 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R11D EASZ=2  ->	FB SIBBASE=3 value=0x3 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R11 EASZ=3  ->	FB SIBBASE=3 value=0x3 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArSP()  ->	FB SIBBASE=4 value=0x4 	FB REXB=0 value=0x0
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_SP EASZ=1  ->	FB SIBBASE=4 value=0x4 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_ESP EASZ=2  ->	FB SIBBASE=4 value=0x4 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RSP EASZ=3  ->	FB SIBBASE=4 value=0x4 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar12()  ->	FB SIBBASE=4 value=0x4 	FB REXB=1 value=0x1
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R12W EASZ=1  ->	FB SIBBASE=4 value=0x4 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R12D EASZ=2  ->	FB SIBBASE=4 value=0x4 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R12 EASZ=3  ->	FB SIBBASE=4 value=0x4 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArBP()  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=0 value=0x0
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_BP EASZ=1  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_EBP EASZ=2  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RBP EASZ=3  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar13()  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=1 value=0x1
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R13W EASZ=1  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R13D EASZ=2  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R13 EASZ=3  ->	nt NT[DISP_WIDTH_0_8_32] 	FB SIBBASE=5 value=0x5 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArSI()  ->	FB SIBBASE=6 value=0x6 	FB REXB=0 value=0x0
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_SI EASZ=1  ->	FB SIBBASE=6 value=0x6 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_ESI EASZ=2  ->	FB SIBBASE=6 value=0x6 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RSI EASZ=3  ->	FB SIBBASE=6 value=0x6 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar14()  ->	FB SIBBASE=6 value=0x6 	FB REXB=1 value=0x1
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R14W EASZ=1  ->	FB SIBBASE=6 value=0x6 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R14D EASZ=2  ->	FB SIBBASE=6 value=0x6 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R14 EASZ=3  ->	FB SIBBASE=6 value=0x6 	FB REXB=1 value=0x1
+working rule:
+ BASE0=ArDI()  ->	FB SIBBASE=7 value=0x7 	FB REXB=0 value=0x0
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_DI EASZ=1  ->	FB SIBBASE=7 value=0x7 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_EDI EASZ=2  ->	FB SIBBASE=7 value=0x7 	FB REXB=0 value=0x0
+new rule BASE0=XED_REG_RDI EASZ=3  ->	FB SIBBASE=7 value=0x7 	FB REXB=0 value=0x0
+working rule:
+ BASE0=Ar15()  ->	FB SIBBASE=7 value=0x7 	FB REXB=1 value=0x1
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R15W EASZ=1  ->	FB SIBBASE=7 value=0x7 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R15D EASZ=2  ->	FB SIBBASE=7 value=0x7 	FB REXB=1 value=0x1
+new rule BASE0=XED_REG_R15 EASZ=3  ->	FB SIBBASE=7 value=0x7 	FB REXB=1 value=0x1
+nt: CR_WIDTH
+nt: NELEM_GPR_READER_WORD
+nt: VEX_MAP_ENC
+nt: MODRM_MOD_EA64_DISP8
+working rule:
+ BASE0=GPR64e()  ->	FB MOD=1 value=0x1
+inlining rule: GPR64e()::
+	OUTREG=XED_REG_RAX  ->	nothing
+	OUTREG=XED_REG_RBX  ->	nothing
+	OUTREG=XED_REG_RCX  ->	nothing
+	OUTREG=XED_REG_RDX  ->	nothing
+	OUTREG=XED_REG_RSP  ->	nothing
+	OUTREG=XED_REG_RBP  ->	nothing
+	OUTREG=XED_REG_RSI  ->	nothing
+	OUTREG=XED_REG_RDI  ->	nothing
+	OUTREG=XED_REG_R8  ->	nothing
+	OUTREG=XED_REG_R9  ->	nothing
+	OUTREG=XED_REG_R10  ->	nothing
+	OUTREG=XED_REG_R11  ->	nothing
+	OUTREG=XED_REG_R12  ->	nothing
+	OUTREG=XED_REG_R13  ->	nothing
+	OUTREG=XED_REG_R14  ->	nothing
+	OUTREG=XED_REG_R15  ->	nothing
+
+new rule BASE0=XED_REG_RAX  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RBX  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RCX  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RDX  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RSP  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RBP  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RSI  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_RDI  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R8  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R9  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R10  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R11  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R12  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R13  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R14  ->	FB MOD=1 value=0x1
+new rule BASE0=XED_REG_R15  ->	FB MOD=1 value=0x1
+nt: MODRM_MOD_EA64_DISP0
+nt: NELEM_TUPLE2
+nt: PREFIX_ENC
+nt: REFINING66
+nt: MODRM_RM_ENCODE_EA64_SIB0
+nt: VSIB_ENC
+nt: EVEX_REXB_ENC
+nt: ESIZE_32_BITS
+nt: VEXED_REX
+nt: VEX_REXXB_ENC
+nt: NELEM_HALF
+nt: EVEX_REXRR_ENC
+nt: AVX512_EVEX_BYTE3_ENC
+nt: EVEX_REXW_VVVV_ENC
+nt: DISP_WIDTH_8
+nt: UISA_ENC_INDEX_YMM
+nt: MODRM_MOD_EA32_DISP32
+working rule:
+ BASE0=GPR32e()  ->	FB MOD=2 value=0x2
+inlining rule: GPR32e()::
+	MODE=1 OUTREG=GPR32e_m32()  ->	nothing
+	MODE=2 OUTREG=GPR32e_m64()  ->	nothing
+
+new rule MODE=1 BASE0=GPR32e_m32()  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=GPR32e_m64()  ->	FB MOD=2 value=0x2
+working rule:
+ BASE0=rIPa() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: rIPa()::
+	OUTREG=XED_REG_EIP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RIP EASZ=3  ->	nothing
+
+new rule MODE=2 BASE0=XED_REG_EIP EASZ=2  ->	FB MOD=0 value=0x0
+new rule MODE=2 BASE0=XED_REG_RIP EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ MODE=1 BASE0=GPR32e_m32()  ->	FB MOD=2 value=0x2
+inlining rule: GPR32e_m32()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+
+new rule MODE=1 BASE0=XED_REG_EAX  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_EBX  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_ECX  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_EDX  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_ESP  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_EBP  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_ESI  ->	FB MOD=2 value=0x2
+new rule MODE=1 BASE0=XED_REG_EDI  ->	FB MOD=2 value=0x2
+working rule:
+ MODE=2 BASE0=GPR32e_m64()  ->	FB MOD=2 value=0x2
+inlining rule: GPR32e_m64()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+	OUTREG=XED_REG_R8D  ->	nothing
+	OUTREG=XED_REG_R9D  ->	nothing
+	OUTREG=XED_REG_R10D  ->	nothing
+	OUTREG=XED_REG_R11D  ->	nothing
+	OUTREG=XED_REG_R12D  ->	nothing
+	OUTREG=XED_REG_R13D  ->	nothing
+	OUTREG=XED_REG_R14D  ->	nothing
+	OUTREG=XED_REG_R15D  ->	nothing
+
+new rule MODE=2 BASE0=XED_REG_EAX  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_EBX  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_ECX  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_EDX  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_ESP  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_EBP  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_ESI  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_EDI  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R8D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R9D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R10D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R11D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R12D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R13D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R14D  ->	FB MOD=2 value=0x2
+new rule MODE=2 BASE0=XED_REG_R15D  ->	FB MOD=2 value=0x2
+nt: BND_R_CHECK
+nt: VSIB_ENC_INDEX_YMM
+nt: NELEM_TUPLE1_BYTE
+nt: MODRM_RM_ENCODE_EA16_SIB0
+nt: FIXUP_EOSZ_ENC
+nt: SEGMENT_DEFAULT_ENCODE
+working rule:
+ BASE0=rIPa()  ->	nothing
+inlining rule: rIPa()::
+	OUTREG=XED_REG_EIP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RIP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_EIP EASZ=2  ->	nothing
+new rule BASE0=XED_REG_RIP EASZ=3  ->	nothing
+working rule:
+ BASE0=ArSP()  ->	FB DEFAULT_SEG=1 value=0x1
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_SP EASZ=1  ->	FB DEFAULT_SEG=1 value=0x1
+new rule BASE0=XED_REG_ESP EASZ=2  ->	FB DEFAULT_SEG=1 value=0x1
+new rule BASE0=XED_REG_RSP EASZ=3  ->	FB DEFAULT_SEG=1 value=0x1
+working rule:
+ BASE0=ArBP()  ->	FB DEFAULT_SEG=1 value=0x1
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_BP EASZ=1  ->	FB DEFAULT_SEG=1 value=0x1
+new rule BASE0=XED_REG_EBP EASZ=2  ->	FB DEFAULT_SEG=1 value=0x1
+new rule BASE0=XED_REG_RBP EASZ=3  ->	FB DEFAULT_SEG=1 value=0x1
+working rule:
+ BASE0=ArAX()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_AX EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_EAX EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_RAX EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=ArCX()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_CX EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_ECX EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_RCX EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=ArDX()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_DX EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_EDX EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_RDX EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=ArBX()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_BX EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_EBX EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_RBX EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=ArSI()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_SI EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_ESI EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_RSI EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=ArDI()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_DI EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_EDI EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_RDI EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar8()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R8W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R8D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R8 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar9()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R9W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R9D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R9 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar10()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R10W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R10D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R10 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar11()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R11W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R11D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R11 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar12()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R12W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R12D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R12 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar13()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R13W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R13D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R13 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar14()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R14W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R14D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R14 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+working rule:
+ BASE0=Ar15()  ->	FB DEFAULT_SEG=0 value=0x0
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R15W EASZ=1  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R15D EASZ=2  ->	FB DEFAULT_SEG=0 value=0x0
+new rule BASE0=XED_REG_R15 EASZ=3  ->	FB DEFAULT_SEG=0 value=0x0
+nt: NELEM_QUARTERMEM
+nt: REMOVE_SEGMENT_AGEN1
+working rule:
+ SEG0=SEGe()  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+inlining rule: SEGe()::
+	OUTREG=XED_REG_DS  ->	nothing
+	OUTREG=XED_REG_CS  ->	nothing
+	OUTREG=XED_REG_ES  ->	nothing
+	OUTREG=XED_REG_FS  ->	nothing
+	OUTREG=XED_REG_GS  ->	nothing
+	OUTREG=XED_REG_SS  ->	nothing
+
+new rule SEG0=XED_REG_DS  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+new rule SEG0=XED_REG_CS  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+new rule SEG0=XED_REG_ES  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+new rule SEG0=XED_REG_FS  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+new rule SEG0=XED_REG_GS  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+new rule SEG0=XED_REG_SS  ->	FB ERROR=XED_ERROR_GENERAL_ERROR
+nt: DISP_NT
+nt: VMODRM_MOD_ENCODE
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArBP()  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_BP EASZ=1  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_EBP EASZ=2  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RBP EASZ=3  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar13()  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_R13W EASZ=1  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_R13D EASZ=2  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_R13 EASZ=3  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArBP()  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_BP EASZ=1  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_EBP EASZ=2  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RBP EASZ=3  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar13()  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R13W EASZ=1  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R13D EASZ=2  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R13 EASZ=3  ->	FB MOD=1 value=0x1 	FB DISP_WIDTH=8 value=0x8 	FB DISP=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArAX()  ->	FB MOD=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_AX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_EAX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RAX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArBX()  ->	FB MOD=0 value=0x0
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_BX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_EBX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RBX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArCX()  ->	FB MOD=0 value=0x0
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_CX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_ECX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RCX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArDX()  ->	FB MOD=0 value=0x0
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_DX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_EDX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RDX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArSI()  ->	FB MOD=0 value=0x0
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_SI EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_ESI EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RSI EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArDI()  ->	FB MOD=0 value=0x0
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_DI EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_EDI EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RDI EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=ArSP()  ->	FB MOD=0 value=0x0
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_SP EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_ESP EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 BASE0=XED_REG_RSP EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar8() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R8W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R8D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R8 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar9() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R9W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R9D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R9 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar10() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R10W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R10D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R10 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar11() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R11W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R11D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R11 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar12() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R12W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R12D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R12 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar14() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R14W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R14D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R14 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=2 DISP_WIDTH=0 BASE0=Ar15() MODE=2  ->	FB MOD=0 value=0x0
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R15W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R15D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=2 DISP_WIDTH=0 MODE=2 BASE0=XED_REG_R15 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArAX()  ->	FB MOD=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_AX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_EAX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RAX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArBX()  ->	FB MOD=0 value=0x0
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_BX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_EBX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RBX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArCX()  ->	FB MOD=0 value=0x0
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_CX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_ECX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RCX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArDX()  ->	FB MOD=0 value=0x0
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_DX EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_EDX EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RDX EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArSI()  ->	FB MOD=0 value=0x0
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_SI EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_ESI EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RSI EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArDI()  ->	FB MOD=0 value=0x0
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_DI EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_EDI EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RDI EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=ArSP()  ->	FB MOD=0 value=0x0
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_SP EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_ESP EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_RSP EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar8()  ->	FB MOD=0 value=0x0
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R8W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R8D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R8 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar9()  ->	FB MOD=0 value=0x0
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R9W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R9D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R9 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar10()  ->	FB MOD=0 value=0x0
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R10W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R10D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R10 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar11()  ->	FB MOD=0 value=0x0
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R11W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R11D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R11 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar12()  ->	FB MOD=0 value=0x0
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R12W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R12D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R12 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar14()  ->	FB MOD=0 value=0x0
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R14W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R14D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R14 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=0 BASE0=Ar15()  ->	FB MOD=0 value=0x0
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R15W EASZ=1  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R15D EASZ=2  ->	FB MOD=0 value=0x0
+new rule EASZ=3 DISP_WIDTH=0 BASE0=XED_REG_R15 EASZ=3  ->	FB MOD=0 value=0x0
+working rule:
+ EASZ=3 DISP_WIDTH=8 BASE0=GPR64e()  ->	FB MOD=1 value=0x1
+inlining rule: GPR64e()::
+	OUTREG=XED_REG_RAX  ->	nothing
+	OUTREG=XED_REG_RBX  ->	nothing
+	OUTREG=XED_REG_RCX  ->	nothing
+	OUTREG=XED_REG_RDX  ->	nothing
+	OUTREG=XED_REG_RSP  ->	nothing
+	OUTREG=XED_REG_RBP  ->	nothing
+	OUTREG=XED_REG_RSI  ->	nothing
+	OUTREG=XED_REG_RDI  ->	nothing
+	OUTREG=XED_REG_R8  ->	nothing
+	OUTREG=XED_REG_R9  ->	nothing
+	OUTREG=XED_REG_R10  ->	nothing
+	OUTREG=XED_REG_R11  ->	nothing
+	OUTREG=XED_REG_R12  ->	nothing
+	OUTREG=XED_REG_R13  ->	nothing
+	OUTREG=XED_REG_R14  ->	nothing
+	OUTREG=XED_REG_R15  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RAX  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RBX  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RCX  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RDX  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RSP  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RBP  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RSI  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_RDI  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R8  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R9  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R10  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R11  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R12  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R13  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R14  ->	FB MOD=1 value=0x1
+new rule EASZ=3 DISP_WIDTH=8 BASE0=XED_REG_R15  ->	FB MOD=1 value=0x1
+working rule:
+ EASZ=2 DISP_WIDTH=32 BASE0=GPR32e()  ->	FB MOD=2 value=0x2
+inlining rule: GPR32e()::
+	MODE=1 OUTREG=GPR32e_m32()  ->	nothing
+	MODE=2 OUTREG=GPR32e_m64()  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=GPR32e_m32()  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=GPR32e_m64()  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArAX()  ->	FB MOD=2 value=0x2
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_AX EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_EAX EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RAX EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArBX()  ->	FB MOD=2 value=0x2
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_BX EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_EBX EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RBX EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArCX()  ->	FB MOD=2 value=0x2
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_CX EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_ECX EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RCX EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArDX()  ->	FB MOD=2 value=0x2
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_DX EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_EDX EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RDX EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArSI()  ->	FB MOD=2 value=0x2
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_SI EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_ESI EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RSI EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArDI()  ->	FB MOD=2 value=0x2
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_DI EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_EDI EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RDI EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArSP()  ->	FB MOD=2 value=0x2
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_SP EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_ESP EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RSP EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=ArBP()  ->	FB MOD=2 value=0x2
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_BP EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_EBP EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_RBP EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar8()  ->	FB MOD=2 value=0x2
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R8W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R8D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R8 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar9()  ->	FB MOD=2 value=0x2
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R9W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R9D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R9 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar10()  ->	FB MOD=2 value=0x2
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R10W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R10D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R10 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar11()  ->	FB MOD=2 value=0x2
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R11W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R11D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R11 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar12()  ->	FB MOD=2 value=0x2
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R12W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R12D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R12 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar13()  ->	FB MOD=2 value=0x2
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R13W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R13D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R13 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar14()  ->	FB MOD=2 value=0x2
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R14W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R14D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R14 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=3 DISP_WIDTH=32 BASE0=Ar15()  ->	FB MOD=2 value=0x2
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R15W EASZ=1  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R15D EASZ=2  ->	FB MOD=2 value=0x2
+new rule EASZ=3 DISP_WIDTH=32 BASE0=XED_REG_R15 EASZ=3  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=GPR32e_m32()  ->	FB MOD=2 value=0x2
+inlining rule: GPR32e_m32()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_EAX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_EBX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_ECX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_EDX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_ESP  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_EBP  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_ESI  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=1 BASE0=XED_REG_EDI  ->	FB MOD=2 value=0x2
+working rule:
+ EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=GPR32e_m64()  ->	FB MOD=2 value=0x2
+inlining rule: GPR32e_m64()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+	OUTREG=XED_REG_R8D  ->	nothing
+	OUTREG=XED_REG_R9D  ->	nothing
+	OUTREG=XED_REG_R10D  ->	nothing
+	OUTREG=XED_REG_R11D  ->	nothing
+	OUTREG=XED_REG_R12D  ->	nothing
+	OUTREG=XED_REG_R13D  ->	nothing
+	OUTREG=XED_REG_R14D  ->	nothing
+	OUTREG=XED_REG_R15D  ->	nothing
+
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_EAX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_EBX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_ECX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_EDX  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_ESP  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_EBP  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_ESI  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_EDI  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R8D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R9D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R10D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R11D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R12D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R13D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R14D  ->	FB MOD=2 value=0x2
+new rule EASZ=2 DISP_WIDTH=32 MODE=2 BASE0=XED_REG_R15D  ->	FB MOD=2 value=0x2
+nt: UISA_ENC_INDEX_ZMM
+nt: FIXUP_SMODE_ENC
+nt: FORCE64
+nt: NELEM_GSCAT
+nt: SEGMENT_ENCODE
+nt: MODRM_RM_ENCODE
+nt: FIX_ROUND_LEN512
+nt: NELEM_GPR_READER_SUBDWORD
+nt: NELEM_GPR_WRITER_LDOP
+nt: ERROR
+nt: DISP_WIDTH_32
+nt: VEX_TYPE_ENC
+nt: EVEX_UPP_ENC
+nt: EVEX_MAP_ENC
+nt: NELEM_FULLMEM
+nt: NELEM_GPR_WRITER_STORE
+nt: ESIZE_1_BITS
+nt: NELEM_GPR_WRITER_STORE_SUBDWORD
+nt: SE_IMM8
+nt: MODRM_MOD_EA16_DISP8
+nt: NELEM_GPR_WRITER_LDOP_Q
+nt: BND_B_CHECK
+nt: SIB_REQUIRED_ENCODE
+working rule:
+ EASZ=2 INDEX=GPR32e()  ->	FB SIB=1 value=0x1
+inlining rule: GPR32e()::
+	MODE=1 OUTREG=GPR32e_m32()  ->	nothing
+	MODE=2 OUTREG=GPR32e_m64()  ->	nothing
+
+new rule EASZ=2 MODE=1 INDEX=GPR32e_m32()  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=GPR32e_m64()  ->	FB SIB=1 value=0x1
+working rule:
+ EASZ=3 INDEX=GPR64e()  ->	FB SIB=1 value=0x1
+inlining rule: GPR64e()::
+	OUTREG=XED_REG_RAX  ->	nothing
+	OUTREG=XED_REG_RBX  ->	nothing
+	OUTREG=XED_REG_RCX  ->	nothing
+	OUTREG=XED_REG_RDX  ->	nothing
+	OUTREG=XED_REG_RSP  ->	nothing
+	OUTREG=XED_REG_RBP  ->	nothing
+	OUTREG=XED_REG_RSI  ->	nothing
+	OUTREG=XED_REG_RDI  ->	nothing
+	OUTREG=XED_REG_R8  ->	nothing
+	OUTREG=XED_REG_R9  ->	nothing
+	OUTREG=XED_REG_R10  ->	nothing
+	OUTREG=XED_REG_R11  ->	nothing
+	OUTREG=XED_REG_R12  ->	nothing
+	OUTREG=XED_REG_R13  ->	nothing
+	OUTREG=XED_REG_R14  ->	nothing
+	OUTREG=XED_REG_R15  ->	nothing
+
+new rule EASZ=3 INDEX=XED_REG_RAX  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RBX  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RCX  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RDX  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RSP  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RBP  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RSI  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_RDI  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R8  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R9  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R10  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R11  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R12  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R13  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R14  ->	FB SIB=1 value=0x1
+new rule EASZ=3 INDEX=XED_REG_R15  ->	FB SIB=1 value=0x1
+working rule:
+ EASZ!=1 BASE0=ArSP()  ->	FB SIB=1 value=0x1
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule EASZ!=1 BASE0=XED_REG_SP EASZ=1  ->	FB SIB=1 value=0x1
+new rule EASZ!=1 BASE0=XED_REG_ESP EASZ=2  ->	FB SIB=1 value=0x1
+new rule EASZ!=1 BASE0=XED_REG_RSP EASZ=3  ->	FB SIB=1 value=0x1
+working rule:
+ EASZ!=1 BASE0=Ar12()  ->	FB SIB=1 value=0x1
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule EASZ!=1 BASE0=XED_REG_R12W EASZ=1  ->	FB SIB=1 value=0x1
+new rule EASZ!=1 BASE0=XED_REG_R12D EASZ=2  ->	FB SIB=1 value=0x1
+new rule EASZ!=1 BASE0=XED_REG_R12 EASZ=3  ->	FB SIB=1 value=0x1
+working rule:
+ EASZ=2 MODE=1 INDEX=GPR32e_m32()  ->	FB SIB=1 value=0x1
+inlining rule: GPR32e_m32()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+
+new rule EASZ=2 MODE=1 INDEX=XED_REG_EAX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_EBX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_ECX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_EDX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_ESP  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_EBP  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_ESI  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=1 INDEX=XED_REG_EDI  ->	FB SIB=1 value=0x1
+working rule:
+ EASZ=2 MODE=2 INDEX=GPR32e_m64()  ->	FB SIB=1 value=0x1
+inlining rule: GPR32e_m64()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+	OUTREG=XED_REG_R8D  ->	nothing
+	OUTREG=XED_REG_R9D  ->	nothing
+	OUTREG=XED_REG_R10D  ->	nothing
+	OUTREG=XED_REG_R11D  ->	nothing
+	OUTREG=XED_REG_R12D  ->	nothing
+	OUTREG=XED_REG_R13D  ->	nothing
+	OUTREG=XED_REG_R14D  ->	nothing
+	OUTREG=XED_REG_R15D  ->	nothing
+
+new rule EASZ=2 MODE=2 INDEX=XED_REG_EAX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_EBX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_ECX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_EDX  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_ESP  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_EBP  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_ESI  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_EDI  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R8D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R9D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R10D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R11D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R12D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R13D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R14D  ->	FB SIB=1 value=0x1
+new rule EASZ=2 MODE=2 INDEX=XED_REG_R15D  ->	FB SIB=1 value=0x1
+nt: XOP_MAP_ENC
+nt: NELEM_TUPLE1
+nt: MODRM_MOD_ENCODE
+nt: NELEM_MEM128
+nt: NELEM_GPR_WRITER_LDOP_D
+nt: VSIB_ENC_BASE
+working rule:
+ BASE0=ArAX()  ->	FB REXB=0 value=0x0 	FB SIBBASE=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_AX EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=0 value=0x0
+new rule BASE0=XED_REG_EAX EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=0 value=0x0
+new rule BASE0=XED_REG_RAX EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=0 value=0x0
+working rule:
+ BASE0=ArCX()  ->	FB REXB=0 value=0x0 	FB SIBBASE=1 value=0x1
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_CX EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=1 value=0x1
+new rule BASE0=XED_REG_ECX EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=1 value=0x1
+new rule BASE0=XED_REG_RCX EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=1 value=0x1
+working rule:
+ BASE0=ArDX()  ->	FB REXB=0 value=0x0 	FB SIBBASE=2 value=0x2
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_DX EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=2 value=0x2
+new rule BASE0=XED_REG_EDX EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=2 value=0x2
+new rule BASE0=XED_REG_RDX EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=2 value=0x2
+working rule:
+ BASE0=ArBX()  ->	FB REXB=0 value=0x0 	FB SIBBASE=3 value=0x3
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_BX EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=3 value=0x3
+new rule BASE0=XED_REG_EBX EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=3 value=0x3
+new rule BASE0=XED_REG_RBX EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=3 value=0x3
+working rule:
+ BASE0=ArSP()  ->	FB REXB=0 value=0x0 	FB SIBBASE=4 value=0x4
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_SP EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=4 value=0x4
+new rule BASE0=XED_REG_ESP EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=4 value=0x4
+new rule BASE0=XED_REG_RSP EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=4 value=0x4
+working rule:
+ BASE0=ArBP()  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=0 value=0x0 	FB SIBBASE=5 value=0x5
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_BP EASZ=1  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=0 value=0x0 	FB SIBBASE=5 value=0x5
+new rule BASE0=XED_REG_EBP EASZ=2  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=0 value=0x0 	FB SIBBASE=5 value=0x5
+new rule BASE0=XED_REG_RBP EASZ=3  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=0 value=0x0 	FB SIBBASE=5 value=0x5
+working rule:
+ BASE0=Ar13()  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=1 value=0x1 	FB SIBBASE=5 value=0x5
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R13W EASZ=1  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=1 value=0x1 	FB SIBBASE=5 value=0x5
+new rule BASE0=XED_REG_R13D EASZ=2  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=1 value=0x1 	FB SIBBASE=5 value=0x5
+new rule BASE0=XED_REG_R13 EASZ=3  ->	nt NT[DISP_WIDTH_8_32] 	FB REXB=1 value=0x1 	FB SIBBASE=5 value=0x5
+working rule:
+ BASE0=ArSI()  ->	FB REXB=0 value=0x0 	FB SIBBASE=6 value=0x6
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_SI EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=6 value=0x6
+new rule BASE0=XED_REG_ESI EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=6 value=0x6
+new rule BASE0=XED_REG_RSI EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=6 value=0x6
+working rule:
+ BASE0=ArDI()  ->	FB REXB=0 value=0x0 	FB SIBBASE=7 value=0x7
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_DI EASZ=1  ->	FB REXB=0 value=0x0 	FB SIBBASE=7 value=0x7
+new rule BASE0=XED_REG_EDI EASZ=2  ->	FB REXB=0 value=0x0 	FB SIBBASE=7 value=0x7
+new rule BASE0=XED_REG_RDI EASZ=3  ->	FB REXB=0 value=0x0 	FB SIBBASE=7 value=0x7
+working rule:
+ BASE0=Ar8()  ->	FB REXB=1 value=0x1 	FB SIBBASE=0 value=0x0
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R8W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=0 value=0x0
+new rule BASE0=XED_REG_R8D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=0 value=0x0
+new rule BASE0=XED_REG_R8 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=0 value=0x0
+working rule:
+ BASE0=Ar9()  ->	FB REXB=1 value=0x1 	FB SIBBASE=1 value=0x1
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R9W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=1 value=0x1
+new rule BASE0=XED_REG_R9D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=1 value=0x1
+new rule BASE0=XED_REG_R9 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=1 value=0x1
+working rule:
+ BASE0=Ar10()  ->	FB REXB=1 value=0x1 	FB SIBBASE=2 value=0x2
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R10W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=2 value=0x2
+new rule BASE0=XED_REG_R10D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=2 value=0x2
+new rule BASE0=XED_REG_R10 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=2 value=0x2
+working rule:
+ BASE0=Ar11()  ->	FB REXB=1 value=0x1 	FB SIBBASE=3 value=0x3
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R11W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=3 value=0x3
+new rule BASE0=XED_REG_R11D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=3 value=0x3
+new rule BASE0=XED_REG_R11 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=3 value=0x3
+working rule:
+ BASE0=Ar12()  ->	FB REXB=1 value=0x1 	FB SIBBASE=4 value=0x4
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R12W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=4 value=0x4
+new rule BASE0=XED_REG_R12D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=4 value=0x4
+new rule BASE0=XED_REG_R12 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=4 value=0x4
+working rule:
+ BASE0=Ar14()  ->	FB REXB=1 value=0x1 	FB SIBBASE=6 value=0x6
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R14W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=6 value=0x6
+new rule BASE0=XED_REG_R14D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=6 value=0x6
+new rule BASE0=XED_REG_R14 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=6 value=0x6
+working rule:
+ BASE0=Ar15()  ->	FB REXB=1 value=0x1 	FB SIBBASE=7 value=0x7
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule BASE0=XED_REG_R15W EASZ=1  ->	FB REXB=1 value=0x1 	FB SIBBASE=7 value=0x7
+new rule BASE0=XED_REG_R15D EASZ=2  ->	FB REXB=1 value=0x1 	FB SIBBASE=7 value=0x7
+new rule BASE0=XED_REG_R15 EASZ=3  ->	FB REXB=1 value=0x1 	FB SIBBASE=7 value=0x7
+nt: NELEM_GPR_WRITER_STORE_WORD
+nt: ESIZE_16_BITS
+nt: MASKNOT0
+nt: XMM_R3_64
+nt: XMM_B_32
+nt: FINAL_DSEG_MODE64
+nt: OeAX
+nt: YMM_B3_64
+nt: VGPR32_N_32
+nt: ZMM_B3_32
+nt: FINAL_SSEG0
+nt: FINAL_SSEG1
+nt: VGPRy_N
+nt: GPR8_R
+nt: Ar8
+nt: Ar9
+nt: GPR8_B
+nt: SEGe
+nt: YMM_B
+nt: YMM_N
+nt: ZMM_N3
+nt: YMM_R
+nt: OrDX
+nt: XMM_N3_64
+nt: YMM_B_32
+nt: GPRy_R
+nt: XMM_B3_64
+nt: GPR32e_m64
+nt: YMM_SE
+nt: FINAL_SSEG_NOT64
+nt: OrAX
+nt: GPR16_R
+nt: GPRz_B
+nt: ArSI
+nt: ArSP
+nt: ZMM_N3_32
+nt: ArDX
+nt: VGPR32_R
+nt: GPRz_R
+nt: YMM_R3_64
+nt: YMM_R_64
+nt: ArCX
+nt: XMM_B3
+nt: XMM_N_32
+nt: YMM_R3
+nt: YMM_N3_64
+nt: FINAL_DSEG1_MODE64
+nt: XMM_N
+nt: rIPa
+nt: VGPR32_N_64
+nt: GPRm_R
+nt: VGPR64_R
+nt: XMM_SE
+nt: XMM_B
+nt: XMM_R_64
+nt: GPR32e_m32
+nt: XMM_SE64
+nt: Ar12
+nt: Ar13
+nt: XMM_B_64
+nt: Ar11
+nt: YMM_N_64
+nt: Ar14
+nt: Ar15
+nt: VGPR64_B
+nt: XMM_R
+nt: GPR64_SB
+nt: GPRy_B
+nt: MASK_N64
+nt: Ar10
+nt: VGPR32_B_32
+nt: GPR16e
+nt: GPRv_SB
+nt: FINAL_DSEG1
+nt: GPR16_SB
+nt: XMM_R3
+nt: SrSP
+nt: VGPR64_N
+nt: GPR64_B
+nt: GPR64_X
+nt: DR_R
+nt: GPR64_R
+nt: rFLAGS
+nt: VGPR32_R_32
+nt: FINAL_ESEG1
+nt: XMM_B3_32
+nt: ArAX
+nt: XMM_N3_32
+nt: GPRm_B
+nt: SEG
+nt: ArDI
+nt: XMM_R3_32
+nt: ZMM_R3_64
+nt: SrBP
+nt: MMX_B
+nt: YMM_B3_32
+nt: ZMM_B3_64
+nt: MASK1
+nt: MMX_R
+nt: XMM_R_32
+nt: FINAL_DSEG_NOT64
+nt: MASK_R
+nt: ArBP
+nt: VGPR32_R_64
+nt: CR_B
+nt: XMM_N_64
+nt: ArBX
+nt: MASK_B
+nt: VGPR32_N
+nt: YMM_R_32
+nt: A_GPR_B
+working rule:
+ OUTREG=ArAX()  ->	FB REXB=0 value=0x0 	FB RM=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_AX EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=0 value=0x0
+new rule OUTREG=XED_REG_EAX EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=0 value=0x0
+new rule OUTREG=XED_REG_RAX EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=0 value=0x0
+working rule:
+ OUTREG=ArCX()  ->	FB REXB=0 value=0x0 	FB RM=1 value=0x1
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_CX EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=1 value=0x1
+new rule OUTREG=XED_REG_ECX EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=1 value=0x1
+new rule OUTREG=XED_REG_RCX EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=1 value=0x1
+working rule:
+ OUTREG=ArDX()  ->	FB REXB=0 value=0x0 	FB RM=2 value=0x2
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_DX EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=2 value=0x2
+new rule OUTREG=XED_REG_EDX EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=2 value=0x2
+new rule OUTREG=XED_REG_RDX EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=2 value=0x2
+working rule:
+ OUTREG=ArBX()  ->	FB REXB=0 value=0x0 	FB RM=3 value=0x3
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_BX EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=3 value=0x3
+new rule OUTREG=XED_REG_EBX EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=3 value=0x3
+new rule OUTREG=XED_REG_RBX EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=3 value=0x3
+working rule:
+ OUTREG=ArSP()  ->	FB REXB=0 value=0x0 	FB RM=4 value=0x4
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_SP EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=4 value=0x4
+new rule OUTREG=XED_REG_ESP EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=4 value=0x4
+new rule OUTREG=XED_REG_RSP EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=4 value=0x4
+working rule:
+ OUTREG=ArBP()  ->	FB REXB=0 value=0x0 	FB RM=5 value=0x5
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_BP EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=5 value=0x5
+new rule OUTREG=XED_REG_EBP EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=5 value=0x5
+new rule OUTREG=XED_REG_RBP EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=5 value=0x5
+working rule:
+ OUTREG=ArSI()  ->	FB REXB=0 value=0x0 	FB RM=6 value=0x6
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_SI EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=6 value=0x6
+new rule OUTREG=XED_REG_ESI EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=6 value=0x6
+new rule OUTREG=XED_REG_RSI EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=6 value=0x6
+working rule:
+ OUTREG=ArDI()  ->	FB REXB=0 value=0x0 	FB RM=7 value=0x7
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_DI EASZ=1  ->	FB REXB=0 value=0x0 	FB RM=7 value=0x7
+new rule OUTREG=XED_REG_EDI EASZ=2  ->	FB REXB=0 value=0x0 	FB RM=7 value=0x7
+new rule OUTREG=XED_REG_RDI EASZ=3  ->	FB REXB=0 value=0x0 	FB RM=7 value=0x7
+working rule:
+ OUTREG=Ar8()  ->	FB REXB=1 value=0x1 	FB RM=0 value=0x0
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R8W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=0 value=0x0
+new rule OUTREG=XED_REG_R8D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=0 value=0x0
+new rule OUTREG=XED_REG_R8 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=0 value=0x0
+working rule:
+ OUTREG=Ar9()  ->	FB REXB=1 value=0x1 	FB RM=1 value=0x1
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R9W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=1 value=0x1
+new rule OUTREG=XED_REG_R9D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=1 value=0x1
+new rule OUTREG=XED_REG_R9 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=1 value=0x1
+working rule:
+ OUTREG=Ar10()  ->	FB REXB=1 value=0x1 	FB RM=2 value=0x2
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R10W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=2 value=0x2
+new rule OUTREG=XED_REG_R10D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=2 value=0x2
+new rule OUTREG=XED_REG_R10 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=2 value=0x2
+working rule:
+ OUTREG=Ar11()  ->	FB REXB=1 value=0x1 	FB RM=3 value=0x3
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R11W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=3 value=0x3
+new rule OUTREG=XED_REG_R11D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=3 value=0x3
+new rule OUTREG=XED_REG_R11 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=3 value=0x3
+working rule:
+ OUTREG=Ar12()  ->	FB REXB=1 value=0x1 	FB RM=4 value=0x4
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R12W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=4 value=0x4
+new rule OUTREG=XED_REG_R12D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=4 value=0x4
+new rule OUTREG=XED_REG_R12 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=4 value=0x4
+working rule:
+ OUTREG=Ar13()  ->	FB REXB=1 value=0x1 	FB RM=5 value=0x5
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R13W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=5 value=0x5
+new rule OUTREG=XED_REG_R13D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=5 value=0x5
+new rule OUTREG=XED_REG_R13 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=5 value=0x5
+working rule:
+ OUTREG=Ar14()  ->	FB REXB=1 value=0x1 	FB RM=6 value=0x6
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R14W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=6 value=0x6
+new rule OUTREG=XED_REG_R14D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=6 value=0x6
+new rule OUTREG=XED_REG_R14 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=6 value=0x6
+working rule:
+ OUTREG=Ar15()  ->	FB REXB=1 value=0x1 	FB RM=7 value=0x7
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R15W EASZ=1  ->	FB REXB=1 value=0x1 	FB RM=7 value=0x7
+new rule OUTREG=XED_REG_R15D EASZ=2  ->	FB REXB=1 value=0x1 	FB RM=7 value=0x7
+new rule OUTREG=XED_REG_R15 EASZ=3  ->	FB REXB=1 value=0x1 	FB RM=7 value=0x7
+nt: FINAL_ESEG
+nt: GPR16_B
+nt: MASK_N
+nt: OrSP
+nt: VGPR32_B
+nt: YMM_N3_32
+nt: ZMM_R3_32
+nt: XMM_SE32
+nt: YMM_N_32
+nt: GPR32_B
+nt: YMM_SE32
+nt: GPR32_X
+nt: YMM_B_64
+nt: FINAL_DSEG
+nt: YMM_N3
+nt: ZMM_B3
+nt: GPR32_R
+nt: GPR32_SB
+nt: GPRv_R
+nt: X87
+nt: GPR64e
+nt: FINAL_SSEG
+nt: GPRv_B
+nt: YMM_SE64
+nt: VGPR32_B_64
+nt: GPR32e
+working rule:
+ MODE=1 OUTREG=GPR32e_m32()  ->	nothing
+inlining rule: GPR32e_m32()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+
+new rule MODE=1 OUTREG=XED_REG_EAX  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_EBX  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_ECX  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_EDX  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_ESP  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_EBP  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_ESI  ->	nothing
+new rule MODE=1 OUTREG=XED_REG_EDI  ->	nothing
+working rule:
+ MODE=2 OUTREG=GPR32e_m64()  ->	nothing
+inlining rule: GPR32e_m64()::
+	OUTREG=XED_REG_EAX  ->	nothing
+	OUTREG=XED_REG_EBX  ->	nothing
+	OUTREG=XED_REG_ECX  ->	nothing
+	OUTREG=XED_REG_EDX  ->	nothing
+	OUTREG=XED_REG_ESP  ->	nothing
+	OUTREG=XED_REG_EBP  ->	nothing
+	OUTREG=XED_REG_ESI  ->	nothing
+	OUTREG=XED_REG_EDI  ->	nothing
+	OUTREG=XED_REG_R8D  ->	nothing
+	OUTREG=XED_REG_R9D  ->	nothing
+	OUTREG=XED_REG_R10D  ->	nothing
+	OUTREG=XED_REG_R11D  ->	nothing
+	OUTREG=XED_REG_R12D  ->	nothing
+	OUTREG=XED_REG_R13D  ->	nothing
+	OUTREG=XED_REG_R14D  ->	nothing
+	OUTREG=XED_REG_R15D  ->	nothing
+
+new rule MODE=2 OUTREG=XED_REG_EAX  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_EBX  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_ECX  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_EDX  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_ESP  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_EBP  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_ESI  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_EDI  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R8D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R9D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R10D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R11D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R12D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R13D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R14D  ->	nothing
+new rule MODE=2 OUTREG=XED_REG_R15D  ->	nothing
+nt: XMM_N3
+nt: MASK_N32
+nt: FINAL_DSEG1_NOT64
+nt: OrBP
+nt: rIP
+nt: YMM_R3_32
+nt: YMM_B3
+nt: FINAL_SSEG_MODE64
+nt: ZMM_N3_64
+nt: CR_R
+nt: BND_B
+nt: SEG_MOV
+nt: ZMM_R3
+nt: GPR8_SB
+nt: BND_R
+nt: A_GPR_R
+working rule:
+ OUTREG=ArAX()  ->	FB REXR=0 value=0x0 	FB REG=0 value=0x0
+inlining rule: ArAX()::
+	OUTREG=XED_REG_AX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EAX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RAX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_AX EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=0 value=0x0
+new rule OUTREG=XED_REG_EAX EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=0 value=0x0
+new rule OUTREG=XED_REG_RAX EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=0 value=0x0
+working rule:
+ OUTREG=ArCX()  ->	FB REXR=0 value=0x0 	FB REG=1 value=0x1
+inlining rule: ArCX()::
+	OUTREG=XED_REG_CX EASZ=1  ->	nothing
+	OUTREG=XED_REG_ECX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RCX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_CX EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=1 value=0x1
+new rule OUTREG=XED_REG_ECX EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=1 value=0x1
+new rule OUTREG=XED_REG_RCX EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=1 value=0x1
+working rule:
+ OUTREG=ArDX()  ->	FB REXR=0 value=0x0 	FB REG=2 value=0x2
+inlining rule: ArDX()::
+	OUTREG=XED_REG_DX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_DX EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=2 value=0x2
+new rule OUTREG=XED_REG_EDX EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=2 value=0x2
+new rule OUTREG=XED_REG_RDX EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=2 value=0x2
+working rule:
+ OUTREG=ArBX()  ->	FB REXR=0 value=0x0 	FB REG=3 value=0x3
+inlining rule: ArBX()::
+	OUTREG=XED_REG_BX EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBX EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBX EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_BX EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=3 value=0x3
+new rule OUTREG=XED_REG_EBX EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=3 value=0x3
+new rule OUTREG=XED_REG_RBX EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=3 value=0x3
+working rule:
+ OUTREG=ArSP()  ->	FB REXR=0 value=0x0 	FB REG=4 value=0x4
+inlining rule: ArSP()::
+	OUTREG=XED_REG_SP EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSP EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_SP EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=4 value=0x4
+new rule OUTREG=XED_REG_ESP EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=4 value=0x4
+new rule OUTREG=XED_REG_RSP EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=4 value=0x4
+working rule:
+ OUTREG=ArBP()  ->	FB REXR=0 value=0x0 	FB REG=5 value=0x5
+inlining rule: ArBP()::
+	OUTREG=XED_REG_BP EASZ=1  ->	nothing
+	OUTREG=XED_REG_EBP EASZ=2  ->	nothing
+	OUTREG=XED_REG_RBP EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_BP EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=5 value=0x5
+new rule OUTREG=XED_REG_EBP EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=5 value=0x5
+new rule OUTREG=XED_REG_RBP EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=5 value=0x5
+working rule:
+ OUTREG=ArSI()  ->	FB REXR=0 value=0x0 	FB REG=6 value=0x6
+inlining rule: ArSI()::
+	OUTREG=XED_REG_SI EASZ=1  ->	nothing
+	OUTREG=XED_REG_ESI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RSI EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_SI EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=6 value=0x6
+new rule OUTREG=XED_REG_ESI EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=6 value=0x6
+new rule OUTREG=XED_REG_RSI EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=6 value=0x6
+working rule:
+ OUTREG=ArDI()  ->	FB REXR=0 value=0x0 	FB REG=7 value=0x7
+inlining rule: ArDI()::
+	OUTREG=XED_REG_DI EASZ=1  ->	nothing
+	OUTREG=XED_REG_EDI EASZ=2  ->	nothing
+	OUTREG=XED_REG_RDI EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_DI EASZ=1  ->	FB REXR=0 value=0x0 	FB REG=7 value=0x7
+new rule OUTREG=XED_REG_EDI EASZ=2  ->	FB REXR=0 value=0x0 	FB REG=7 value=0x7
+new rule OUTREG=XED_REG_RDI EASZ=3  ->	FB REXR=0 value=0x0 	FB REG=7 value=0x7
+working rule:
+ OUTREG=Ar8()  ->	FB REXR=1 value=0x1 	FB REG=0 value=0x0
+inlining rule: Ar8()::
+	OUTREG=XED_REG_R8W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R8D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R8 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R8W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=0 value=0x0
+new rule OUTREG=XED_REG_R8D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=0 value=0x0
+new rule OUTREG=XED_REG_R8 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=0 value=0x0
+working rule:
+ OUTREG=Ar9()  ->	FB REXR=1 value=0x1 	FB REG=1 value=0x1
+inlining rule: Ar9()::
+	OUTREG=XED_REG_R9W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R9D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R9 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R9W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=1 value=0x1
+new rule OUTREG=XED_REG_R9D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=1 value=0x1
+new rule OUTREG=XED_REG_R9 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=1 value=0x1
+working rule:
+ OUTREG=Ar10()  ->	FB REXR=1 value=0x1 	FB REG=2 value=0x2
+inlining rule: Ar10()::
+	OUTREG=XED_REG_R10W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R10D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R10 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R10W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=2 value=0x2
+new rule OUTREG=XED_REG_R10D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=2 value=0x2
+new rule OUTREG=XED_REG_R10 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=2 value=0x2
+working rule:
+ OUTREG=Ar11()  ->	FB REXR=1 value=0x1 	FB REG=3 value=0x3
+inlining rule: Ar11()::
+	OUTREG=XED_REG_R11W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R11D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R11 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R11W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=3 value=0x3
+new rule OUTREG=XED_REG_R11D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=3 value=0x3
+new rule OUTREG=XED_REG_R11 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=3 value=0x3
+working rule:
+ OUTREG=Ar12()  ->	FB REXR=1 value=0x1 	FB REG=4 value=0x4
+inlining rule: Ar12()::
+	OUTREG=XED_REG_R12W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R12D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R12 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R12W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=4 value=0x4
+new rule OUTREG=XED_REG_R12D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=4 value=0x4
+new rule OUTREG=XED_REG_R12 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=4 value=0x4
+working rule:
+ OUTREG=Ar13()  ->	FB REXR=1 value=0x1 	FB REG=5 value=0x5
+inlining rule: Ar13()::
+	OUTREG=XED_REG_R13W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R13D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R13 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R13W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=5 value=0x5
+new rule OUTREG=XED_REG_R13D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=5 value=0x5
+new rule OUTREG=XED_REG_R13 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=5 value=0x5
+working rule:
+ OUTREG=Ar14()  ->	FB REXR=1 value=0x1 	FB REG=6 value=0x6
+inlining rule: Ar14()::
+	OUTREG=XED_REG_R14W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R14D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R14 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R14W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=6 value=0x6
+new rule OUTREG=XED_REG_R14D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=6 value=0x6
+new rule OUTREG=XED_REG_R14 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=6 value=0x6
+working rule:
+ OUTREG=Ar15()  ->	FB REXR=1 value=0x1 	FB REG=7 value=0x7
+inlining rule: Ar15()::
+	OUTREG=XED_REG_R15W EASZ=1  ->	nothing
+	OUTREG=XED_REG_R15D EASZ=2  ->	nothing
+	OUTREG=XED_REG_R15 EASZ=3  ->	nothing
+
+new rule OUTREG=XED_REG_R15W EASZ=1  ->	FB REXR=1 value=0x1 	FB REG=7 value=0x7
+new rule OUTREG=XED_REG_R15D EASZ=2  ->	FB REXR=1 value=0x1 	FB REG=7 value=0x7
+new rule OUTREG=XED_REG_R15 EASZ=3  ->	FB REXR=1 value=0x1 	FB REG=7 value=0x7

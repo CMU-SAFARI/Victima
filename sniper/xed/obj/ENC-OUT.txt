@@ -1,0 +1,83 @@
+LER: Comparing YMM0 and ZMM0 for XMM0
+	taking new wider version
+LER: Comparing YMM1 and ZMM1 for XMM1
+	taking new wider version
+LER: Comparing YMM2 and ZMM2 for XMM2
+	taking new wider version
+LER: Comparing YMM3 and ZMM3 for XMM3
+	taking new wider version
+LER: Comparing YMM4 and ZMM4 for XMM4
+	taking new wider version
+LER: Comparing YMM5 and ZMM5 for XMM5
+	taking new wider version
+LER: Comparing YMM6 and ZMM6 for XMM6
+	taking new wider version
+LER: Comparing YMM7 and ZMM7 for XMM7
+	taking new wider version
+LER: Comparing YMM8 and ZMM8 for XMM8
+	taking new wider version
+LER: Comparing YMM9 and ZMM9 for XMM9
+	taking new wider version
+LER: Comparing YMM10 and ZMM10 for XMM10
+	taking new wider version
+LER: Comparing YMM11 and ZMM11 for XMM11
+	taking new wider version
+LER: Comparing YMM12 and ZMM12 for XMM12
+	taking new wider version
+LER: Comparing YMM13 and ZMM13 for XMM13
+	taking new wider version
+LER: Comparing YMM14 and ZMM14 for XMM14
+	taking new wider version
+LER: Comparing YMM15 and ZMM15 for XMM15
+	taking new wider version
+LER: Comparing YMM0 and ZMM0 for YMM0
+	taking new wider version
+LER: Comparing YMM1 and ZMM1 for YMM1
+	taking new wider version
+LER: Comparing YMM2 and ZMM2 for YMM2
+	taking new wider version
+LER: Comparing YMM3 and ZMM3 for YMM3
+	taking new wider version
+LER: Comparing YMM4 and ZMM4 for YMM4
+	taking new wider version
+LER: Comparing YMM5 and ZMM5 for YMM5
+	taking new wider version
+LER: Comparing YMM6 and ZMM6 for YMM6
+	taking new wider version
+LER: Comparing YMM7 and ZMM7 for YMM7
+	taking new wider version
+LER: Comparing YMM8 and ZMM8 for YMM8
+	taking new wider version
+LER: Comparing YMM9 and ZMM9 for YMM9
+	taking new wider version
+LER: Comparing YMM10 and ZMM10 for YMM10
+	taking new wider version
+LER: Comparing YMM11 and ZMM11 for YMM11
+	taking new wider version
+LER: Comparing YMM12 and ZMM12 for YMM12
+	taking new wider version
+LER: Comparing YMM13 and ZMM13 for YMM13
+	taking new wider version
+LER: Comparing YMM14 and ZMM14 for YMM14
+	taking new wider version
+LER: Comparing YMM15 and ZMM15 for YMM15
+	taking new wider version
+[RGROUPS] ['BNDCFG', 'BNDSTAT', 'BOUND', 'CR', 'DR', 'FLAGS', 'GPR16', 'GPR32', 'GPR64', 'GPR8', 'GPR8h', 'INVALID', 'IP', 'MASK', 'MMX', 'MSR', 'MXCSR', 'PSEUDO', 'PSEUDOX87', 'SR', 'TMP', 'X87', 'XCR', 'XMM', 'YMM', 'ZMM']
+FE:EMIT_FILE obj/xed-enc-operand-lu.c
+FE:EMIT_FILE obj/include-private/xed-enc-operand-lu.h
+FE:EMIT_FILE obj/xed-encoder-order-init.c
+FE:EMIT_FILE obj/xed-enc-groups.c
+FE:EMIT_FILE obj/include-private/xed-enc-groups.h
+FE:EMIT_FILE obj/xed-enc-patterns.c
+FE:EMIT_FILE obj/include-private/xed-enc-patterns.h
+FE:EMIT_FILE obj/xed-encoder-pattern-lu.c
+FE:EMIT_FILE obj/xed-encoder-iforms-init.c
+FE:EMIT_FILE obj/xed-encoder-init.c
+FE:EMIT_FILE obj/xed-encoder-0.c
+FE:EMIT_FILE obj/xed-encoder-1.c
+FE:EMIT_FILE obj/xed-encoder-2.c
+FE:EMIT_FILE obj/xed-encoder-3.c
+FE:EMIT_FILE obj/xed-encoder-4.c
+FE:EMIT_FILE obj/include-private/xed-encoder.h
+FE:EMIT_FILE obj/xed-encoder-iforms.h
+FE:EMIT_FILE obj/xed-encoder-gen-defs.h

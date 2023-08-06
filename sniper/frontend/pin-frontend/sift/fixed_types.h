@@ -1,0 +1,1 @@
+/app/sniper/frontend/pin-frontend/../../common/misc/fixed_types.h

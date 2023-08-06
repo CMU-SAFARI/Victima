@@ -1,0 +1,232 @@
+state_space:
+ {'SEG_OVD': [2, 0, 3, 1, 5, 6, 4], 'REX': [1, 0], 'REXB': [0, 1], 'VEX_PREFIX': [1, 0, 3, 2], 'REP': [2, 3, 0], 'REXW': [1, 0], 'DEFAULT_SEG': [1, 2, 0], 'REXR': [1, 0], 'ENCODER_PREFERRED': [1], 'REXX': [1, 0], 'OSZ': [0, 1], 'REXRR': [0], 'EOSZ': [1, 2, 0, 3], 'ASZ': [0, 1], 'VEXDEST210': [7], 'VEXDEST3': [1], 'MODE': [2, 1, 0], 'SMODE': [0, 2, 1], 'VEXVALID': [1, 0, 4, 2, 3], 'NO_RETURN': [1], 'EASZ': [3, 1, 2], 'DUMMY': [0], 'DF64': [1, 0], 'LOCK': [0, 1], 'VL': [2, 0, 3, 1], 'VEXDEST4': [0], 'SKIP_OSZ': [1], 'MAP': [0, 9, 8, 10, 2, 3, 1], 'BCAST': [9, 27, 17, 3, 13, 21, 26, 12, 4, 22, 5, 16, 2, 15, 24, 6, 8, 10, 18, 11, 19, 23, 14, 20, 1, 7, 25], 'MOD': [0, 1, 2, 3]}DUMP STORAGE False
+EOSZ NTS:
+OSZ_NONTERM
+IGNORE66
+IMMUNE66_LOOP64
+IMMUNE66
+DF64
+CR_WIDTH
+FORCE64
+REFINING66
+IMMUNE_REXW
+
+EASZ NTS:
+ASZ_NONTERM
+
+IMMNTS:
+SIMM8
+UIMM16
+SE_IMM8
+UIMM32
+SIMMz
+UIMMv
+UIMM8
+
+DISP NTS:
+MEMDISP32
+MEMDISP16
+MEMDISP8
+MEMDISPv
+MEMDISP
+SIB_BASE0
+
+BRDISP NTS:
+BRDISP32
+BRDISPz
+BRDISP8
+
+NESTED NTS:
+VSIB_XMM
+VMODRM_YMM
+VMODRM_XMM
+GPRz_B
+YMM_N3
+SIB
+FINAL_DSEG
+ISA
+GPRz_R
+VGPRy_N
+UISA_VSIB_ZMM
+UISA_VSIB_XMM
+UISA_VMODRM_XMM
+UISA_VSIB_YMM
+XMM_B3
+FINAL_SSEG
+GPRv_B
+UISA_VSIB_BASE
+GPRv_R
+MODRM
+SIB_BASE0
+XMM_N
+YMM_B
+UISA_VMODRM_ZMM
+A_GPR_R
+ZMM_B3
+GPRm_R
+YMM_R3
+XMM_SE
+XMM_B
+YMM_N
+ZMM_N3
+YMM_R
+MODRM16
+GPRm_B
+UISA_VMODRM_YMM
+XMM_R
+XMM_N3
+MODRM32
+AVX_SPLITTER
+A_GPR_B
+GPRy_R
+MODRM64alt32
+VGPR32_R
+GPRv_SB
+FINAL_DSEG1
+VGPR32_N
+ZMM_R3
+XMM_R3
+MASK_N
+YMM_B3
+VSIB_YMM
+GPRy_B
+YMM_SE
+VSIB_BASE
+EVEX_SPLITTER
+VGPR32_B
+ALL_STATE_SPACE:
+SEG_OVD: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True}
+REX: {0: True, 1: True}
+REXB: {0: True, 1: True}
+VEX_PREFIX: {0: True, 1: True, 2: True, 3: True}
+MASK: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+REP: {0: True, 2: True, 3: True}
+SIBBASE: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+REXW: {0: True, 1: True}
+NEED_MEMDISP: {0: True, 8: True, 16: True, 32: True}
+REXR: {0: True, 1: True}
+LLRC: {0: True, 1: True, 2: True, 3: True}
+REG: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+REXX: {0: True, 1: True}
+ESRC: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True, 8: True, 9: True, 10: True, 11: True, 12: True, 13: True, 14: True, 15: True}
+OSZ: {0: True, 1: True}
+REXRR: {0: True, 1: True}
+TZCNT: {0: True, 1: True}
+HINT: {0: True, 1: True, 2: True, 3: True, 4: True}
+ELEMENT_SIZE: {64: True, 1: True, 2: True, 4: True, 32: True, 8: True, 128: True, 256: True, 16: True, 512: True}
+ASZ: {0: True, 1: True}
+VEXDEST210: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+MODE_FIRST_PREFIX: {0: True, 1: True}
+CET: {0: True, 1: True}
+EASZ: {1: True, 2: True, 3: True}
+SMODE: {0: True, 1: True, 2: True}
+RM: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+CLDEMOTE: {0: True, 1: True}
+LZCNT: {0: True, 1: True}
+MODE: {0: True, 1: True, 2: True}
+SIBSCALE: {0: True, 1: True, 2: True, 3: True}
+P4: {0: True, 1: True}
+VEXDEST3: {0: True, 1: True}
+LOCK: {0: True, 1: True}
+MPXMODE: {0: True, 1: True}
+VL: {0: True, 1: True, 2: True, 3: True}
+ZEROING: {0: True, 1: True}
+SRM: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+BCRC: {0: True, 1: True}
+WBNOINVD: {0: True, 1: True}
+VEXVALID: {0: True, 1: True, 2: True, 3: True}
+VEXDEST4: {0: True, 1: True}
+MAP: {1: True, 2: True, 3: True, 8: True, 9: True, 10: True}
+SIBINDEX: {0: True, 1: True, 2: True, 3: True, 4: True, 5: True, 6: True, 7: True}
+EOSZ: {1: True, 2: True, 3: True}
+MODEP5: {0: True, 1: True}
+MOD: {0: True, 1: True, 2: True, 3: True}
+ALL_OPS_WIDTHS:
+SEG_OVD: 3
+REX: 1
+REXB: 1
+VEX_PREFIX: 2
+VEXDEST210: 3
+REP: 2
+SIBBASE: 3
+REXW: 1
+NEED_MEMDISP: 6
+REXR: 1
+REG: 3
+REXX: 1
+MASK_NOT0: 1
+OSZ: 1
+REXRR: 1
+P4: 1
+HINT: 3
+ELEMENT_SIZE: 9
+ASZ: 1
+MASK: 3
+MODE_FIRST_PREFIX: 1
+CET: 1
+EASZ: 2
+SMODE: 2
+LLRC: 2
+CLDEMOTE: 1
+LZCNT: 1
+MODE: 2
+MOD3: 1
+SIBSCALE: 2
+TZCNT: 1
+VEXDEST3: 1
+LOCK: 1
+MPXMODE: 1
+VL: 2
+ZEROING: 1
+SRM: 3
+BCRC: 1
+RM4: 1
+WBNOINVD: 1
+RM: 3
+MASK_ZERO: 1
+VEXDEST4: 1
+UIMM0: 8
+MAP: 4
+VEXVALID: 3
+SIBINDEX: 3
+EOSZ: 2
+MODEP5: 1
+MOD: 2
+VEXDEST210_7: 1
+ESRC: 4
+incomplete opcode for iclass NOP, pttrn 0b1001_0 SRM[0b000] SRM=0  not_refining_f3 norexb_prefix
+incomplete opcode for iclass NOP, pttrn 0b1001_0 SRM[0b000] SRM=0  refining_f3 P4=0
+incomplete opcode for iclass INC, pttrn 0b0100_0 SRM[rrr] not64
+Expanding opcode for INC
+incomplete opcode for iclass PUSH, pttrn 0b0101_0 SRM[rrr] DF64()
+Expanding opcode for PUSH
+incomplete opcode for iclass XCHG, pttrn 0b1001_0 SRM[rrr] SRM!=0
+Expanding opcode for XCHG
+incomplete opcode for iclass XCHG, pttrn 0b1001_0 SRM[rrr] SRM=0 not_refining_f3 rexb_prefix
+Expanding opcode for XCHG
+incomplete opcode for iclass MOV, pttrn 0b1011_0 SRM[rrr] UIMM8()
+Expanding opcode for MOV
+incomplete opcode for iclass MOV, pttrn 0b1011_1 SRM[rrr] UIMMv()
+Expanding opcode for MOV
+incomplete opcode for iclass POP, pttrn 0b0101_1 SRM[rrr] DF64()
+Expanding opcode for POP
+incomplete opcode for iclass DEC, pttrn 0b0100_1 SRM[rrr] not64
+Expanding opcode for DEC
+incomplete opcode for iclass BSWAP, pttrn 0x0F 0b1100_1 SRM[rrr]
+Expanding opcode for BSWAP
+incomplete opcode for iclass PAUSE, pttrn 0b1001_0 SRM[0b000] SRM=0  refining_f3 P4=1
+EOSZ SEQS: [['OSZ_NONTERM', 'IGNORE66'], ['OSZ_NONTERM', 'REFINING66'], ['OSZ_NONTERM', 'DF64', 'FORCE64'], ['OSZ_NONTERM', 'FORCE64'], ['OSZ_NONTERM'], ['OSZ_NONTERM', 'REFINING66', 'CR_WIDTH'], ['OSZ_NONTERM', 'DF64'], ['OSZ_NONTERM', 'DF64', 'IMMUNE66_LOOP64'], ['OSZ_NONTERM', 'IMMUNE66'], ['OSZ_NONTERM', 'CR_WIDTH'], ['OSZ_NONTERM', 'IMMUNE_REXW']]
+EASZ SEQS: [['ASZ_NONTERM']]
+IMM SEQS: [['UIMM8', 'UIMM8_1'], ['SIMM8'], ['UIMM8'], ['UIMM16'], ['SE_IMM8'], [], ['UIMM16', 'UIMM8_1'], ['SIMMz'], ['UIMM32'], ['UIMMv']]
+DISP SEQS: [['BRDISP8'], ['MEMDISPv'], ['BRDISPz'], [], ['BRDISP32']]
+DISP NTs: ['MEMDISPv']
+BRDISP NTs: ['BRDISP32', 'BRDISPz', 'BRDISP8']
+HEADER DICT: {'./datafiles/ild/include/xed-ild-scanners-base.h': 0}
+HEADER: ./datafiles/ild/include/xed-ild-scanners-base.h
+HEADER EXISTS: ./datafiles/ild/include/xed-ild-scanners-base.h
+HEADER DICT: None
+vv0 cnames: set(['MOD3', 'REXB', 'P4', 'LOCK', 'REP', 'SRM', 'REXW', 'WBNOINVD', 'REG', 'OSZ', 'TZCNT', 'EOSZ', 'CET', 'MODE', 'MPXMODE', 'RM', 'MODEP5', 'MOD', 'CLDEMOTE', 'LZCNT', 'EASZ'])
+vv1 cnames: set(['MOD3', 'RM4', 'VEX_PREFIX', 'VEXDEST3', 'VL', 'REXW', 'MODE', 'VEXDEST210_7', 'REG', 'EASZ'])
+vv2 cnames: set(['BCRC', 'MOD3', 'REXRR', 'RM4', 'VEX_PREFIX', 'VEXDEST3', 'VL', 'ZEROING', 'VEXDEST4', 'REXW', 'MODE', 'MASK_ZERO', 'VEXDEST210_7', 'REG', 'EASZ'])
+vv3 cnames: set(['MOD3', 'VEX_PREFIX', 'VEXDEST3', 'VL', 'REXW', 'MODE', 'VEXDEST210_7', 'REG'])
+all cnames: set(['MOD3', 'REXB', 'TZCNT', 'VEXDEST3', 'LOCK', 'REP', 'VL', 'ZEROING', 'SRM', 'REXW', 'RM4', 'WBNOINVD', 'MASK_ZERO', 'VEXDEST4', 'REG', 'BCRC', 'OSZ', 'REXRR', 'P4', 'VEX_PREFIX', 'EOSZ', 'CET', 'EASZ', 'MPXMODE', 'RM', 'MODEP5', 'MOD', 'VEXDEST210_7', 'CLDEMOTE', 'LZCNT', 'MODE'])
