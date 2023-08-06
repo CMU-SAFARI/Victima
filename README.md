@@ -66,8 +66,14 @@ We used the following versions/distributions in our experiments:
 the paper  
 2. Reproduce Table 2 which requires Neural Network inference  
 
+If your infrastructure support Slurm:
 ``` bash
-kanellok@safari:~/victima_artifact$ sh artifact.sh
+kanellok@safari:~/victima_artifact$ sh artifact.sh --slurm
+```
+
+If you need to run without a job manager (which we do not recommend)
+``` bash
+kanellok@safari:~/victima_artifact$ sh artifact.sh --native
 ```
 
 ### What the script does:
