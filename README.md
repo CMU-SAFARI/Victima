@@ -4,8 +4,6 @@
  
 ## Hardware requirements
 
-------------------------------------------------------------------------
-
 - We will be using docker images to execute the experiments. All docker
   images have been created for X86-64 architectures so you need an
   X86-64 system.
@@ -22,7 +20,6 @@ Hardware infrastructure used:
 
 ## Software requirements
 
-------------------------------------------------------------------------
 
 We have prepared docker images which are uploaded publicly in Docker hub
 under the tags:  
@@ -60,12 +57,9 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
-## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20,
-21, 23
+## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 21, 23
 
-------------------------------------------------------------------------
-
-Execute the following command to achieve the following:  
+### Execute the following command to achieve the following:  
 
 1\. Execute all the experiments of Victima to reproduce the figures of
 the paper  
@@ -121,7 +115,7 @@ docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/l
 tar -xzf traces.tar.gz
 ```
 
-The jobfile should look like:
+### The jobfile should look like:
 
 ``` cpp
 #!/bin/bash
@@ -147,8 +141,6 @@ cat ./nn_replica/data/results.csv
 ```
 
 ## Parse results and create all the plots
-
-------------------------------------------------------------------------
 
 All the results of the experiments are stored under ./results.  
 Execute the following command to:  
@@ -178,6 +170,3 @@ format in ./plots_in_tabular.txt
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_plots.py > plots_in_tabular.txt
 ```
 
-</div>
-
-</div>
