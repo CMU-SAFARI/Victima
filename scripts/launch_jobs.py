@@ -97,7 +97,8 @@ with open("/app/jobfile", "w") as jobfile:
             output_command  = "-d /app/results/{}_{}".format(config_name, trace_name)
             
             if (slurm):
-                execution_command = "sbatch -t 0-15:00:00 --mem=15GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(config_name, trace_name,config_name, trace_name,config_name, trace_name)
+                ## SLURM parameters are overprovisioned just in case the simulation takes longer than expected
+                execution_command = "sbatch -t 4-00:00:00 --mem=20GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(config_name, trace_name,config_name, trace_name,config_name, trace_name)
                 command = execution_command + "\""+ docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+"\""
             elif (native):
                 command = docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+" &"
