@@ -11,6 +11,7 @@
   We strongly suggest executing the experiments using such an
   infrastructure.
 - Each experiments takes ~5-10 hours to finish and requires about ~5-13GB of free memory.
+- The dataset we used requires ~10GB of storage space. 
 
 ``` cpp
 Hardware infrastructure used: 
