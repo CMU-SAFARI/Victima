@@ -61,6 +61,11 @@ configs = [
     ("tlb_64x_ideal", baseline+" -g --perf_model/stlb/size=65536 -g --perf_model/stlb/associativity=16 -g --perf_model/tlb/l2_access_penalty=12"),
     ("tlb_128x_ideal", baseline+" -g --perf_model/stlb/size=131072 -g --perf_model/stlb/associativity=16 -g --perf_model/tlb/l2_access_penalty=12"),
 
+    ("baseline_radix_1MB", baseline+"-g --perf_model/l2_cache/cache_size=1024 -g --perf_model/l2_cache/data_access_time=12"),
+    ("baseline_radix_2MB", baseline+"-g --perf_model/l2_cache/cache_size=2048 -g --perf_model/l2_cache/data_access_time=16"),
+    ("baseline_radix_4MB", baseline+"-g --perf_model/l2_cache/cache_size=4096 -g --perf_model/l2_cache/data_access_time=22"),
+    ("baseline_radix_8MB", baseline+"-g --perf_model/l2_cache/cache_size=8192 -g --perf_model/l2_cache/data_access_time=30"),
+
     ("L3TLB_ideal_15", potm+ " -g --perf_model/potm_tlb/size=65536  -g --perf_model/potm_tlb/latency=15"),
     ("L3TLB_ideal_20", potm+ " -g --perf_model/potm_tlb/size=65536  -g --perf_model/potm_tlb/latency=20"),
     ("L3TLB_ideal_25", potm+ " -g --perf_model/potm_tlb/size=65536  -g --perf_model/potm_tlb/latency=25"),

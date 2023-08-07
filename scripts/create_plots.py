@@ -110,6 +110,7 @@ print_separator()
 # Reindex the DataFrame to change the order of experiments
 
 df = pd.read_csv('./results.csv')
+df.fillna(0, inplace=True)
 
 # Create a pivot table of the data
 selected_experiments = ['tlb_base_ideal',
@@ -122,7 +123,19 @@ selected_experiments = ['tlb_base_ideal',
 
 df['stlb.mpki'] = (df['stlb.miss'] * 1000) / df['performance_model.instruction_count']
 
+df['host_ptw_latency'] = df["ptw_radix_1.page_level_latency_0"]+df["ptw_radix_1.page_level_latency_1"]+df["ptw_radix_1.page_level_latency_2"]+df["ptw_radix_1.page_level_latency_3"]
+print(df['host_ptw_latency'])
+df['guest_ptw_latency'] = df["ptw_radix_0.page_level_latency_0"]+df["ptw_radix_0.page_level_latency_1"]+df["ptw_radix_0.page_level_latency_2"]+df["ptw_radix_0.page_level_latency_3"]
+print(df['guest_ptw_latency'])
+
+df['total_ptw_latency'] = df['host_ptw_latency'] + df['guest_ptw_latency']
+
+# total_latency_baseline = (df.loc[df['Exp'] == 'baseline_radix_virtualized', 'total_ptw_latency']).values
+# print(total_latency_baseline)
+# total_latency_baseline = (df.loc[df['Exp'] == 'tlb_base_ideal', 'total_ptw_latency']).values
+# print(total_latency_baseline)
 # Filter the DataFrame for the selected experiments
+
 df_selected = df[df['Exp'].isin(selected_experiments)]
 
 # Create the pivot table with the selected experiments and GMEAN
@@ -547,6 +560,107 @@ plt.legend(title='Configurations', bbox_to_anchor=(1.05, 1), loc='upper left')
 
 plt.tight_layout()
 plt.savefig('./plots/figure23.png')
+
+print_separator()
+print ("Plotting Figure 24: PTW Latency in Virtualized Environments")
+print_separator()
+
+selected_experiments = [
+    'baseline_radix_virtualized',
+    'potm_virtualized',
+    'tlb_base_ideal',
+    'victima_virtualized'
+]
+
+df_selected = df[df['Exp'].isin(selected_experiments)]
+# df_selected.sort_values(by='Trace')
+
+
+# total_latency_baseline = (df_selected.loc[(df_selected['Exp'] == 'baseline_radix_virtualized'), 'total_ptw_latency']).values
+# print(total_latency_baseline)
+# total_latency_baseline = (df_selected.loc[(df_selected['Exp'] == 'tlb_base_ideal') &(df_selected['Trace'] == 'bfs'), 'total_ptw_latency'])
+# print(total_latency_baseline)
+
+
+
+# df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','host_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','host_ptw_latency'] / total_latency_baseline
+# df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','guest_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','guest_ptw_latency'] / total_latency_baseline
+
+# df.loc[df['Exp'] == 'potm_virtualized','host_ptw_contributions'] = df.loc[df['Exp'] == 'potm_virtualized','host_ptw_latency'] / total_latency_baseline
+# df.loc[df['Exp'] == 'potm_virtualized','guest_ptw_contributions'] = df.loc[df['Exp'] == 'potm_virtualized','guest_ptw_latency'] / total_latency_baseline
+
+# df.loc[df['Exp'] == 'tlb_base_ideal','host_ptw_contributions'] = df.loc[df['Exp'] == 'tlb_base_ideal','host_ptw_latency'] / total_latency_baseline
+# df.loc[df['Exp'] == 'tlb_base_ideal','guest_ptw_contributions'] = df.loc[df['Exp'] == 'tlb_base_ideal','guest_ptw_latency'] / total_latency_baseline
+
+# df.loc[df['Exp'] == 'victima_virtualized','host_ptw_contributions'] = df.loc[df['Exp'] == 'victima_virtualized','host_ptw_latency'] / total_latency_baseline
+# df.loc[df['Exp'] == 'victima_virtualized','guest_ptw_contributions'] = df.loc[df['Exp'] == 'victima_virtualized','guest_ptw_latency'] / total_latency_baseline
+
+# df_selected = df[df['Exp'].isin(selected_experiments)]
+
+# for exp in selected_experiments:
+#       df_selected.loc[df_selected['Exp'] == exp,'host_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == exp,'host_ptw_latency'] / total_latency_baseline
+#       df_selected.loc[df_selected['Exp'] == exp,'guest_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == exp,'guest_ptw_latency'] / total_latency_baseline
+
+#df_selected['guest_ptw_contributions'] = df_selected['guest_ptw_latency'] / total_latency_baseline
+
+pivot_table_fig24 = df_selected.pivot_table(index=['Trace'],columns=['Exp'], values=['host_ptw_latency', 'guest_ptw_latency', 'total_ptw_latency'])
+normalize_by = pivot_table_fig24['total_ptw_latency', 'baseline_radix_virtualized']
+
+normalized_pivot = pivot_table_fig24.div(normalize_by, axis=0)
+
+normalized_pivot_dropped = normalized_pivot.drop('total_ptw_latency', level=0, axis=1)
+
+print(normalized_pivot_dropped)
+stacked_df = normalized_pivot_dropped.stack(level='Exp')
+
+# Reset the index for clarity
+reset_df = stacked_df.reset_index()
+
+# Set ["Trace", "Exp"] as indices
+final_df = reset_df.set_index(["Trace", "Exp"])
+
+plot_data = final_df.pivot_table(index=["Trace", "Exp"], values=['guest_ptw_latency', 'host_ptw_latency'])
+
+print(final_df)
+
+
+fig, ax = plt.subplots(figsize=(12, 8))
+
+# For proper labeling and positioning
+labels = []
+positions = []
+
+# Track the width for stacked bars
+width = 0.35
+
+for i, (trace, sub_df) in enumerate(plot_data.groupby(level=0)):
+    # Extract positions for custom labels
+    pos = range(i*len(sub_df), (i+1)*len(sub_df))
+    positions.extend(pos)
+    
+    # Extract labels
+    labels.extend(sub_df.index.get_level_values(1))
+    
+    # Plot each 'Exp' for the given 'Trace'
+    if i == 0:
+        ax.bar(pos, sub_df['guest_ptw_latency'], width, label='guest_ptw_latency')
+        ax.bar(pos, sub_df['host_ptw_latency'], width, bottom=sub_df['guest_ptw_latency'], label='host_ptw_latency')
+    else:
+        ax.bar(pos, sub_df['guest_ptw_latency'], width)
+        ax.bar(pos, sub_df['host_ptw_latency'], width, bottom=sub_df['guest_ptw_latency'])
+
+# Setting custom labels and title
+ax.set_title('Guest and Host PTW Latency for different traces compared to baseline')
+ax.set_xticks(positions)
+ax.set_ylabel('Normalized PTW Latency')
+ax.set_xticklabels(labels, rotation=45, ha="right")
+ax.legend()
+
+
+
+plt.tight_layout()
+plt.savefig('./plots/figure24.png')
+
 
 print_separator()
 print ("Plotting Figure 18: Memory Reach provided by Victima")

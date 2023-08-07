@@ -64,14 +64,16 @@ echo "==========================================================================
 
 echo "==================  Decompressing the traces into ./traces =================="
 
-# wget https://storage.googleapis.com/traces_virtual_memory/traces_victima
-# tar -xzf traces_victima
+wget https://storage.googleapis.com/traces_virtual_memory/traces_victima
+tar -xzf traces_victima
 
 echo "====================================================================================="
 
-echo "==================  Launching experiments for Figures 2, 3, 4, 6, 15, 16, 19, 22, 23 =================="
+echo "==================  Launching experiments for Figures 2, 3, 4, 6, 15, 16, 19, 22, 23, 24 =================="
 
-#source jobfile
+mkdir -p ./results/
+
+source jobfile
 
 echo "====================================================================================="
 
