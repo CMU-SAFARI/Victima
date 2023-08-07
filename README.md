@@ -58,7 +58,7 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
-## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 21, 23
+## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 21, 23, 24
 
 ### Execute the following command to achieve the following:  
 
