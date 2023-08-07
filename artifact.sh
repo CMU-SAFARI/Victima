@@ -73,7 +73,7 @@ echo "==================  Launching experiments for Figures 2, 3, 4, 6, 15, 16, 
 
 mkdir -p ./results/
 
-source jobfile
+sh ./jobfile
 
 echo "====================================================================================="
 
