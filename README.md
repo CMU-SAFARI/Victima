@@ -1,4 +1,7 @@
 
+# Artifact Evaluation for our MICRO 2023 paper called "Victima"
+## Details about the paper coming soon.. Stay Tuned!
+
 ![Alt Text](images/victima.png)
 
  
@@ -11,6 +14,7 @@
   We strongly suggest executing the experiments using such an
   infrastructure.
 - Each experiments takes ~5-10 hours to finish and requires about ~5-13GB of free memory.
+- The dataset we used requires ~10GB of storage space. 
 
 ``` cpp
 Hardware infrastructure used: 
@@ -58,7 +62,7 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
-## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 21, 23
+## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 22, 23, 24 and Table 2
 
 ### Execute the following command to achieve the following:  
 
