@@ -62,7 +62,7 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
-## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 21, 23, 24 and Table 2
+## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 22, 23, 24 and Table 2
 
 ### Execute the following command to achieve the following:  
 
