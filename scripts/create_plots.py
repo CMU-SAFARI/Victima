@@ -62,19 +62,6 @@ def print_separator():
 
 print(orca_art) 
 
-desired_order = [
-    "bc_graph500-scale23-ef16_adj",
-    "bfs_CL-10M-1d8-L5",
-    "cc_CL-10M-1d8-L5",
-    "dlrm",
-    "genomicsbench",
-    "graphcoloring_graph500-scale23-ef16_adj",
-    "pagerank_CL-10M-1d8-L5",
-    "randacc_1G",
-    "sssp_graph500-scale23-ef16_adj",
-    "tc_CL-10M-1d8-L5",
-    "XSBench_15000"
-]
 
 desired_order_labels = [
     "bc",
@@ -104,6 +91,9 @@ desired_order_labels_gmean = [
     "GMEAN"
 ]
 
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.width', None)
 print_separator()
 print("Plotting Figure 2: L2 TLB MPKI for different traces")
 print_separator()
@@ -124,9 +114,7 @@ selected_experiments = ['tlb_base_ideal',
 df['stlb.mpki'] = (df['stlb.miss'] * 1000) / df['performance_model.instruction_count']
 
 df['host_ptw_latency'] = df["ptw_radix_1.page_level_latency_0"]+df["ptw_radix_1.page_level_latency_1"]+df["ptw_radix_1.page_level_latency_2"]+df["ptw_radix_1.page_level_latency_3"]
-print(df['host_ptw_latency'])
 df['guest_ptw_latency'] = df["ptw_radix_0.page_level_latency_0"]+df["ptw_radix_0.page_level_latency_1"]+df["ptw_radix_0.page_level_latency_2"]+df["ptw_radix_0.page_level_latency_3"]
-print(df['guest_ptw_latency'])
 
 df['total_ptw_latency'] = df['host_ptw_latency'] + df['guest_ptw_latency']
 
@@ -143,9 +131,9 @@ geometric_mean = df_selected.groupby('Exp')['stlb.mpki'].apply(lambda x: np.prod
 
 
 pivot_table_fig2 = df_selected.pivot_table(index='Trace', columns='Exp', values='stlb.mpki')
-print(pivot_table_fig2)
 pivot_table_fig2 = pivot_table_fig2.reindex(desired_order_labels)
 pivot_table_fig2.loc['GMEAN'] = geometric_mean.values
+print(pivot_table_fig2)
 
 # Sort the columns based on the 'selected_experiments' list
 pivot_table_fig2 = pivot_table_fig2[selected_experiments]
@@ -345,10 +333,10 @@ df_selected = df[df['Exp'].isin(selected_experiments)]
 
 pivot_table_fig16 = df_selected.pivot_table(index='Trace', columns='Exp', values='PTW_0.page_walks')
 pivot_table_fig16_subbed = pivot_table_fig16.rsub(pivot_table_fig16['tlb_base_ideal'], axis=0)
-pivot_table_fig16_subbed = pivot_table_fig16.div(pivot_table_fig16['tlb_base_ideal'], axis=0)
+pivot_table_fig16_subbed = pivot_table_fig16_subbed.div(pivot_table_fig16['tlb_base_ideal'], axis=0)
 pivot_table_fig16_subbed *= 100
 
-pivot_table_fig16 = pivot_table_fig16.reindex(desired_order_labels)
+pivot_table_fig16_subbed = pivot_table_fig16_subbed.reindex(desired_order_labels)
 
 geometric_mean_perf = pivot_table_fig16_subbed.apply(lambda x: np.prod(x) ** (1 / len(x)))
 
@@ -390,12 +378,12 @@ selected_metrics = [
 df_selected = df[df['Exp'].isin(selected_experiments)]
 
 pivot_table_fig19 = df_selected.pivot_table(index='Trace', columns='Exp', values=selected_metrics)
-print(pivot_table_fig19)
 
 pivot_table_fig19 = pivot_table_fig19.div(pivot_table_fig19.sum(axis=1), axis=0) * 100
 pivot_table_fig19 = pivot_table_fig19.reindex(desired_order_labels)
 
 pivot_table_fig19.loc['GMEAN'] = pivot_table_fig19.mean()
+print(pivot_table_fig19)
 
 
 
@@ -573,35 +561,6 @@ selected_experiments = [
 ]
 
 df_selected = df[df['Exp'].isin(selected_experiments)]
-# df_selected.sort_values(by='Trace')
-
-
-# total_latency_baseline = (df_selected.loc[(df_selected['Exp'] == 'baseline_radix_virtualized'), 'total_ptw_latency']).values
-# print(total_latency_baseline)
-# total_latency_baseline = (df_selected.loc[(df_selected['Exp'] == 'tlb_base_ideal') &(df_selected['Trace'] == 'bfs'), 'total_ptw_latency'])
-# print(total_latency_baseline)
-
-
-
-# df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','host_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','host_ptw_latency'] / total_latency_baseline
-# df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','guest_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == 'baseline_radix_virtualized','guest_ptw_latency'] / total_latency_baseline
-
-# df.loc[df['Exp'] == 'potm_virtualized','host_ptw_contributions'] = df.loc[df['Exp'] == 'potm_virtualized','host_ptw_latency'] / total_latency_baseline
-# df.loc[df['Exp'] == 'potm_virtualized','guest_ptw_contributions'] = df.loc[df['Exp'] == 'potm_virtualized','guest_ptw_latency'] / total_latency_baseline
-
-# df.loc[df['Exp'] == 'tlb_base_ideal','host_ptw_contributions'] = df.loc[df['Exp'] == 'tlb_base_ideal','host_ptw_latency'] / total_latency_baseline
-# df.loc[df['Exp'] == 'tlb_base_ideal','guest_ptw_contributions'] = df.loc[df['Exp'] == 'tlb_base_ideal','guest_ptw_latency'] / total_latency_baseline
-
-# df.loc[df['Exp'] == 'victima_virtualized','host_ptw_contributions'] = df.loc[df['Exp'] == 'victima_virtualized','host_ptw_latency'] / total_latency_baseline
-# df.loc[df['Exp'] == 'victima_virtualized','guest_ptw_contributions'] = df.loc[df['Exp'] == 'victima_virtualized','guest_ptw_latency'] / total_latency_baseline
-
-# df_selected = df[df['Exp'].isin(selected_experiments)]
-
-# for exp in selected_experiments:
-#       df_selected.loc[df_selected['Exp'] == exp,'host_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == exp,'host_ptw_latency'] / total_latency_baseline
-#       df_selected.loc[df_selected['Exp'] == exp,'guest_ptw_contributions'] = df_selected.loc[df_selected['Exp'] == exp,'guest_ptw_latency'] / total_latency_baseline
-
-#df_selected['guest_ptw_contributions'] = df_selected['guest_ptw_latency'] / total_latency_baseline
 
 pivot_table_fig24 = df_selected.pivot_table(index=['Trace'],columns=['Exp'], values=['host_ptw_latency', 'guest_ptw_latency', 'total_ptw_latency'])
 normalize_by = pivot_table_fig24['total_ptw_latency', 'baseline_radix_virtualized']
@@ -610,7 +569,6 @@ normalized_pivot = pivot_table_fig24.div(normalize_by, axis=0)
 
 normalized_pivot_dropped = normalized_pivot.drop('total_ptw_latency', level=0, axis=1)
 
-print(normalized_pivot_dropped)
 stacked_df = normalized_pivot_dropped.stack(level='Exp')
 
 # Reset the index for clarity
@@ -621,7 +579,7 @@ final_df = reset_df.set_index(["Trace", "Exp"])
 
 plot_data = final_df.pivot_table(index=["Trace", "Exp"], values=['guest_ptw_latency', 'host_ptw_latency'])
 
-print(final_df)
+print(plot_data)
 
 
 fig, ax = plt.subplots(figsize=(12, 8))

@@ -106,7 +106,7 @@ with open("/app/jobfile", "w") as jobfile:
                 execution_command = "sbatch -t 4-00:00:00 --mem=20GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(config_name, trace_name,config_name, trace_name,config_name, trace_name)
                 command = execution_command + "\""+ docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+"\""
             elif (native):
-                command = docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+" &"
+                command = docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command+" > " +"/app/results/"+config_name+"_"+trace_name+ ".out &"
             #command = docker_command + " " + sniper_parameters + " " + output_command+" "+configuration_string+" "+trace_command
 
             jobfile.write(command)
