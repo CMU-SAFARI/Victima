@@ -80,7 +80,7 @@ to refresh the permissions.
 the paper  
 2. Reproduce Table 2 which requires Neural Network inference  
 
-If your infrastructure support Slurm:
+If your infrastructure supports Slurm:
 ``` bash
 kanellok@safari:~/$ cd Victima
 kanellok@safari:~/Victima$ sh artifact.sh --slurm
