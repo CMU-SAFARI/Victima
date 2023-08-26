@@ -44,6 +44,7 @@ such as:
 - Sniper simulator dependencies
 - Python dependencies for Pytorch, Matplotlib, Seaborn etc.
 
+
 ## Software Requirements to execute Docker
 
 ``` cpp
@@ -62,6 +63,15 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
+To install docker execute the following script:
+``` bash
+kanellok@safari:~/Victima$ sh install_docker.sh
+```
+You need to cd back to the cloned repository since we executed:
+``` bash
+su - $USER 
+```
+to refresh the permissions. 
 ## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 22, 23, 24 and Table 2
 
 ### Execute the following command to achieve the following:  
@@ -72,15 +82,17 @@ the paper
 
 If your infrastructure support Slurm:
 ``` bash
-kanellok@safari:~/victima_artifact$ sh artifact.sh --slurm
+kanellok@safari:~/$ cd Victima
+kanellok@safari:~/Victima$ sh artifact.sh --slurm
 ```
 
 If you need to run without a job manager (which we do not recommend)
 ``` bash
-kanellok@safari:~/victima_artifact$ sh artifact.sh --native
+kanellok@safari:~/$ cd Victima
+kanellok@safari:~/Victima$ sh artifact.sh --native
 ```
 
-### What the script does:
+### What the scripts do:
 
 1\. Installs dependencies and Docker  
 
