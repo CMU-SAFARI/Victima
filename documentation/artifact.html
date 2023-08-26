@@ -1,0 +1,177 @@
+<head>
+
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="prism.css">
+</head>
+
+<body>
+
+
+    <div class="snippet-container">
+        <div class="content_readme">
+
+
+            <h2> Hardware requirements</h2>
+                <ul>
+                    <li> We will be using docker images to execute the experiments. All docker images have been created for X86-64 architectures so you need an X86-64 system.</li>
+                    <li> The experiments have been executed using a slurm based infrastructure. We strongly suggest executing the experiments using such an infrastructure.</li>
+                </ul>
+                <pre><code class="language-cpp">Hardware infrastructure used: 
+1) Nodes used:  Intel(R) Xeon(R) Gold 5118 CPU @ 2.30GHz <br>
+2) Slurm version: slurm-wlm 21.08.5</code></pre>
+
+
+                <h2> 
+                    Software requirements
+                    
+                </h2>
+                <hr>
+
+                 We have prepared docker images which are uploaded publicly in Docker hub under the tags: <br>
+                    <pre><code class="language-cpp">
+#Contains all the simulator dependencies
+1. kanell21/artifact_evaluation:victima 
+
+#Contains all python dependencies to reproduce the results of Table 2 and create all the plots
+2. kanell21/artifact_evaluation:victima_ptwcp_v1.1 
+                    </code></pre>
+
+                    These images contain all the necessary software to run the experiments such as:  <br>
+                    <ul>
+                        <li>Sniper simulator dependencies</li>
+                        <li>Python dependencies for Pytorch, Matplotlib, Seaborn etc.</li>
+                    </ul>
+                    
+                    <h2> 
+                        Software Requirements to execute Docker
+                        
+                    </h2> 
+
+                    <pre><code class="language-cpp">
+We need: 
+- Docker
+- curl
+- tar
+- Debian-based Linux distribution
+
+We used the following versions/distributions in our experiments:
+- Docker version 20.10.23, build 7155243
+- curl 7.81.0   
+- tar (GNU tar) 1.34
+- Kernel: 5.15.0-56-generic 
+- Dist: Ubuntu SMP 22.04.1 LTS (Jammy Jellyfish)
+                    </code></pre>
+
+                
+
+            <h2>Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 22, 23 </h3>
+            <hr>
+
+            Execute the following command to achieve the following: <br> </h3>
+                1. Execute all the experiments of Victima to reproduce the figures of the paper <br>
+                2. Reproduce Table 2 which requires Neural Network inference <br>
+            
+             <pre><code class="language-cpp">kanellok@safari:~/victima_artifact$ sh artifact.sh</code></pre>
+
+            <h3>What the script does: </h3>
+
+            1. Installs dependencies and Docker <br>
+            <pre><code class="language-cpp>">
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \sc
+    lsb-release \
+    tar 
+
+# Add Docker’s official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+            </code> </pre>
+            2. Downloads the docker image to run the experiments <br>
+            <pre><code class="language-cpp">docker pull kanell21/artifact_evaluation:victima</code></pre>
+
+            3. Compiles the simulator <br>
+<pre><code class="language-cpp">docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make"</code></pre>
+   
+            4. Creates a ./jobfile with all the slurm commands and decompresses the traces <br>
+<pre><code class="language-cpp">docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/launch_jobs.py
+tar -xzf traces.tar.gz</code></pre>
+
+The jobfile should look like:
+
+<pre><code class="language-cpp">
+#!/bin/bash
+sbatch  -J tlb_base_ideal_bc --output=./results/tlb_base_ideal_bc.out --error=./results/tlb_base_ideal_bc.err docker_wrapper.sh "docker run --rm -v /mnt/panzer/kanellok/victima_ae:/app/ kanell21/artifact_evaluation:victima /app/sniper/run-sniper -s stop-by-icount:500000000 --genstats --power -d /app/results/tlb_base_ideal_bc  -c /app/sniper/config/virtual_memory_configs/radix.cfg  -g --perf_model/stlb/size=1536 -g --perf_model/stlb/associativity=12 -g --perf_model/tlb/l2_access_penalty=12 --traces=/app/traces/bc.sift"
+sbatch -J tlb_base_ideal_bc --output=./results/tlb_base_ideal_bc.out --error=./results/tlb_base_ideal_bc.err docker_wrapper.sh "docker run --rm -v /mnt/panzer/kanellok/victima_ae:/app/ kanell21/artifact_evaluation:victima /app/sniper/run-sniper -s stop-by-icount:500000000 --genstats --power -d /app/results/tlb_base_ideal_bc  -c /app/sniper/config/virtual_memory_configs/radix.cfg  -g --perf_model/stlb/size=1536 -g --perf_model/stlb/associativity=12 -g --perf_model/tlb/l2_access_penalty=12 --traces=/app/traces/bc.sift"
+.. 
+</code></pre>
+
+            5. Submits the experiments to slurm <br>
+<pre><code class="language-cpp">source jobfile</code></pre>
+
+            6. Runs the neural network inference experiments and outputs Table 2 in the standard output and ./nn_replica/data/results.csv<br>
+<pre><code class="language-cpp">
+docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
+
+docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
+cat ./nn_replica/data/results.csv
+</code></pre>
+            <h2>Parse results and create all the plots </h3>
+            <hr>
+            
+            All the results of the experiments are stored under ./results. <br>
+
+            Execute the following command to: <br> </h3>
+                1. Parse the results of the experiments. All the results in tabular format can be found under: /path/to/victima_artifact/plots_in_tabular.txt <br>
+                2. Create all the plots of the paper. All the plots can be found under: /path/to/victima_artifact/plots/ <br>
+            
+             <pre><code class="language-cpp">kanellok@safari:~/victima_artifact$ sh produce_plots.sh</code></pre>
+
+                    <h3>What the script does: </h3>
+
+                    1. Creates a CSV file which contains all the raw results <br>
+                    <pre><code class="language-cpp>">docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_csv.py</code></pre>
+
+                    2. Creates all the plots under ./plots and outputs all plots in tabular format in ./plots_in_tabular.txt  <br>
+<pre><code class="language-cpp">docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/create_plots.py > plots_in_tabular.txt</code></pre>
+
+
+      </div>
+    </div>
+
+
+
+
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+    <script src="prism.js"></script>
+
+
+</body>
+
+</html>

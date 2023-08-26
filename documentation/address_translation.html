@@ -1,0 +1,261 @@
+
+<head>
+
+
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="prism.css">
+
+    <style>
+        .container_title {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            padding: 20px;
+            display: flex; /* Set up a flex container */
+            flex-wrap: wrap; /* Allows wrapping if the viewport is too small */
+            gap: 20px; /* Space between the cards */
+            justify-content: space-between; /* Spread cards apart */
+            align-items: start; /* Align cards to the top */
+        } 
+
+        .card {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        li {
+            color: #34495e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            color: #e74c3c;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class ="container_title">
+    <div class="card">
+        <div class="title">🚀 Multiple Page Sizes</div>
+        <p>Supporting both 4KB and 2MB TLBs to better model large page support.</p>
+    </div>
+
+    <div class="card">
+        <div class="title">📊 Realistic Page Table Walk</div>
+        <p>Cache footprint of PTEs and detailed modeling of PTW latency.</p>
+    </div>
+
+    <div class="card">
+        <div class="title">🧠 Buddy Allocator</div>
+        <p>Realistic virtual-to-physical address translation.</p>
+    </div>
+
+    <div class="card">
+        <div class="title">🌟 Upcoming Features!</div>
+        <p>Stay tuned for our revamped simulation framework and more features.</p>
+    </div>
+</div>
+
+
+
+
+        <div class="snippet-container">
+
+            <button type="button" class="collapsible">Core::initiateMemoryAccess</button>
+            <div class="content">
+                <h3>/common/core/core.cc</h3>
+                 <pre>
+                        <code class="language-cpp">HitWhere::where_t this_hit_where = getMemoryManager()->coreInitiateMemoryAccess(
+    eip, 
+    mem_component,
+    lock_signal,
+    mem_op_type,
+    curr_addr_aligned, curr_offset,
+    data_buf ? curr_data_buffer_head : NULL, curr_size,
+    modeled);</code>
+                </pre>
+                This is the function of core.cc which sends the memory request to the memory manager. 
+                curr_addr_aligned is used to align the virtual address with the cache line (64 byte granularity)    
+          </div>
+        </div>
+
+        <div class="snippet-container">
+
+            <button type="button" class="collapsible">MemoryManager::coreInitiateMemoryAccess : Performing address translation</button>
+            <div class="content">
+                <h3>/common/core/memory_subsystem/parametric_dram_directory/memory_manager.cc</h3>
+                 
+                        
+<pre><code class="language-cpp">HitWhere::where_t
+MemoryManager::coreInitiateMemoryAccess(
+        IntPtr eip,
+        MemComponent::component_t mem_component,
+        Core::lock_signal_t lock_signal,
+        Core::mem_op_t mem_op_type,
+        IntPtr address, UInt32 offset,
+        Byte* data_buf, UInt32 data_length,
+        Core::MemModeled modeled) 
+
+        TranslationResult tr_result;
+
+        if(!oracle_translation_enabled)
+        {  
+            
+            tr_result = performAddressTranslation(eip, mem_component, 
+                                    lock_signal, 
+                                    mem_op_type, 
+                                    address, 
+                                    data_buf, 
+                                    data_length, 
+                                    modeled == Core::MEM_MODELED_NONE || modeled == Core::MEM_MODELED_COUNT ? false : true,
+                                    modeled == Core::MEM_MODELED_NONE ? false : true);
+        }</code></pre>
+                This is the function of memory_manager.cc which receives the memory request. First, we check if oracle_translation_enabled is set to true.
+                If it is, we perform the address translation.
+                If it is not, we skip the address translation and go straight to the memory access.
+
+          </div>
+        </div>
+
+        <div class="snippet-container">
+
+            <button type="button" class="collapsible">MemoryManager::coreInitiateMemoryAccess : Accessing metadata for protection and memory optimizations</button>
+            <div class="content">
+                <h3>/common/core/memory_subsystem/parametric_dram_directory/memory_manager.cc</h3>
+                 <pre>
+                        <code class="language-cpp">
+if(!oracle_protection_enabled){
+    if(modrian_memory_enabled){
+        mmm->init_walk(eip, address, m_cache_cntlrs[MemComponent::L1_DCACHE] , lock_signal, data_buf, data_length, modeled == Core::MEM_MODELED_NONE || modeled == Core::MEM_MODELED_COUNT ? false : true,modeled == Core::MEM_MODELED_NONE ? false : true);
+    }
+
+
+    }
+
+    if(!oracle_expressive_enabled){
+
+    if(xmem_enabled){
+        xmem_manager->init_walk(eip, address, m_cache_cntlrs[MemComponent::L1_DCACHE] , lock_signal, data_buf, data_length, modeled == Core::MEM_MODELED_NONE || modeled == Core::MEM_MODELED_COUNT ? false : true,modeled == Core::MEM_MODELED_NONE ? false : true);
+    }
+    
+    }
+                        </code>
+                </pre>
+                Beyond translation, our version of Sniper supports accessing metadata: (i) Mondriaan Data Protection and (ii) Expressive Memory. If oracle_protection_enabled, metadata for protection is disabled, and if oracle_expressive_enabled, metadata for expressive memory is disabled.
+                if Mondriaan is enabled, the mondriaan manager is invoked (mmm->init_walk) to perform a walk and discover the metadata. Same for the xmem_manager.
+           </div>
+        </div>
+
+        <div class="snippet-container">
+
+            <button type="button" class="collapsible">MemoryManager::performAddressTranslation : Access the TLB Subsystem</button>
+            <div class="content">
+                <h3>/common/core/memory_subsystem/parametric_dram_directory/memory_manager.cc</h3>
+                <pre><code class="language-cpp">
+    .
+    .
+     else if (mem_component == MemComponent::L1_DCACHE && m_dtlb)
+    tlb_result = accessTLBSubsystem(eip, m_dtlb, address, false, modeled, count, lock_signal, data_buf, data_length);
+    .
+    .</code></pre>
+                This is the function of memory_manager.cc which accesses the TLB subsystem. We check if the request is for data and if the TLB subsystem is enabled.
+                If it is, we access the TLB subsystem and we store the result in tlb_result.
+           </div>
+        </div>
+
+        <div class="snippet-container">
+
+            <button type="button" class="collapsible">MemoryManager::accessTLBSubsystem : Accessing the TLBs and performing the PTW</button>
+            <div class="content">
+                <h3>/common/core/memory_subsystem/parametric_dram_directory/memory_manager.cc</h3>
+                 <pre><code class="language-cpp">TLB::where_t hit = tlb->lookup(address, getShmemPerfModel()->getElapsedTime(ShmemPerfModel::_USER_THREAD), true, 1, count, lock_signal);</code></pre>
+                
+                 This is the function of memory_manager.cc which accesses the TLB subsystem. "tlb" is the pointer to the dtlb or itlb. 
+                We call the lookup function of the TLB subsystem to search for the translation inside the TLBs. 
+                We store the result in hit. If the result is a TLB_MISS, we perform the page table walk.
+                <pre><code class="language-cpp">SubsecondTime ptw_latency=  ptw->init_walk(eip, address, (shadow_cache_enabled ? shadow_cache : NULL), m_cache_cntlrs[MemComponent::L1_DCACHE] , lock_signal, data_buf, data_length, modeled,count);</code></pre> 
+                We call the init_walk function of the PTW subsystem to perform the page table walk. We store the result in ptw_latency. ptw is the pointer to the page table walker. 
+                Even though the current version of Sniper supports multiple page table walkers, we suggest you stick to radix-based walker until we release the full version of the simulator.
+                <pre><code class="language-cpp"> if(hit == TLB::where_t::L2_CACHE){
+    result.latency = m_tlb_l1_access_penalty.getLatency() + m_tlb_l2_cache_access.getLatency();
+    result.hitwhere = TranslationHitWhere::TLB_HIT_CACHE_L2;
+    translation_stats.l2c_hit_tlb_latency += m_tlb_l2_cache_access.getLatency();
+    translation_stats.l2c_hit_tlb++;
+}</code></pre>
+
+                If the result of the lookup is TLB::where_t::L2_CACHE, we set the latency of the result to the sum of the latency of the L1 TLB access and the latency of the L2 cache access.
+                This means that Victima stored the translation inside the L2_Cache and we have to access the L2 cache to get the translation. You can further experiment 
+                with the other cases of the lookup result. At the moment, storing the translation inside the L2 cache is the only supported case.
+ 
+            </div>
+        </div>
+
+
+
+
+        <div class="snippet-container">
+
+            <button type="button" class="collapsible">MemoryManager::coreInitiateMemoryAccess : Send request to cache controller</button>
+            <div class="content">
+                <h3>/common/core/memory_subsystem/parametric_dram_directory/memory_manager.cc</h3>
+                 <pre>
+                        
+<code class="language-cpp">HitWhere::where_t result =m_cache_cntlrs[mem_component]->processMemOpFromCore(
+        eip,
+        lock_signal,
+        mem_op_type,
+        address, offset,
+        data_buf, data_length,
+        modeled == Core::MEM_MODELED_NONE || modeled == Core::MEM_MODELED_COUNT ? false : true,
+        modeled == Core::MEM_MODELED_NONE ? false : true, CacheBlockInfo::block_type_t::NON_PAGE_TABLE, tr_result.latency, shadow_cache);</code>
+
+                </pre>
+                When translation and metadata accesses are both finished, we send the request to the cache controller. The cache controller is the one that will perform the memory access.
+                The last from the end argument: tr_result.latency is the latency of the address translation which will be acculated with the actual data access latency. For now, there is no actual penalty for metadata accesses but it can be easily incorporated.
+           </div>
+        </div>
+
+
+
+
+
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+    </script>
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+          </script>
+      
+    <script src="prism.js"></script>
+
+
+</body>
+</html> 

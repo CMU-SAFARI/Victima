@@ -1,0 +1,205 @@
+/* Example styles for the header */
+header {
+  background-color: #aaaed6;
+  padding: 40px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Optional - Adjust display property based on your layout */
+  margin: 0 auto; /* Optional - Center the logo horizontally */
+}
+
+header h1 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Example styles for the sections */
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+section p {
+  color: #777;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Example styles for the footer */
+footer {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Additional styles for an enhanced high-end look */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.container > * {
+  margin-bottom: 40px;
+}
+
+.snippet-container {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  section h2 {
+    font-size: 22px;
+  }
+
+  section p {
+    font-size: 16px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.content_readme {
+  padding: 0 18px;
+  display: block;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+.tab-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  background-color: #908b8b;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  font-family: 'Arial', sans-serif;
+
+}
+
+.tab-button.active {
+  background-color: #ddd;
+}
+
+.tab-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.tab-item {
+  display: none;
+}
+
+.tab-item.active {
+  display: block;
+}
+
+.tab-item iframe {
+  width: 100%; /* Adjust the width as needed */
+  height: 4000px; /* Set a preferred height for the iframe */
+}
+
+pre {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  white-space: pre-wrap;
+  font-family: "Courier New", Courier, monospace;
+  text-align: left; /* Ensure code alignment to the left */
+}
+
+
+pre code {
+  display: block;
+  text-align: left;
+}
