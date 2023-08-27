@@ -1,5 +1,5 @@
 
-import os 
+import os
 import csv
 
 stats = {
@@ -217,34 +217,33 @@ stats = {
     "mmu.migrations_delay": None,
 }
 
-#Create a CSV with all these headers
+# Create a CSV with all these headers
 with open('results.csv', 'w') as csvfile:
 
-    #Write the headers
+    # Write the headers
     writer = csv.DictWriter(csvfile, fieldnames=stats.keys())
     writer.writeheader()
 
     path = "./results/"
 
     for experiment in os.listdir(path):
-        row = {}
-        config,trace = experiment.rsplit('_', 1)
-        
-        row["Trace"] = trace
-        row["Exp"] = config
+        if (os.path.isdir(path + experiment) == True):
+            row = {}
+            config, trace = experiment.rsplit('_', 1)
 
-        #Read the stats file
-        with open(path + experiment + "/sim.stats") as f:
-            
-            lines = f.readlines()
-            for line in lines:
-                key = line.split("=")[0]
-                value = line.split("=")[1]
-                key = key.replace(" ", "")
+            row["Trace"] = trace
+            row["Exp"] = config
 
-                if key in stats:
-                    row[key] = float(value)
+            # Read the stats file
+            with open(path + experiment + "/sim.stats") as f:
 
+                lines = f.readlines()
+                for line in lines:
+                    key = line.split("=")[0]
+                    value = line.split("=")[1]
+                    key = key.replace(" ", "")
 
-        writer.writerow(row)
+                    if key in stats:
+                        row[key] = float(value)
 
+            writer.writerow(row)
