@@ -201,6 +201,11 @@ We added support to evaluate Victima using the MLCommons interface
 
 Make sure you have install CM. Follow this [guide](https://github.com/mlcommons/ck/blob/master/docs/installation.md) to install it: 
 
+Next install MLCommons: 
+
+```bash
+cm pull repo mlcommons@ck
+```
 
 Perform the following steps to evaluate Victima with MLCommons:
 
