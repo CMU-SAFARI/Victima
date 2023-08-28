@@ -202,9 +202,9 @@ We added support to evaluate Victima using the MLCommons interface
 Perform the following steps to evaluate Victima with MLCommons:
 
 ```bash
-cm run script Victima:install-dependencies
+cm run script Victima:install-dep
 cm run script Victima:run-experiments
-cm run script Victima:plot-results
+cm run script Victima:produce-plots
 ```
 
 
