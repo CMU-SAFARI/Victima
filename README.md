@@ -5,7 +5,7 @@
 ![Alt Text](images/victima.png)
 
 
-**Structure of the repo**
+**Structure of the repo:**
 1. **Hardware Requirements**
    - Docker images, infrastructure, and hardware details.
    
