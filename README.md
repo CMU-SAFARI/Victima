@@ -199,6 +199,9 @@ docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 py
 
 We added support to evaluate Victima using the MLCommons interface
 
+Make sure you have install CM. Follow this [guide](https://github.com/mlcommons/ck/blob/master/docs/installation.md) to install it: 
+
+
 Perform the following steps to evaluate Victima with MLCommons:
 
 ```bash
