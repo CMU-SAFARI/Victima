@@ -233,8 +233,19 @@ with open('results.csv', 'w') as csvfile:
 
             row["Trace"] = trace
             row["Exp"] = config
-
-            # Read the stats file
+            # Check if the sim.stats file exists
+            print(path+experiment+"/sim.stats")
+            if (os.path.exists(path+experiment+"/sim.stats") == False):
+                with open(path+experiment+"/sim.stdout") as f:
+                    lines = f.readlines()
+                    if (lines[-1].startswith("[STOPBYICOUNT]")):
+                        time = lines[-1].split(" ")[-1]
+                    else:
+                        time = "Uknown"
+                    print("The sim.stats file does not exist, since the job: " +
+                          experiment + " did not finish: Running for "+time)
+                    print("Cannot create the complete CSV file, exiting...")
+                    exit(6)
             with open(path + experiment + "/sim.stats") as f:
 
                 lines = f.readlines()

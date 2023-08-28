@@ -5,6 +5,7 @@
 #        -s stop-by-icount:30000000:100000000 --roi-script     # Start in cache-warmup, switch to detailed after 100M instructions, and run for 30M in detailed
 #        -s stop-by-icount:30000000:roi+100000000 --roi-script # Start in cache-warmup, wait for application ROI, switch to detailed after 100M instructions, and run for 30M in detailed
 import sim
+import time
 
 
 class StopByIcount:
@@ -19,6 +20,7 @@ class StopByIcount:
     self.min_ins_global = long(sim.config.get('core/hook_periodic_ins/ins_global'))
     self.wait_for_app_roi = False
     self.verbose = True
+    self.start_time = time.time()
     args = dict(enumerate((args or '').split(':')))
     self.ninstrs = long(args.get(0, 1e9))
     start = args.get(1, None)
@@ -83,6 +85,7 @@ class StopByIcount:
     if self.magic:
       self.ninstrs_start = sim.stats.icount()
       self.inroi = True
+      start_time = time.time()
       print '[STOPBYICOUNT] Application ROI started, now simulating', self.ninstrs, 'in detail'
 
 
@@ -93,7 +96,10 @@ class StopByIcount:
     if self.done:
       return
     if self.verbose:
-      print '[STOPBYICOUNT] Periodic at', icount, ' delta =', icount_delta
+      elapsed_time = time.time() - self.start_time
+      hours, remainder = divmod(elapsed_time, 3600)
+      minutes, seconds = divmod(remainder, 60)
+      print '[STOPBYICOUNT] Periodic at', icount, ' delta =', icount_delta, ' elapsed time = %02d:%02d:%02d' % (hours, minutes, seconds)
     if self.inroi and icount > (self.ninstrs + self.ninstrs_start):
       print '[STOPBYICOUNT] Ending ROI after %s instructions (%s requested)' % (icount - self.ninstrs_start, self.ninstrs)
       sim.control.set_roi(False)

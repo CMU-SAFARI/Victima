@@ -9,6 +9,13 @@ mkdir -p ./plots
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
 
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
+
+exit_code=$?
+if [ $exit_code -ne 0 ]; then
+    print_colorful_text "Create_csv.py failed because experiments are still running." "33;1"
+    exit 
+fi
+
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_plots.py 
 
 
