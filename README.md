@@ -186,6 +186,8 @@ kanellok@safari:~/victima_artifact$ sh ./scripts/produce_plots.sh
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
 ```
 
+If one of the jobs is still running, the ``` scripts/list_of_experiments.py```  gets invoked to print the status of the jobs ( Experiment name, Status {Running,Completed}, Time ) and informs about how many have been completed and how many are still running. The create_csv.py exits if all the jobs are not completed.
+
 2\. Creates all the plots under ./plots and outputs all plots in tabular
 format in ./plots_in_tabular.txt  
 
