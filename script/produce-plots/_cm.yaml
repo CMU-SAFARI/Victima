@@ -1,0 +1,20 @@
+alias: produce-plots
+automation_alias: script
+automation_uid: 5b4e0237da074764
+cache: false
+deps: []
+docker_input_mapping: {}
+input_description: {}
+input_mapping: {}
+new_env_keys: []
+new_state_keys: []
+post_deps: []
+posthook_deps: []
+prehook_deps: []
+script_name: produce_plots
+tags:
+- produce
+- plots
+uid: 899c7a9fc74e432c
+variations: {}
+versions: {}
