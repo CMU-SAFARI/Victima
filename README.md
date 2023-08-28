@@ -4,6 +4,25 @@
 
 ![Alt Text](images/victima.png)
 
+
+**Structure of the repo**
+1. **Hardware Requirements**
+   - Docker images, infrastructure, and hardware details.
+   
+2. **Software Requirements**
+   - Docker images and included software.
+   
+3. **Software Requirements for Docker Execution**
+   - Software and installation instructions.
+   
+4. **Launching Experiments**
+   - Commands for reproducing figures and tables.
+   
+5. **Parsing Results and Plot Creation**
+   - Location of results and plot creation commands.
+   
+6. **Reusability using MLCommons**
+   - MLCommons interface support and evaluation instructions.
  
 ## Hardware requirements
 
