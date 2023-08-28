@@ -216,7 +216,7 @@ script
 Perform the following steps to evaluate Victima with MLCommons:
 
 ```bash
-cm run script micro-2023-461:install-dep
+cm run script micro-2023-461:install_dep
 cm run script micro-2023-461:run-experiments
 cm run script micro-2023-461:produce-plots
 ```
