@@ -1,6 +1,7 @@
 
 import os
 import csv
+from list_of_experiments import get_running_workloads
 
 stats = {
     "Trace": None,
@@ -234,7 +235,6 @@ with open('results.csv', 'w') as csvfile:
             row["Trace"] = trace
             row["Exp"] = config
             # Check if the sim.stats file exists
-            print(path+experiment+"/sim.stats")
             if (os.path.exists(path+experiment+"/sim.stats") == False):
                 with open(path+experiment+"/sim.stdout") as f:
                     lines = f.readlines()
@@ -244,6 +244,7 @@ with open('results.csv', 'w') as csvfile:
                         time = "Uknown"
                     print("The sim.stats file does not exist, since the job: " +
                           experiment + " did not finish: Running for "+time)
+                    get_running_workloads()
                     print("Cannot create the complete CSV file, exiting...")
                     exit(6)
             with open(path + experiment + "/sim.stats") as f:
