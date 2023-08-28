@@ -195,3 +195,17 @@ format in ./plots_in_tabular.txt
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_plots.py > plots_in_tabular.txt
 ```
 
+### Reusability using MLCommons
+
+We added support to evaluate Victima using the MLCommons interface
+
+Perform the following steps to evaluate Victima with MLCommons:
+
+```bash
+cm run script Victima:install-dependencies
+cm run script Victima:run-experiments
+cm run script Victima:plot-results
+```
+
+
+
