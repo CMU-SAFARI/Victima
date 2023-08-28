@@ -209,7 +209,8 @@ cm pull repo mlcommons@ck
 Make sure the following three scripts are available under ```/CM/repos/CMU-SAFARI@Victima/script/```
 
 ```
-install_dep  produce-plots  run-experiments
+script
+|_install_dep  |_produce-plots  |_run-experiments
 ```
 
 Perform the following steps to evaluate Victima with MLCommons:
