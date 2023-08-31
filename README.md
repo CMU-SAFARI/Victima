@@ -225,6 +225,19 @@ Next install MLCommons:
 ```bash
 cm pull repo mlcommons@ck
 ```
+
+If you cloned from Github: 
+
+```bash
+mv ~/Victima ~/CM/repos/
+```
+
+If you want to pull with CM:
+  
+```bash
+cm pull repo micro-2023-461 --url={https://github.com/CMU-SAFARI/Victima}
+```
+
 Make sure the following three scripts are available under ```/CM/repos/CMU-SAFARI@Victima/script/```
 
 ```

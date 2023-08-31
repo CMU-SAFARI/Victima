@@ -60,9 +60,7 @@ echo "==================  Reproducing Table 2 =================="
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
 echo "Running docker image kanell21/artifact_evaluation:victima_ptwcp_v1.1"
 
-docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
-
-cat ./ptw_cp/data/results.csv
+docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1 > ./results/nn_results
 
 
 print_colorful_text " When the experiments finish (all results should be in the results folder) execute the following commands inside the cloned directory: " "33;1" 
