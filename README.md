@@ -64,17 +64,18 @@ such as:
 - Python dependencies for Pytorch, Matplotlib, Seaborn etc.
 
 
-## Software Requirements to execute Docker
+## Software Requirements to execute Docker/Podman
 
 ``` cpp
 We need: 
-- Docker
+- Docker/Podman
 - curl
 - tar
 - Debian-based Linux distribution
 
 We used the following versions/distributions in our experiments:
 - Docker version 20.10.23, build 7155243
+- Podman 3.4.4
 - curl 7.81.0   
 - tar (GNU tar) 1.34
 - Kernel: 5.15.0-56-generic 
@@ -82,9 +83,14 @@ We used the following versions/distributions in our experiments:
                     
 ```
 
-To install docker execute the following script:
+To install docker/podman execute the following script:
 ``` bash
-kanellok@safari:~/Victima$ sh install_docker.sh
+kanellok@safari:~/Victima$ sh install_container.sh docker
+
+or 
+
+kanellok@safari:~/Victima$ sh install_container.sh podman
+
 ```
 You need to cd back to the cloned repository since we executed:
 ``` bash
@@ -102,18 +108,20 @@ the paper
 If your infrastructure supports Slurm:
 ``` bash
 kanellok@safari:~/$ cd Victima
-kanellok@safari:~/Victima$ sh artifact.sh --slurm
+
+kanellok@safari:~/Victima$ sh artifact.sh --slurm docker #(or podman)
+
 ```
 
 If you need to run without a job manager (which we do not recommend)
 ``` bash
 kanellok@safari:~/$ cd Victima
-kanellok@safari:~/Victima$ sh artifact.sh --native
+kanellok@safari:~/Victima$ sh artifact.sh --native docker #(or podman)
 ```
 
 ### What the scripts do:
 
-1\. Installs dependencies and Docker  
+1\. Installs dependencies and Docker/Podman  
 
 ``` bash
 sudo apt-get update
@@ -137,23 +145,23 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
              
 ```
 
-2\. Downloads the docker image to run the experiments  
+2\. Downloads the container image to run the experiments  
 
 ``` bash
-docker pull kanell21/artifact_evaluation:victima
+docker/podman pull docker.io/kanell21/artifact_evaluation:victima
 ```
 
 3\. Compiles the simulator  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
+docker/podman run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
 ```
 
 4\. Creates a ./jobfile with all the slurm commands and decompresses the
 traces  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py
+docker/podman run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py
 tar -xzf traces.tar.gz
 ```
 
@@ -196,7 +204,7 @@ format can be found under:
 
 
 ``` bash
-kanellok@safari:~/victima_artifact$ sh ./scripts/produce_plots.sh
+kanellok@safari:~/victima_artifact$ sh ./scripts/produce_plots.sh docker #(or podman)
 ```
 
 ### What the script does:
@@ -204,7 +212,7 @@ kanellok@safari:~/victima_artifact$ sh ./scripts/produce_plots.sh
 1\. Creates a CSV file which contains all the raw results  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
+docker/podman run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
 ```
 
 If one of the jobs is still running, the ``` scripts/list_of_experiments.py```  gets invoked to print the status of the jobs ( Experiment name, Status {Running,Completed}, Time ) and informs about how many have been completed and how many are still running. The create_csv.py exits if all the jobs are not completed.
@@ -213,7 +221,7 @@ If one of the jobs is still running, the ``` scripts/list_of_experiments.py```  
 format in ./plots_in_tabular.txt  
 
 ``` bash
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_plots.py > plots_in_tabular.txt
+docker/podman run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_plots.py > plots_in_tabular.txt
 ```
 
 ### Reusability using MLCommons
@@ -243,21 +251,21 @@ script
 Perform the following steps to evaluate Victima with MLCommons:
 
 
-1) This command will install system dependencies for Docker and require sudo (skip it if you have Docker installed):
+1) This command will install system dependencies for Docker/Podman and require sudo (skip it if you have Docker/Podman installed):
 ```bash
-cm run script micro-2023-461:install_dep
+cm run script micro-2023-461:install_dep --env.CONTAINER_461="docker" #(or "podman")
 ```
 
-2) This command will prepare and run all experiments via Docker:
+2) This command will prepare and run all experiments via the container:
 
 ```bash
 #For slurm-based execution:
 
-cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--slurm"
+cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--slurm" --env.CONTAINER_461="docker" #(or "podman")
 
 #For native execution:
 
-cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--native"
+cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--native" --env.CONTAINER_461="docker" #(or "podman")
 
 
 ```
@@ -265,6 +273,6 @@ cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--native"
 3) In case of successful execution of the previous command, this command will generate the the plots of the paper:
 
 ```bash
-cm run script micro-2023-461:produce-plots
+cm run script micro-2023-461:produce-plots --env.CONTAINER_461="docker" #(or "podman")
 ```
 
