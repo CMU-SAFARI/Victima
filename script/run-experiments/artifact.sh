@@ -16,6 +16,29 @@ cm_repo_dir=${cm_repo#*= }
 echo "Changing to ${cm_repo_dir}"
 cd ${cm_repo_dir}
 ###
+if [ -z "$1" ]; then
+
+  #find out if an environment variable is set
+  
+  execution_mode_arg="--native"
+  # Check if the environment variable is set
+  if [ -z "${EXEC_MODE_461}" ]; then
+      echo "Environment variable is not set."
+  else
+      echo "Environment variable is set to: ${EXEC_MODE_461}"
+  fi
+
+  if([ "$EXEC_MODE_461" = "--slurm" ]); then
+      execution_mode_arg="--slurm"
+      echo "Running in job-based mode";
+  else
+      execution_mode_arg="--native"
+      echo "Running in native mode";
+  fi
+
+else
+  execution_mode_arg=$1
+fi 
 
 
 echo "
@@ -46,7 +69,7 @@ echo "==================  Creating the jobfile =================="
 
 echo " Executing python /app/launch_jobs.py in docker container"
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 $PWD
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 ${execution_mode_arg}
 
 echo " Jobfile created - take a look at it to see what experiments will be run"
 echo "\n"
