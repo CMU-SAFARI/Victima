@@ -1,5 +1,14 @@
 #!/bin/bash
 
+
+
+
+print_colorful_text() {
+  local text="$1"
+  local color_code="$2"
+  echo "\e[${color_code}m${text}\e[0m"
+}
+
 ###
 # Need to be inside the root of Victima repository to mount this directory and pass it to Docker
 cm_repo=`cm find repo micro-2023-461`
@@ -8,11 +17,7 @@ echo "Changing to ${cm_repo_dir}"
 cd ${cm_repo_dir}
 ###
 
-print_colorful_text() {
-  local text="$1"
-  local color_code="$2"
-  echo "\e[${color_code}m${text}\e[0m"
-}
+
 echo "
 ╦  ╦┬┌─┐┌┬┐┬┌┬┐┌─┐  ╔═╗┬─┐┌┬┐┬┌─┐┌─┐┌─┐┌┬┐
 ╚╗╔╝││   │ ││││├─┤  ╠═╣├┬┘ │ │├┤ ├─┤│   │ 
@@ -41,7 +46,7 @@ echo "==================  Creating the jobfile =================="
 
 echo " Executing python /app/launch_jobs.py in docker container"
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py --native $1 $PWD
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 $PWD
 
 echo " Jobfile created - take a look at it to see what experiments will be run"
 echo "\n"
@@ -54,7 +59,7 @@ tar -xzf traces_victima
 
 echo "====================================================================================="
 
-echo "==================  Launching experiments for Figures 2, 3, 4, 6, 15, 16, 19, 22, 23, 24 =================="
+echo "================== Launching experiments for Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 22, 23, 24 =================="
 
 mkdir -p ./results/
 
@@ -68,9 +73,7 @@ echo "==================  Reproducing Table 2 =================="
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
 echo "Running docker image kanell21/artifact_evaluation:victima_ptwcp_v1.1"
 
-docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
-
-cat ./ptw_cp/data/results.csv
+docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1 > ./results/nn_results
 
 
 print_colorful_text " When the experiments finish (all results should be in the results folder) execute the following commands inside the cloned directory: " "33;1" 

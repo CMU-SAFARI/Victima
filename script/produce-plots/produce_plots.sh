@@ -1,5 +1,9 @@
 #!/bin/bash
-
+print_colorful_text() {
+  local text="$1"
+  local color_code="$2"
+  echo "\e[${color_code}m${text}\e[0m"
+}
 ###
 # Need to be inside the root of Victima repository to mount this directory and pass it to Docker
 cm_repo=`cm find repo micro-2023-461`
@@ -8,14 +12,13 @@ echo "Changing to ${cm_repo_dir}"
 cd ${cm_repo_dir}
 ###
 
-print_colorful_text() {
-  local text="$1"
-  local color_code="$2"
-  echo "\e[${color_code}m${text}\e[0m"
-}
 mkdir -p ./plots
 
+
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
+
+
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/parse_nn_results.py ./results/nn_results
 
 docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
 
