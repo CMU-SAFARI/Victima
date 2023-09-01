@@ -251,7 +251,15 @@ cm run script micro-2023-461:install_dep
 2) This command will prepare and run all experiments via Docker:
 
 ```bash
-cm run script micro-2023-461:run-experiments
+#For slurm-based execution:
+
+cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--slurm"
+
+#For native execution:
+
+cm run script micro-2023-461:run-experiments --env.EXEC_MODE_461="--native"
+
+
 ```
 
 3) In case of successful execution of the previous command, this command will generate the the plots of the paper:
