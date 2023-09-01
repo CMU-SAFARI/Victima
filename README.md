@@ -173,13 +173,11 @@ source jobfile
 ```
 
 6\. Runs the neural network inference experiments and outputs Table 2 in
-the standard output and ./nn_replica/data/results.csv  
+```./results/nn_results.
 
 ``` bash
 docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
-
 docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1
-cat ./ptw_cp/data/results.csv
 ```
 
 ## Parse results and create all the plots
@@ -189,9 +187,13 @@ Execute the following command to:
 
 1\. Parse the results of the experiments. All the results in tabular
 format can be found under:
-/path/to/victima_artifact/plots_in_tabular.txt  
+```/Victima/plots_in_tabular.txt```  
 2. Create all the plots of the paper. All the plots can be found under:
-/path/to/victima_artifact/plots/  
+```/Victima/plots/``` 
+3. Create csv with Table 2 under:
+```/Victima/plots/table2.csv``` 
+
+
 
 ``` bash
 kanellok@safari:~/victima_artifact$ sh ./scripts/produce_plots.sh
