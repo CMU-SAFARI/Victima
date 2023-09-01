@@ -7,12 +7,12 @@
 
 **Structure of the repo:**
 1. **Hardware Requirements**
-   - Docker images, infrastructure, and hardware details.
+   - Container images, infrastructure, and hardware details.
    
 2. **Software Requirements**
-   - Docker images and included software.
+   - Container images and included software.
    
-3. **Software Requirements for Docker Execution**
+3. **Software Requirements for Containerized Execution**
    - Software and installation instructions.
    
 4. **Launching Experiments**
@@ -45,7 +45,7 @@ Hardware infrastructure used:
 ## Software requirements
 
 
-We have prepared docker images which are uploaded publicly in Docker hub
+We have prepared container images which are uploaded publicly in Docker hub
 under the tags:  
 
 ``` cpp
