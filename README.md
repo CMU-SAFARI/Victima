@@ -216,29 +216,22 @@ docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima_ptwcp_v1.1 py
 
 ### Reusability using MLCommons
 
-We added support to evaluate Victima using the MLCommons interface
+We added support to evaluate Victima using the [MLCommons CM automation language](https://github.com/mlcommons/ck).
 
-Make sure you have install CM. Follow this [guide](https://github.com/mlcommons/ck/blob/master/docs/installation.md) to install it: 
+Make sure you have install CM. Follow this [guide](https://github.com/mlcommons/ck/blob/master/docs/installation.md) to install it.
 
-Next install MLCommons: 
+Next install reusable MLCommons automations: 
 
 ```bash
 cm pull repo mlcommons@ck
 ```
 
-If you cloned from Github: 
-
+Pull this repository via CM:
 ```bash
-mv ~/Victima ~/CM/repos/
+cm pull repo CMU-SAFARI@Victima
 ```
 
-If you want to pull with CM:
-  
-```bash
-cm pull repo micro-2023-461 --url={https://github.com/CMU-SAFARI/Victima}
-```
-
-Make sure the following three scripts are available under ```/CM/repos/CMU-SAFARI@Victima/script/```
+The CM scripts for Victima will be available under ```/CM/repos/CMU-SAFARI@Victima/script/```
 
 ```
 script
@@ -247,11 +240,21 @@ script
 
 Perform the following steps to evaluate Victima with MLCommons:
 
+
+1) This command will install system dependencies for Docker and require sudo (skip it if you have Docker installed):
 ```bash
 cm run script micro-2023-461:install_dep
-cm run script micro-2023-461:run-experiments
-cm run script micro-2023-461:produce-plots
 ```
 
+2) This command will prepare and run all experiments via Docker:
 
+```bash
+cm run script micro-2023-461:run-experiments
+```
+
+3) In case of successful execution of a previous command, this command will generate plots to help you validate results from the article:
+
+```bash
+cm run script micro-2023-461:produce-plots
+```
 
