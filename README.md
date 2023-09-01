@@ -254,7 +254,7 @@ cm run script micro-2023-461:install_dep
 cm run script micro-2023-461:run-experiments
 ```
 
-3) In case of successful execution of a previous command, this command will generate plots to help you validate results from the article:
+3) In case of successful execution of the previous command, this command will generate the the plots of the paper:
 
 ```bash
 cm run script micro-2023-461:produce-plots
