@@ -1,5 +1,13 @@
 #!/bin/bash
 
+###
+# Need to be inside the root of Victima repository to mount this directory and pass it to Docker
+cm_repo=`cm find repo micro-2023-461`
+cm_repo_dir=${cm_repo#*= }
+echo "Changing to ${cm_repo_dir}"
+cd ${cm_repo_dir}
+###
+
 print_colorful_text() {
   local text="$1"
   local color_code="$2"
@@ -33,7 +41,7 @@ echo "==================  Creating the jobfile =================="
 
 echo " Executing python /app/launch_jobs.py in docker container"
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 $PWD
+docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py --native $1 $PWD
 
 echo " Jobfile created - take a look at it to see what experiments will be run"
 echo "\n"
