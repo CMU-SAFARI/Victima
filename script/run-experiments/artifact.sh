@@ -15,30 +15,31 @@ cm_repo=`cm find repo micro-2023-461`
 cm_repo_dir=${cm_repo#*= }
 echo "Changing to ${cm_repo_dir}"
 cd ${cm_repo_dir}
-###
-if [ -z "$1" ]; then
 
-  #find out if an environment variable is set
-  
-  execution_mode_arg="--native"
-  # Check if the environment variable is set
-  if [ -z "${EXEC_MODE_461}" ]; then
-      echo "Environment variable is not set."
-  else
-      echo "Environment variable is set to: ${EXEC_MODE_461}"
-  fi
 
-  if([ "$EXEC_MODE_461" = "--slurm" ]); then
+if [ -z "${CONTAINER_461}" ];  then
+  echo "Provide container: docker or podman"
+  exit
+else if [ "${CONTAINER_461}" = "docker" ]; then
+  container="docker"
+  echo "Using docker"
+else if [ "${CONTAINER_461}" = "podman" ]; then
+  container="podman"
+  echo "Using podman"
+else 
+  echo "Wrong container: provide docker or podman"
+fi 
+
+if([ "$EXEC_MODE_461" = "--slurm" ]); then
       execution_mode_arg="--slurm"
       echo "Running in job-based mode";
-  else
+else if ([ "$EXEC_MODE_461" = "--native" ]); then
       execution_mode_arg="--native"
       echo "Running in native mode";
-  fi
-
-else
-  execution_mode_arg=$1
-fi 
+else 
+      echo "Provide correct execution mode: --slurm or --native"
+      exit
+fi
 
 
 echo "

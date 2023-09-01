@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [ -z "$CONTAINER_461" ]; then
+if [ -z "$1" ]; then
   echo "Provide container: docker (rootfull) or podman (rootless)"
   exit
-elif [ "$CONTAINER_461" = "docker" ]; then
+elif [ "$1" = "docker" ]; then
   container="docker"
   echo "Installing docker.."
-elif [ "$CONTAINER_461" = "podman" ]; then
+elif [ "$1" = "podman" ]; then
   container="podman"
-  echo "Installing podman"
+  echo "Installing podman.."
 else 
   echo "Wrong container: provide docker or podman"
   exit
