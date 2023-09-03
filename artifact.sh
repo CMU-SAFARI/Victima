@@ -9,18 +9,28 @@ print_colorful_text() {
   echo "\e[${color_code}m${text}\e[0m"
 }
 
-if [ -z "$1" ]; then
-  echo "Provide execution mode: --slurm or --native"
-  exit
-else
-  execution_mode_arg=$1
-fi 
-
-if [ -z "$2" ];  then
+if [ -z "$1" ];  then
   echo "Provide container: docker or podman"
   exit
-else
-  container=$2
+elif [ "$1" = "docker" ]; then
+  container="docker"
+  echo "Using docker"
+elif [ "$1" = "podman" ]; then
+  container="podman"
+  echo "Using podman"
+else 
+  echo "Wrong container: provide docker or podman"
+fi 
+
+if [ "$2" = "--slurm" ]; then
+      execution_mode_arg="--slurm"
+      echo "Running in job-based mode";
+elif ([ "$2" = "--native" ]); then
+      execution_mode_arg="--native"
+      echo "Running in native mode";
+else 
+      echo "Provide correct execution mode: --slurm or --native"
+      exit
 fi
 
 echo "

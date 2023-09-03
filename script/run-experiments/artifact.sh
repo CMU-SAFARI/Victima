@@ -20,20 +20,20 @@ cd ${cm_repo_dir}
 if [ -z "${CONTAINER_461}" ];  then
   echo "Provide container: docker or podman"
   exit
-else if [ "${CONTAINER_461}" = "docker" ]; then
+elif [ "${CONTAINER_461}" = "docker" ]; then
   container="docker"
   echo "Using docker"
-else if [ "${CONTAINER_461}" = "podman" ]; then
+elif [ "${CONTAINER_461}" = "podman" ]; then
   container="podman"
   echo "Using podman"
 else 
   echo "Wrong container: provide docker or podman"
 fi 
 
-if([ "$EXEC_MODE_461" = "--slurm" ]); then
+if [ "$EXEC_MODE_461" = "--slurm" ]; then
       execution_mode_arg="--slurm"
       echo "Running in job-based mode";
-else if ([ "$EXEC_MODE_461" = "--native" ]); then
+elif ([ "$EXEC_MODE_461" = "--native" ]); then
       execution_mode_arg="--native"
       echo "Running in native mode";
 else 
@@ -41,28 +41,27 @@ else
       exit
 fi
 
-
 echo "
 ╦  ╦┬┌─┐┌┬┐┬┌┬┐┌─┐  ╔═╗┬─┐┌┬┐┬┌─┐┌─┐┌─┐┌┬┐
 ╚╗╔╝││   │ ││││├─┤  ╠═╣├┬┘ │ │├┤ ├─┤│   │ 
  ╚╝ ┴└─┘ ┴ ┴┴ ┴┴ ┴  ╩ ╩┴└─ ┴ ┴└  ┴ ┴└─┘ ┴ 
  "
  
-echo "==================  Run a Docker test to make sure Docker works =================="
+echo "==================  Run a container test to make sure container works =================="
 
-docker run hello-world
+$(container) run docker.io/hello-world
 
 echo "====================================================================================="
 
 echo "==================  Pulling the Docker image to run the experiments =================="
 
-docker pull kanell21/artifact_evaluation:victima
+$(container) pull docker.io/kanell21/artifact_evaluation:victima
 
 echo "====================================================================================="
 
 echo "==================  Compiling the simulator =================="
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
+$(container) run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
 
 echo "====================================================================================="
 
@@ -70,7 +69,7 @@ echo "==================  Creating the jobfile =================="
 
 echo " Executing python /app/launch_jobs.py in docker container"
 
-docker run --rm -v $PWD:/app/ kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 ${execution_mode_arg}
+$(container) run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py $1 ${execution_mode_arg}
 
 echo " Jobfile created - take a look at it to see what experiments will be run"
 echo "\n"
@@ -94,16 +93,11 @@ echo "==========================================================================
 
 echo "==================  Reproducing Table 2 =================="
 
-docker pull kanell21/artifact_evaluation:victima_ptwcp_v1.1
+$(container) pull docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1
 echo "Running docker image kanell21/artifact_evaluation:victima_ptwcp_v1.1"
 
-docker run kanell21/artifact_evaluation:victima_ptwcp_v1.1 > ./results/nn_results
+$(container) run docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1 > ./results/nn_results
 
 
 print_colorful_text " When the experiments finish (all results should be in the results folder) execute the following commands inside the cloned directory: " "33;1" 
 print_colorful_text " sh ./scripts/produce_plots.sh " "33;1"
-
-
-
-
-
