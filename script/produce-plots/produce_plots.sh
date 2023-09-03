@@ -31,7 +31,7 @@ mkdir -p ./plots
 ${container} pull docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1
 
 
-${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/parse_nn_results.py ./results/nn_results
+${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/parse_nn_results.py /app/results/nn_results
 
 ${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima_ptwcp_v1.1 python3 /app/scripts/create_csv.py
 
