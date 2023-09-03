@@ -55,7 +55,7 @@ echo "==========================================================================
 
 echo "==================  Compiling the simulator =================="
 
-${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
+# ${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima /bin/bash -c "cd /app/sniper && make clean && make -j4"
 
 echo "====================================================================================="
 
@@ -63,7 +63,7 @@ echo "==================  Creating the jobfile =================="
 
 echo " Executing python /app/launch_jobs.py in docker container"
 
-${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py ${execution_mode_arg}  $PWD
+${container} run --rm -v $PWD:/app/ docker.io/kanell21/artifact_evaluation:victima python /app/scripts/launch_jobs.py ${execution_mode_arg}  $PWD --excluded_nodes $3
 
 echo " Jobfile created - take a look at it to see what experiments will be run"
 echo "\n"
@@ -71,8 +71,8 @@ echo "==========================================================================
 
 echo "==================  Decompressing the traces into ./traces =================="
 
-wget https://storage.googleapis.com/traces_virtual_memory/traces_victima
-tar -xzf traces_victima
+# wget https://storage.googleapis.com/traces_virtual_memory/traces_victima
+# tar -xzf traces_victima
 
 echo "====================================================================================="
 
@@ -80,7 +80,7 @@ echo "================== Launching experiments for Figures 2, 3, 4, 6, 15, 16, 1
 
 mkdir -p ./results/
 
-sh ./jobfile
+# sh ./jobfile
 
 echo "====================================================================================="
 

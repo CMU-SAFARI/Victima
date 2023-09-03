@@ -11,6 +11,8 @@ parser.add_argument("--native", action="store_true",
                     help="Run in native mode.")
 parser.add_argument("--slurm", action="store_true", help="Run in SLURM mode.")
 parser.add_argument("path", help="Path to the file or directory.")
+parser.add_argument("--excluded_nodes", nargs='?', default=None,
+                    help="Comma-separated list of excluded nodes.")
 
 args = parser.parse_args()
 
@@ -119,8 +121,12 @@ with open("/app/jobfile", "w") as jobfile:
 
             if (slurm):
                 # SLURM parameters are overprovisioned just in case the simulation takes longer than expected
-                execution_command = "sbatch -t 3-00:00:00 --mem=10GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
-                    config_name, trace_name, config_name, trace_name, config_name, trace_name)
+                if args.excluded_nodes is not None:
+                    execution_command = "sbatch -t 3-00:00:00 --mem=10GB --exclude="+args.excluded_nodes+"  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
+                        config_name, trace_name, config_name, trace_name, config_name, trace_name)
+                else:
+                    execution_command = "sbatch -t 3-00:00:00 --mem=10GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
+                        config_name, trace_name, config_name, trace_name, config_name, trace_name)
                 command = execution_command + "\"" + docker_command + " " + sniper_parameters + \
                     " " + output_command+" "+configuration_string+" "+trace_command+"\""
             elif (native):
