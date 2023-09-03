@@ -122,10 +122,10 @@ with open("/app/jobfile", "w") as jobfile:
             if (slurm):
                 # SLURM parameters are overprovisioned just in case the simulation takes longer than expected
                 if args.excluded_nodes is not None:
-                    execution_command = "sbatch -t 3-00:00:00 --mem=10GB --exclude="+args.excluded_nodes+"  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
+                    execution_command = "sbatch --exclude="+args.excluded_nodes+"  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
                         config_name, trace_name, config_name, trace_name, config_name, trace_name)
                 else:
-                    execution_command = "sbatch -t 3-00:00:00 --mem=10GB  -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
+                    execution_command = "sbatch   -J {}_{} --output=./results/{}_{}.out --error=./results/{}_{}.err docker_wrapper.sh ".format(
                         config_name, trace_name, config_name, trace_name, config_name, trace_name)
                 command = execution_command + "\"" + docker_command + " " + sniper_parameters + \
                     " " + output_command+" "+configuration_string+" "+trace_command+"\""
