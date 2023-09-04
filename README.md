@@ -4,6 +4,13 @@
 
 ![Alt Text](images/victima.png)
 
+<p align="center">
+
+    <a href="https://github.com/CMU-SAFARI/Victima/releases">
+        <img alt="GitHub release" src="https://img.shields.io/github/release/CMU-SAFARI/Victima">
+    </a>
+    <a href="https://doi.org/10.5281/zenodo.8220613"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.8220613.svg" alt="DOI"></a>
+</p>
 
 **Structure of the repo:**
 1. **Hardware Requirements**
