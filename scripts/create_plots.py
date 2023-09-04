@@ -539,29 +539,36 @@ df_selected = df[df['Exp'].isin(selected_experiments)]
 pivot_table_fig23 = df_selected.pivot_table(index='Trace', columns='Exp', values=[
                                             'PTW_1.page_walks', 'PTW_2.page_walks'])
 
-ptw_baseline = pivot_table_fig23[(
+ptw_baseline_ptw1 = pivot_table_fig23[(
     'PTW_1.page_walks', 'baseline_radix_virtualized')]
+ptw_baseline_ptw2 = pivot_table_fig23[(
+    'PTW_2.page_walks', 'baseline_radix_virtualized')]
+
 ptw_ptw1_pomtlb = pivot_table_fig23[('PTW_1.page_walks', 'potm_virtualized')]
 ptw_ptw1_victima = pivot_table_fig23[(
     'PTW_1.page_walks', 'victima_virtualized')]
 
 # Calculate the percentage difference between PTW_1.page_walks and baseline_radix_virtualized
 pivot_table_fig23[('Guest', 'potm')] = (
-    ((ptw_baseline-ptw_ptw1_pomtlb) / ptw_baseline) * 100)
-pivot_table_fig23[('Guest', 'victima')] = (
-    ((ptw_baseline-ptw_ptw1_victima) / ptw_baseline) * 100)
-
-ptw_baseline = pivot_table_fig23[(
-    'PTW_2.page_walks', 'baseline_radix_virtualized')]
+    ((ptw_baseline_ptw1-ptw_ptw1_pomtlb) / ptw_baseline_ptw1) * 100)
 ptw_ptw2_pomtlb = pivot_table_fig23[('PTW_2.page_walks', 'potm_virtualized')]
+
+pivot_table_fig23[('Host', 'POM-TLB')
+                  ] = (((ptw_baseline_ptw2-ptw_ptw2_pomtlb) / ptw_baseline_ptw2) * 100)
+
+pivot_table_fig23[('Guest', 'victima')] = (
+    ((ptw_baseline_ptw1-ptw_ptw1_victima) / ptw_baseline_ptw1) * 100)
+
+
+ptw_ptw2_pomtlb = pivot_table_fig23[('PTW_2.page_walks', 'potm_virtualized')]
+
 ptw_ptw2_victima = pivot_table_fig23[(
     'PTW_2.page_walks', 'victima_virtualized')]
 
-# Calculate the percentage difference between PTW_1.page_walks and baseline_radix_virtualized
-pivot_table_fig23[('Host', 'POM-TLB')
-                  ] = (((ptw_baseline-ptw_ptw2_pomtlb) / ptw_baseline) * 100)
 pivot_table_fig23[('Host', 'Victima')] = (
-    ((ptw_baseline-ptw_ptw2_victima) / ptw_baseline) * 100)
+    ((ptw_baseline_ptw2-ptw_ptw2_victima) / ptw_baseline_ptw2) * 100)
+# Calculate the percentage difference between PTW_1.page_walks and baseline_radix_virtualized
+
 
 # calculate the geometric mean
 geometric_mean_perf = pivot_table_fig23.apply(
