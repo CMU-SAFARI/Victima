@@ -7,10 +7,11 @@
     <a href="https://github.com/CMU-SAFARI/Victima/releases">
         <img alt="GitHub release" src="https://img.shields.io/github/release/CMU-SAFARI/Victima">
     </a>
+      <h3 align="center">Drastically Increasing Address Translation Reach by Leveraging Underutilized Cache Resources
+  </h3>
     <a href="https://doi.org/10.5281/zenodo.8220613"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.8220613.svg" alt="DOI"></a>
 </p>
 
-# Victima: Drastically Increasing Address Translation Reach by Leveraging Underutilized Cache Resources
 
 This repository provides all the necessary files and instructions to reproduce the results of our [MICRO '23 paper]().
 
