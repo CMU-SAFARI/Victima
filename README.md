@@ -16,7 +16,7 @@
 This repository provides all the necessary files and instructions to reproduce the results of our [MICRO '23 paper](https://arxiv.org/pdf/2310.04158/).
 
 > Konstantinos Kanellopoulos, Hong Chul Nam, F. Nisa Bostanci, Rahul Bera, Mohammad Sadrosadati, Rakesh Kumar, Davide-Basilio Bartolini, Onur Mutlu "Victima: Drastically Increasing Address Translation Reach by Leveraging Underutilized Cache Resources
-", MICRO'23.
+", MICRO'23. [Paper PDF](https://arxiv.org/pdf/2310.04158.pdf)
 
 
 Please use the following citation to cite Victima if the repository is useful for you.
