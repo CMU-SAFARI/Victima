@@ -120,7 +120,7 @@ You need to cd back to the cloned repository since we executed:
 su - $USER 
 ```
 to refresh the permissions. 
-## Launch experiments to reproduce Figures 2, 3, 4, 6, 15, 16, 18, 19, 20, 22, 23, 24 and Table 2
+## Launch experiments to reproduce Figures 5, 6, 7, 8, 11, 20, 21, 23, 24, 25, 27, 28 and Table 2
 
 ### Execute the following command to achieve the following:  
 
