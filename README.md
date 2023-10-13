@@ -2,6 +2,9 @@
 
 
 <p align="center">
+    <a href="https://github.com/CMU-SAFARI/Victima/blob/master/LICENSE">
+        <img alt="GitHub" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
     <a href="https://github.com/CMU-SAFARI/Victima/releases">
         <img alt="GitHub release" src="https://img.shields.io/github/release/CMU-SAFARI/Victima">
     </a>
